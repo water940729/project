@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>购物车</title>
+		<link href="__PUBLIC__/Css/shopCar.css" rel="stylesheet" type="text/css" />
+		<link href="__PUBLIC__/Css/header.css" rel="stylesheet" type="text/css">
+		<link href="__PUBLIC__/Css/footer.css" rel="stylesheet" type="text/css">
+		<!--[if lt IE 9]>
+		<script src="__PUBLIC__/Js/jquery/jquery1.8.js"></script>
+		<![endif]-->
+		<!--[if gte IE 9]><!-->
+		<script src="__PUBLIC__/Js/jquery/jquery.js"><</script>
+		<!--<![endif]-->
+		<script src="__PUBLIC__/Js/shopCar/shopCar.js" ></script>
+		<script>
+			$(function(){
+				$(".delete_shopCar_a").click(function(){
+					if(confirm("确认删除？")){
+						$.ajax({
+							url:"clearcart",
+							success:function(msg){
+								if(msg==1){
+									alert("删除成功！把这个页面所有的商品删除掉");
+								}
+							}
+						})
+					}
+				});
+				$(".delete").click(function(){
+					if(confirm("确认删除？")){
+						var id=$(this).parents(".consult").children(".checkbox_div").children(":checkbox").val();
+						//alert(id);
+						$.ajax({
+							url:"clearcart",
+							data:"id="+id+",",
+							type:"POST",
+							success:function(msg){
+								if(msg==1){
+									alert("删除成功！把这个对应的商品删除");
+								}
+							}
+						})
+					}
+				});
+				$(".delete_all").click(function(){
+					if(confirm("确认删除?")){
+						var id=$(".checkbox_div :checked");
+						var data="";
+						id.each(function(){
+							data+=$(this).val()+",";
+						});
+						$.ajax({
+							data:"id="+data,
+							url:"clearcart",
+							type:"POST",
+							success:function(msg){
+								if(msg==1){
+									//删除购物车
+									$(".delete").parent().parent().remove();
+								}
+							}
+						})
+					}
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<!--上面的导航条的部分先省略-->
+		<include file="Public:header" />
+		<div class="container">
+			<!--这是logo和进度的部分-->
+			<div class="logo_pro">
+			<div class="logo"><a href="__APP__/index/index"><img src="<{$array['pics']}>" /></a></div>
+				<div class="shopCar">
+				<a href="__APP__/order/cart"><img src="__PUBLIC__/image/shangcheng_image/shopcar.jpg" />
+				<!--这段代码是显示购物车数量的-->
+				<div>
+				<empty name="Think.cookie.num">
+					0
+				<else/>
+					<{$Think.cookie.num}>
+				</empty>
+				</div>
+					<{$Think.cookie.num}>
+				</a>
+				</div>
+				<div class="progrecess">
+					<ul>
+						<li class="pro_li_spec"><div class="pro_li_spec">1</div></li>
+						<li><div>2</div></li>
+						<li><div>3</div></li>
+						<li><div>4</div></li>
+					</ul>
+					<div class="pro_div">
+						<span>我的购物车</span>
+						<span>确认订单</span>
+						<span>付款</span>
+						<span>支付成功</span>
+					</div>
+				</div>
+			</div>
+			
+			<!--底下是运费说明和返回继续购物的div板块-->
+			<div class="go_back">
+				<span>运费说明:苏宁自营商品满69元免运费；商家商品运费按商家规则计算</span>
+				<a href="__APP__/index/index"><返回继续购物</a>
+			</div>
+			
+			<!--底下是商品列表的详细表格部分-->
+			<!--全选、商品信息等标题部分-->
+			<div class="table_title">
+				<div style="text-align:left;"><input type="checkbox" name="check_all"/>全选</div>
+				<div class="goods_detail">商品信息</div>
+				<div>单价</div>
+				<div>数量</div>
+				<div>小计(元)</div>
+				<div>操作</div>
+			</div>
+			<empty name="result">
+			<span style="display:block;background-color:#e3007f;height:40px;line-height:40px;color:white;font-weight:bold;text-align:center;">当前没有购物信息</span>
+			<else/>
+				<!--地下室包含商品的详细信息的div-->
+				<foreach name="shopname" item="vi">
+					<div class="goods_table">
+						<div class="goods_table_title"><input type="checkbox" name="shop_name"/><{$vi.shop_name}></div>
+						<!--最后一个div和以上样式有不同，多定义了一个class-->
+						<foreach name="result" item="vo">
+							<if condition="$vo[shop_name] eq $vi[shop_name]">
+								<div class="consult">
+									<div class="checkbox_div"><input type="checkbox" value="<{$vo.id}>"/></div>
+									<div class="img_div" style="overflow:hidden;"><a href="__APP__/good/index/id/<{$vo.good_id}>"><img src="<{$vo.photo}>"></a></div>
+									<div class="img_span"><a href="__APP__/good/index/id/<{$vo.good_id}>"><{$vo.good_name}></a></div>
+									<div class="unit_price">￥<span><{$vo.price}></span></div>
+									<div class="btn_div"><input type="button" value="-" />
+									<!--后端添加了num class-->
+										<input type="text" class="num" value="<{$vo.num}>" />
+										<input type="button" value="+" />
+									</div>
+									<div class="all_price">￥<span><{$vo["price"]*$vo["num"]}></span></div>
+									<div class="a_div">
+										<a href="javascript:void(0)" class="to_collect">移至收藏夹</a>
+                                        <!-- 加上一个隐藏的商品id -->
+                                        <span id="good_id" hidden><{$vo.good_id}></span>
+										<a href="javascript:void(0)" class="delete">删除</a>
+									</div>
+								</div>
+							</if>
+						</foreach>
+					</div>
+					<!--底下是商品结算和运费的div-->
+					<div class="settle_price">
+						
+						<span>商品金额:<span>￥</span><span class="add_price_num">0.00</span></span>
+						<span style="display:none;">运费:<span>￥</span><span class="carriage">0.00</span></span>
+					</div>
+				</foreach>
+			</empty>
+			<!--底下是商品结算所对应的div——去结算-->
+			<div class="go_cache">
+				<div class="go_cache_top">
+					<div class="go_cache_check">
+						<input type="checkbox" name="check_all"/>全选
+						<a href="javascript:void(0)" class="delete_all">删除所有商品</a>
+						<a href="javascript:void(0)" class="delete_shopCar_a">清空购物车</a>
+					</div>
+					<div class="go_cache_price">
+						<span>商品总金额:</span><span style="color:red;width:20px;">￥</span><span class="go_cache_price_span" id="gooods_cache_price_span">0.00</span><br/>
+						<span style="display:none;">运费(以结算页为准):</span><span style="display:none;">￥</span><span style="display:none;" class="go_cache_price_span" id="all_carriage">0.00</span>
+					</div>
+				</div>
+				<div class="go_cache_bottom">
+					
+					<span>已选中<span id="span_num">0</span>件商品</span>
+					<span class="should_price">商品应付金额:</span>
+					<span class="should_price_num">￥<span id="allShouldPrice">0.00</span></span>
+					<div class="go_cache_div"><a href="#">去结算</a>
+					<div class="least_one">请至少选择一件商品再去结算
+						<img src="__PUBLIC__/image/shopCar/least.jpg">
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<include file="Public/footer" />
+	</body>
+</html>
