@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>订单信息</title>
+<link href="__PUBLIC__/Css/topay.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/header.css" rel="stylesheet" type="text/css">
+<link href="__PUBLIC__/Css/footer.css" rel="stylesheet" type="text/css">
+		<!--[if lt IE 9]>
+		<script src="__PUBLIC__/Js/jquery/jquery1.8.js"></script>
+		<![endif]-->
+		<!--[if gte IE 9]><!-->
+		<script src="__PUBLIC__/Js/jquery/jquery.js"><</script>
+		<!--<![endif]-->
+<script type="text/javascript" src="__PUBLIC__JS/topay/index.js"></script>
+<script type="text/javascript" src="__PUBLIC__JS/topay/header.js"></script>
+</head>
+<body>
+	<include file="Public:header" />
+		<!--主包含框-->
+		<div class="container">
+			<div class="logo_search">
+		<div class="logo"><a href="#"><img src="./image/logo.jpg" /></a></div>
+		<div class="search">
+			<input type="text" name=""/>
+			<input type="button" value="搜索" style="background-color:#E3007F;"/>
+			<input type="button" value="高级搜索" style="background-color:#5BC5EF;"/>
+		</div>
+		<div class="shopCar">
+		<a href="#"><img src="./image/shopcar.jpg" /></a>
+		</div>
+		<ul>
+			<li><a href="#">玩具</a></li>
+			<li><a href="#">好奇</a></li>
+			<li><a href="#">惠氏</a></li>
+			<li><a href="#"><span style="color:#E3007F;">婴儿床</span></a></li>
+			<li><a href="#">乐可爱</a></li>
+		</ul>
+	</div>
+		<div class="navigator">
+			<ul class="navigator_ul">
+				<li style="width:200px;height:63px;margin-bottom:-3px;background-color:#309DEF;color:white;font-weight:bold;">全部商品分类</li>
+				<li>首页</li>
+				<li>超市</li>
+				<li>秒杀</li>
+				<li>团购</li>
+				<li>试用</li>
+				<li>预售</li>
+			</ul>
+		</div>
+		<!--路线-->
+		<div class='body_container'>
+		<div class="route">
+			<span><a href="#" style="font-size:20px;color:#E3007F;">我的订单</a></span>>
+			<span><a href="#" >订单中心</a></span>>
+			<span>订单号：<a href="#">1234567899</a></span>
+		</div>
+		
+		<div class="status_div">
+			<div style="border-bottom:solid 1px #ccc;">
+				订单号：<span>1234467488495</span>
+				状态：<span class="status_span">未付款</span>
+			</div>
+			<div class="div_bot">
+				<span>宝贝已经拍下，请您在72小时之内完成付款。若未及时付款，系统将自动取消订单。</span>
+				<a href="#">立即付款</a>
+				<span>你也可以<a href="#">取消订单</a></span>
+			</div>
+		</div>
+		
+		<div class="information_div">
+			<div class="title_div">
+				订单信息
+			</div>
+			<div class="order_div">
+				订单编号：<span>1234566785</span>
+				发货商城：<span>葵花儿童城</span>
+				成交时间：<span>2015-05-15 11:32</span>
+				剩余时间：<span></span>
+			</div>
+			<div class="address_div">
+				<h5>收货人信息</h5>
+				<div>收  货  人：<span>谁是收货人</span></div>
+				<div>地　　址：<span>谁是收货人</span></div>
+				<div>手机号码：<span>谁是收货人</span></div>
+			</div>
+			<!-- <div class="address_div">
+				<h5>支付及配送方式</h5>
+				<div>支付方式：<span>在线支付</span></div>
+				<div>运　　费：<span>￥5.00</span></div>
+				<div>送货日期：<span>2015-05-17</span></div>
+				<div>配送时间：<span>19:00-22:00</span></div>
+			</div >
+			<div class="address_div">
+				<h5>发票信息</h5>
+				<div>发票类型：<span>普通发票</span></div>
+				<div>发票抬头：<span>come on</span></div>
+				<div>发票内容：<span>图书</span></div>
+			</div>
+			 -->
+			<div class="order_information">
+				<div class="top_title">
+					<ul>
+						<li>商品编号</li>
+						<li class="li_special">商品信息</li>
+						<li>单价</li>
+						<li>数量</li>
+						<li>商品总价</li>
+						<li>操作</li>
+						<div style="clear:both;"></div>
+					</ul>
+				</div>
+				<div class="bot_title">
+					<ul>
+						<li>123432432</li>
+						<li class="li_special">
+							<div class="img_div">
+								<img src=""  />
+							</div>
+							<div class="img_infor_div">
+								<span><a href="#">对网店商品进行文字描述,用于宝贝标题及宝贝详情等,有效地吸引客户的关注。</a></span>
+							</div>
+						</li>
+						<li>￥<span>76.1</span></li>
+						<li><span>10</span></li>
+						<li>￥<span>761</span></li>
+						<li style="border:0;line-height:30px;">
+							<div class="go_cash">立即付款</div>
+							<a href="#">取消订单</a>
+						</li>
+					</ul>
+				</div>
+			
+			</div>
+		
+		
+		<div class="all_price">
+			<div>总商品金额：<span>￥761.00</span></div>
+			<div>-返现：<span>￥0.00</span></div>
+			<div>+运费：<span>￥75.00</span></div>
+			<div>订单总额：<span style="font-size:30px;color:#E3007F;">￥766.00</span><div class="go_cash" style="display:inline-block;margin-left:100px;">立即付款</div></div>
+			
+		</div>
+		</div>
+		</div>
+	</div>
+	<include file="Public/footer" />
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
