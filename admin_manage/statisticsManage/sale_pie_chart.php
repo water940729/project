@@ -7,7 +7,7 @@
 	$result=mysql_query($sql);
 	$array["series"]=array();
 	//$array["series"][0]=array();
-	$array["series"][0]["name"]="订单数";
+	$array["series"][0]["name"]="order total";
 	$array["series"][0]["data"]=array();
 	$i=0;
 	while($row=mysql_fetch_array($result)){
@@ -22,6 +22,6 @@
 	);
 	*/
 	$array["title"]=array(
-		"text"=>"葵花商城"
+		"text"=>"mall"
 	);
 	echo json_encode($array);	
