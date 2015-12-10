@@ -100,11 +100,11 @@ margin: 0px;
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li style='text-align:center'>财务统计</li>
+						<li style='text-align:center'>finance statistic</li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：财务统计 ----  <strong id='titleMall'><?php echo  $shopLocation[$mallId] ;?></strong></span>	
+					<span>location：finance statistic ----  <strong id='titleMall'><?php echo  $shopLocation[$mallId] ;?></strong></span>	
 					
 
 					
@@ -112,8 +112,8 @@ margin: 0px;
 				<div class="content" style='height:1000px'>
 				<table class='mytable' width="100%" style="float:left;" id='orderTable'>
 
-				<tr style='background-color:white;'><td colspan=4 style='font-size:16px;'>网站余额 ：<?php  echo $siteMoney['useMoney'];  ?></td></tr>
-				<tr style='background-color:#B0E0E6;'><td>商城名称</td><td>营收比例</td><td>余额</td><td>可用余额</td></tr>
+				<tr style='background-color:white;'><td colspan=4 style='font-size:16px;'>total balance：<?php  echo $siteMoney['useMoney'];  ?></td></tr>
+				<tr style='background-color:#B0E0E6;'><td>name</td><td>revenue ratio</td><td>balance</td><td>available balance</td></tr>
 				   
 				<?php
 				   foreach($mallList as $val){

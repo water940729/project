@@ -41,14 +41,14 @@
 							*/
 							if(msg==0){
 								//没有数据时
-								alert("无对应商品，请输入其他关键字");
+								alert("no goods");
 							}else{
 								//alert("000");
 								$("#search_result").empty();
 								var id=$("#search_result").attr("name");
-								var data="<table width='100%'><tr class='t1'><td width='5%' class='id'>商品编号</td>"+
-								"<td width='10%' class='name'>商品名</td>"+"<td width='10%'>商城名</td>"+"<td width='10%'>一级分类名</td>"+
-								"<td width='10%'>二级分类名</td>"+"<td width='10%'>三级分类名</td>"+"<td width='10%'>操作</td></tr>";
+								var data="<table width='100%'><tr class='t1'><td width='5%' class='id'>goods no</td>"+
+								"<td width='10%' class='name'>goods name</td>"+"<td width='10%'>mall name</td>"+"<td width='10%'>one-level</td>"+
+								"<td width='10%'>two-level</td>"+"<td width='10%'>three-level</td>"+"<td width='10%'>operation</td></tr>";
 								for(var i in msg){
 									data+="<tr>";
 									for(var x in msg[i]){
@@ -58,7 +58,7 @@
 											data+="<td>"+msg[i][x]+"</td>";										
 										}
 									}
-									data+="<td><a href='floor_type_goods_add.php?id="+msg[i]["id"]+"&name="+msg[i]["name"]+"&floorid="+id+"&from=recom' class='floor_type_goods_add'>添加</a></td>";
+									data+="<td><a href='floor_type_goods_add.php?id="+msg[i]["id"]+"&name="+msg[i]["name"]+"&floorid="+id+"&from=recom' class='floor_type_goods_add'>add</a></td>";
 									data+="</tr>";
 								}
 								data+="</table>";
@@ -85,7 +85,7 @@
 			*/
 		})
 		function delete_floor(id){
-			if(confirm("确认移除")){
+			if(confirm("Make sure")){
 				$.ajax({
 					data:"id="+id,
 					url:"delete_floor_type_goods_do.php",
@@ -104,15 +104,15 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">homepage manage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>推荐管理</strong></span>
+					<span>location:homepage manage －&gt; <strong>recommend manage</strong></span>
 				</div>
 				<div class="content">
-						请输入商品关键字:<div class="kuan"><input name="keyword" type="text" /><!--搜索框-->
-						<input name="" type="button" value="搜索" id="search"/></div><!--搜索按钮--><br/>
+						keyword:<div class="kuan"><input name="keyword" type="text" /><!--搜索框-->
+						<input name="" type="button" value="search" id="search"/></div><!--搜索按钮--><br/>
 					<!--<select style="float:left;width:200px;" id="goodslist">
 					</select>
 					<a href="add_floor.php">添加商品</a></br>
@@ -120,13 +120,13 @@
 					<div class="content" id="search_result" name="<?php echo $id?>">
 						
 					</div>
-					<p>当前显示的商品</p>
+					<p>goods list</p>
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">商品名</td>
-							<td width="10%">商品权重</td>
+							<td width="5%">name</td>
+							<td width="10%">weight</td>
 							<!--<td width="10%">类别</td>-->
-							<td width="10%">操作</td>
+							<td width="10%">operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -159,7 +159,7 @@
 							<td><a href="<?php echo $goods_url.$goods_id;?>" target="_blank"><?php echo $goods_name?></a></td>
 							<td><?php echo $weight?></td>
 							<td>
-								<a href="javascript:void(0);" onclick="delete_floor(<?php echo $id;?>)">移除</a>
+								<a href="javascript:void(0);" onclick="delete_floor(<?php echo $id;?>)">remove</a>
 							</td>
 						</tr>
 						<?php
@@ -168,11 +168,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>empty</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">current page:<?php echo $page;?>/<?php echo $pagecount;?>page <?php echo $pagesize?> piece/page</div>
 						<div class="pageafter">
 						<?php echo showPage("check_goods.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

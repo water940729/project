@@ -12,7 +12,7 @@
    }else{
 	$cat = 0;
     }
-    $tableNameArr = array('商城','团购','秒杀','试用','预售');
+    $tableNameArr = array('mall','teambuy','seckill','trial','预售');
 	$tableArr = array('orderlist','teambuy_orderlist','seckill_orderlist','trial_orderlist','book_orderlist');
 	
 	$result=mysql_query("select id,name from mall") or die("数据库异常");
@@ -48,7 +48,7 @@
 		<div class="bgintor">
 				<div class="tit1">
 					<ul>				
-					<li><a href="#">按商城分类</a></li>
+					<li><a href="#">classfication</a></li>
 					<!--
 					<li class="l1" ><a href="sum_order_shop.php" target="mainFrame">按商铺分类</a></li>
 					<li class="l1" ><a href="sum_order_good.php" target="mainFrame">按商品分类</a></li>
@@ -57,16 +57,16 @@
 				</div>
 				<div class="listintor">
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：订单管理 －&gt;<strong>商品统计列表-------<?php echo $tableNameArr[$cat]; ?></strong></span>
+					<span>location:order manage －&gt;<strong>goods statistic list-------<?php echo $tableNameArr[$cat]; ?></strong></span>
 					<!-- <span class='conSpan'>选择 : <span '><a href='./sum_order.php?cat=0'>商城</a ></span><span '><a href='./sum_order.php?cat=1' >团购</a></span><span ><a href='./sum_order.php?cat=2' >秒杀</a></span></span> -->
 				</div>
 				<div class="content">
 					<form action="#" method ="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-							    <td width="15%">商城编号</td>
-								<td width="40%">统计信息</td>
-								<td width="10%">操作</td>	
+							    <td width="15%">mall no</td>
+								<td width="40%">statistic info</td>
+								<td width="10%">operation</td>	
 							</tr>
 <?php
 /*
@@ -102,37 +102,37 @@ foreach($shopLocation as $key=>$val){
 ?>
 							<tr>
 								<td><?php echo $val;?></td>   
-								<td width='80%'><a href="./orderManage.php?id=<?php echo $key; ?>&type=0&cat=<?php echo $cat;?>">已下单
+								<td width='80%'><a href="./orderManage.php?id=<?php echo $key; ?>&type=0&cat=<?php echo $cat;?>">ordered
 									<?php
 										echo isset($data[$key][0])?$data[$key][0]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=1&cat=<?php echo $cat;?>">已支付
+								    ?>piece</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=1&cat=<?php echo $cat;?>">paid
 									<?php
 										echo isset($data[$key][1])?$data[$key][1]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=2&cat=<?php echo $cat;?>">已发货：
+								    ?>piece</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=2&cat=<?php echo $cat;?>">sent：
 									<?php
 										echo isset($data[$key][2])?$data[$key][2]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=3&cat=<?php echo $cat;?>">已收货
+								    ?>piece</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=3&cat=<?php echo $cat;?>">recevied
 									<?php
 										echo isset($data[$key][3])?$data[$key][3]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=4&cat=<?php echo $cat;?>">待换货
+								    ?>piece</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=4&cat=<?php echo $cat;?>">exchange
 									<?php
 										echo isset($data[$key][4])?$data[$key][4]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=5&cat=<?php echo $cat;?>">已换货
+								    ?>piece</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=5&cat=<?php echo $cat;?>">exchanged
 									<?php
 										echo isset($data[$key][5])?$data[$key][5]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=6&cat=<?php echo $cat;?>">待退货
+								    ?>piece</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=6&cat=<?php echo $cat;?>">return
 									<?php
 										echo isset($data[$key][6])?$data[$key][6]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=7&cat=<?php echo $cat;?>">已退货
+								    ?>piece</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=7&cat=<?php echo $cat;?>">returned
 									<?php
 										echo isset($data[$key][7])?$data[$key][7]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=8&cat=<?php echo $cat;?>">已评价
+								    ?>piece</a>&nbsp;|&nbsp;<a href="./orderManage.php?id=<?php echo $key; ?>&type=8&cat=<?php echo $cat;?>">assessed
 									<?php
 										echo isset($data[$key][8])?$data[$key][8]:0;
-								    ?>件</a>
+								    ?>piece</a>
 								</td>
 								<td>
-								     <a href="./orderManage.php?id=<?php echo $key; ?>&cat=<?php echo $cat;?>">查看</a>
+								     <a href="./orderManage.php?id=<?php echo $key; ?>&cat=<?php echo $cat;?>">check</a>
 								</td>
 								</tr>
 							<?php }?>

@@ -58,12 +58,12 @@ $sql = "insert into advertisement
 
 if(mysql_query($sql)){
    ?>
-		<script  type="text/javascript"> alert('添加成功');		history.back(); </script>
+		<script  type="text/javascript"> alert('success');		history.back(); </script>
 	<?
 }else{
 	echo mysql_error();
 	?>
-		<script  type="text/javascript"> alert('添加失败');		history.back(); </script>
+		<script  type="text/javascript"> alert('failed');		history.back(); </script>
 		<?
 }
 

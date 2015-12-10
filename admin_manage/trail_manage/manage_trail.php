@@ -20,7 +20,7 @@
 		<script>
 			//删除楼层
 			function delete_trail_type(id){
-				if(confirm("确认删除")){
+				if(confirm("Make sure")){
 					$.ajax({
 						type:"POST",
 						url:"delete_trail_type.php",
@@ -39,20 +39,20 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">试用管理</a></li>
+						<li><a href="#">trial manage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：试用管理 －&gt; <strong>试用管理</strong></span>
+					<span>location:trial manage －&gt; <strong>trial manage</strong></span>
 				</div>
 				<div class="content">
-					<a href="add_trail.php">添加试用分类</a>
+					<a href="add_trail.php">add trial type</a>
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">分类编号</td>
-							<td width="5%">分类名称</td>
-							<td width="10%">分类权重</td>
-							<td width="10%">操作</td>
+							<td width="5%">type no</td>
+							<td width="5%">type name</td>
+							<td width="10%">type weight</td>
+							<td width="10%">operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -84,8 +84,8 @@
 							<td><?php echo $name?></td>
 							<td><?php echo $weight?></td>
 							<td>
-								<a href="manage_trail_type.php?id=<?=$id?>&name=<?=$name?>">分类管理</a>|
-								<a href="javascript:void(0);" onclick="delete_trail_type(<?php echo $id;?>)">删除</a>
+								<a href="manage_trail_type.php?id=<?=$id?>&name=<?=$name?>">sort management</a>|
+								<a href="javascript:void(0);" onclick="delete_trail_type(<?php echo $id;?>)">delete</a>
 							</td>
 						</tr>
 						<?php
@@ -94,11 +94,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>empty！</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">current page:<?php echo $page;?>/<?php echo $pagecount;?>page  <?php echo $pagesize?> piece/page</div>
 						<div class="pageafter">
 						<?php echo showPage("check_goods.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

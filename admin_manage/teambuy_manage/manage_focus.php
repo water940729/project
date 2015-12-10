@@ -21,7 +21,7 @@
 		})
 		*/
 		function delete_focus(id){
-			if(confirm("确认删除")){
+			if(confirm("Make sure")){
 				$.ajax({
 					data:"id="+id,
 					type:"POST",
@@ -40,20 +40,20 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">团购管理</a></li>
+						<li><a href="#">teambuy manage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：团购管理 －&gt; <strong>焦点图管理</strong></span>
+					<span>location:teambuy manage －&gt; <strong>focus manage</strong></span>
 				</div>
 				<div class="content">
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">焦点图编号</td>
-							<td width="5%">跳转链接</td>
-							<td width="10%">权重</td>
-							<td width="10%">图片</td>
-							<td width="10%">操作</td>
+							<td width="5%">focus no</td>
+							<td width="5%">refer</td>
+							<td width="10%">weight</td>
+							<td width="10%">photo</td>
+							<td width="10%">operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -87,7 +87,7 @@
 							<td><?php echo $weight?></td>
 							<td><img src="<?php echo $image_url?>"/></td>
 							<td>
-								<a href="javascript:void(0);" onclick="delete_focus(<?php echo $id;?>)">删除</a>
+								<a href="javascript:void(0);" onclick="delete_focus(<?php echo $id;?>)">delete</a>
 							</td>
 						</tr>
 						<?php

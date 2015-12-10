@@ -14,7 +14,7 @@
 				$("#weight").keyup(function(){
 					var val=$(this).val();
 					if(val!=""&&(val<1||val>9999)){
-						alert("请输入合法的数！");
+						alert("the number is not valid");
 						$(this).val("");
 						//return false;
 					}
@@ -25,7 +25,7 @@
 				var form=document.getElementById("doForm");
 				if(form.type_name.value=="")
 				{
-					alert('请填写楼层名称！');
+					alert('the name can not be empty！');
 					form.name.focus();
 					return false;
 				}else{
@@ -39,17 +39,17 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">试用管理</a></li>
+						<li><a href="#">trail manage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：试用管理 －&gt; <strong>添加试用</strong></span>
+					<span>location: trail manage －&gt; <strong>add trail</strong></span>
 				</div>
 				<div class="content">
 					<form action="add_trail_do.php" method="post" id="doForm">
-						<p>分类名称:<input class="in1" type="text" name="type_name"/></p><br/>
-						<p>分类权重:<input class="in1" type="text" name="weight" id="weight"/>(输入1-9999中的任意数，数值越大分类越靠前，默认为1)</p><br/>
-						<input type="submit" value="添加"></p>
+						<p>type name:<input class="in1" type="text" name="type_name"/></p><br/>
+						<p>type weight:<input class="in1" type="text" name="weight" id="weight"/>(1-9999，default 1)</p><br/>
+						<input type="submit" value="add"></p>
 					</form>
 				</div>
 			</div>	
