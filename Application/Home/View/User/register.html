@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title><{$array["web_name"]}>--用户注册</title>
+<link href="__PUBLIC__/Css/reg.css" rel="stylesheet" type="text/css">
+		<!--[if lt IE 9]>
+		<script src="__PUBLIC__/Js/jquery/jquery1.8.js"></script>
+		<![endif]-->
+		<!--[if gte IE 9]><!-->
+		<script src="__PUBLIC__/Js/jquery/jquery.js"><</script>
+		<!--<![endif]-->
+<script>
+	//点击改变验证码，老版本的
+	/*$(function(){
+		$("#change").click(function(){
+			$(this).siblings("img").attr("src","__MODULE__/user/verify/time/"+Math.random());
+		});
+		$("#verify").focusout(function(){
+			var content=$(this).val();
+			//alert(content);
+			$.ajax({
+				type:"POST",
+				url:"check_verifys",
+				data:"verify="+content,
+				success:function(msg){
+					if(msg!=1){
+						alert("验证码错误");
+					}else{
+						$("#flag").attr("name","true");
+					}
+				}
+			});
+			return false;
+		});
+		*/
+	$(function(){
+		var iNow=60;
+		var timer=null;
+
+		function dec(){
+			iNow--;
+			
+			if(iNow<0){
+				$("#change").text("重新发送");
+				clearInterval(timer);
+			}else{
+				if(iNow<10){
+				iNow="0"+iNow;
+			}
+				$("#change").text(iNow+"s");
+			}
+
+			
+		}
+		$("#btn").click(function(){
+			var data=$(this).parents("form").serialize();
+			//var flag=$("#flag").attr("name");
+			//alert(data);
+			//alert(flag);
+				$.ajax({
+					type:"POST",
+					url:"do_register",
+					data:data,
+					success:function(msg){
+						if(msg==1){
+							location.href="login";
+						}else{
+							alert(msg);
+						}
+					}
+				});
+		});
+		
+		$("#change").click(function(){
+			var that=$(this);
+			var phone=$("#username").val()
+
+			if(that.text()=="发送"||that.text=="重新发送"){
+				$.ajax({
+				type:"POST",
+				url:"sms",
+				data:"username="+phone,
+				success:function(msg){
+					if(msg==1){
+						if(iNow==0){
+							$(this).text("重新发送");
+							clearInterval(timer);
+						}else{
+							timer=setInterval(dec,1000);
+						}
+						
+					}else{
+						alert(msg);
+						clearInterval(timer);
+						that.text("发送");
+					}
+				}
+			})
+			}else{
+				return false;
+			}
+			
+		});
+		
+		$(".form_div form input").keydown(function(ev){
+			if(ev.keyCode==13){
+				$("#btn").click();
+			}
+		});
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<!--logo区域-->
+		<div class="logo_container">
+			<img src="__PUBLIC__/image/reg_image/logo.png" />
+		</div>
+		
+		<div class="per_container">
+			<div class="per_div">个人用户</div>
+			<span class="per_span">我已经注册，现在<a href="__APP__/user/login" style="color:#E30B82;text-decoration:none;">登录</a></span>
+		</div>
+		<!--主体区域-->
+		<div class="body_container">
+			<div class="form_div">
+			<form action="__APP__/user/sms" method="post">
+				<label><span>*</span>手机号码</label>
+				<input type="text" name="username" id="username"><br/>
+				<label><span>*</span>设置密码</label>
+				<input type="password" name="password"></br/>
+				<label><span>*</span>确认密码</label>
+				<input type="password" name="password2"></br/>
+				<input type="hidden" name="false" id="flag">
+				<label><span>*</span>验 证 码</label>
+				<input type="text" id="verify" name="verify"/>
+				<!--<img src="__MODULE__/user/verify" alt="无法显示验证码，请刷新"/>-->
+				<a href="#" id="change">发送</a><br/>
+				
+				<input type="checkbox" ><label for="checkbox">我已阅读并同意<a href="__APP__/article/alist/n/protocol">《葵花商城用户注册协议》</a></label></br/>
+				
+				<input type="button" id="btn" value="立即注册" />
+			</form>
+			</div>
+			<div class="pic_div">
+				<img src="__PUBLIC__/image/reg_image/pic.png">
+			</div>
+		</div>
+		<!--footer区域-->
+		<div class="footer_container">
+			<div>
+			<a href="__APP__/article/alist/n/about">关于葵花</a>|
+			<a href="__APP__/article/alist/n/contact">联系我们</a>|
+			<a href="__APP__/article/alist/n/employ">诚聘英才</a>|
+			<a href="__APP__/article/alist/n/tender">葵花招标</a>|
+			<a href="__APP__/article/alist/n/law">法律声明</a>|
+			<a href="__APP__/article/alist/n/custom">客户服务</a>|
+			<a href="__APP__/shop_manage/index.php">商户登录</a>|
+			<a href="__APP__/mall_manage/index.php">商场登录</a>
+			</div>
+			<span><{$array.copyright}></span>
+			<ul>
+				<li><a href="#"><img src="__PUBLIC__/image/reg_image/footer1.jpg" /></a></li>
+				<li><a href="#"><img src="__PUBLIC__/image/reg_image/footer2.jpg" /></a></li>
+				<li><a href="#"><img src="__PUBLIC__/image/reg_image/footer3.jpg" /></a></li>
+				<li><a href="#"><img src="__PUBLIC__/image/reg_image/footer4.jpg" /></a></li> 
+			</ul>
+			</div>
+	</div>
+</body>
