@@ -40,6 +40,7 @@
 		$_SESSION['shop_id']=$row['shop_id'];
 		$_SESSION['mall_id']=$row['mall_id'];
 		if($_SESSION["role"]==1){
+			
 			header('Location:admin_center.php');	
 		}else{
 			unset($_SESSION);

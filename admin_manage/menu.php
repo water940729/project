@@ -1,6 +1,6 @@
 ﻿<?php 
 	session_start();
-	$role=$_SESSION['role'];
+	//$role=$_SESSION['role'];
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
