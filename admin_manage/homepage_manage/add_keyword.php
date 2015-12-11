@@ -18,7 +18,7 @@
 				var form=document.getElementById("doForm");
 				if(form.floor_name.value=="")
 				{
-					alert('请填写关键词名称！');
+					alert('keyword can not be empty');
 					form.name.focus();
 					return false;
 				}else{
@@ -29,7 +29,7 @@
 				$("#weight").keyup(function(){
 					var val=$(this).val();
 					if(val!=""&&(val<1||val>9999)){
-						alert("请输入合法的数！");
+						alert("number is not valid！");
 						$(this).val("");
 						//return false;
 					}
@@ -42,18 +42,18 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">homepage manage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>添加关键词</strong></span>
+					<span>location:homepage manage －&gt; <strong>add keyword</strong></span>
 				</div>
 				<div class="content">
 					<form action="add_keyword_do.php" method="post" id="doForm">
-						<p>关键词名称:<input class="in1" type="text" name="floor_name"/></p><br/>
-						<p>关键词权重:<input class="in1" type="text" name="weight" id="weight"/>(输入1-9999中的任意数，数值越大关键词越靠前，默认为1)</p><br/>
+						<p>keyword name:<input class="in1" type="text" name="floor_name"/></p><br/>
+						<p>keyword weight:<input class="in1" type="text" name="weight" id="weight"/>(1-9999,default 1)</p><br/>
 						<br/>
-						<input type="button" value="确定添加" onclick="return check()"></p>
+						<input type="button" value="add" onclick="return check()"></p>
 					</form>
 				</div>
 			</div>	

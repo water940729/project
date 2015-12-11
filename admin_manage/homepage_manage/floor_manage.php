@@ -23,7 +23,7 @@
 				var form=document.getElementById("doForm");
 				if(form.floor_name.value=="")
 				{
-					alert('请填写分类名称！');
+					alert('type name can not be empty');
 					form.name.focus();
 					return false;
 				}else{
@@ -36,7 +36,7 @@
 				$("#loading"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo"+"_"+file_type).html("上传中……");
+					$("#logo"+"_"+file_type).html("uploading……");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -83,7 +83,7 @@
 				$("#loading1"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo1"+"_"+file_type).html("上传中……");
+					$("#logo1"+"_"+file_type).html("uploading……");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -126,7 +126,7 @@
 			}
 			//删除楼层
 			function delete_floor(id){
-				if(confirm("确认删除")){
+				if(confirm("Make sure")){
 					$.ajax({
 						type:"POST",
 						url:"delete_floor.php",
@@ -145,26 +145,26 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">homepage manage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>楼层管理</strong></span>
+					<span>location:homepage manage －&gt; <strong>floor manage</strong></span>
 				</div>
 				<div class="content">
-					<a href="add_floor.php">添加楼层</a>
+					<a href="add_floor.php">add floor</a>
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">楼层编号</td>
-							<td width="5%">楼层名</td>
-							<td width="10%">楼层权重</td>
+							<td width="5%">floor no</td>
+							<td width="5%">floor name</td>
+							<td width="10%">floor weight</td>
 							<!--<td width="10%">类别</td>-->
-							<td width="10%">背景色</td>
+							<td width="10%">background-color</td>
 							<?php if($_SESSION["role"]!=1){
 								echo "<td width='10%'>楼层图片</td>";
 							
 							}?>
-							<td width="10%">操作</td>
+							<td width="10%">operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -201,9 +201,9 @@
 							<td><div style="margin:0 auto;background-color:<?php echo $background?>;width:80px;height:20px;"></div></td>
 							<?php if($_SESSION["role"]!=1)echo "<td><img src='".$logo."'></td>";?>
 							<td>
-								<a href="floor_type.php?id=<?=$id?>&name=<?=$name?>">分类管理</a>|
-								<a href="modify_floor.php?id=<?=$id?>">修改楼层</a>|
-								<a href="javascript:void(0);" onclick="delete_floor(<?php echo $id;?>)">删除</a>
+								<a href="floor_type.php?id=<?=$id?>&name=<?=$name?>">classfication</a>|
+								<a href="modify_floor.php?id=<?=$id?>">modify floor</a>|
+								<a href="javascript:void(0);" onclick="delete_floor(<?php echo $id;?>)">remove</a>
 							</td>
 						</tr>
 						<?php
@@ -212,11 +212,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>empty!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">current page:<?php echo $page;?>/<?php echo $pagecount;?>page <?php echo $pagesize?> piece/page</div>
 						<div class="pageafter">
 						<?php echo showPage("check_goods.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

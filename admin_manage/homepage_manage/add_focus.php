@@ -22,7 +22,7 @@
 				$("#loading"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo"+"_"+file_type).html("上传中……");
+					$("#logo"+"_"+file_type).html("loading……");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -69,7 +69,7 @@
 				$("#loading1"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo1"+"_"+file_type).html("上传中……");
+					$("#logo1"+"_"+file_type).html("loading……");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -114,7 +114,7 @@
 				$("#weight").keyup(function(){
 					var val=$(this).val();
 					if(val!=""&&(val<1||val>9999)){
-						alert("请输入合法的数！");
+						alert("the number is not valid");
 						$(this).val("");
 						//return false;
 					}
@@ -127,17 +127,17 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">homepage manage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>添加焦点图</strong></span>
+					<span>location:homepage manage －&gt; <strong>add focus</strong></span>
 				</div>
 				<div class="content">
 					<form action="add_focus_do.php" method="post" id="doForm">
-						<p>跳转URL:<input class="in1" type="text" name="link_url"/></p><br/>
-						<p>焦点图权重:<input class="in1" type="text" name="weight" id="weight"/>(输入1-9999中的任意数，数值越大焦点图越靠前，默认为1)</p><br/>
-						<p>焦点图上传: 
+						<p>refer URL:<input class="in1" type="text" name="link_url"/></p><br/>
+						<p>weight:<input class="in1" type="text" name="weight" id="weight"/>(1-9999，default 1)</p><br/>
+						<p>upload: 
 						 <input type="hidden" name="img1_url" id="image1_url">
 						 <span id="upd1_pics" name=""></span>
 						 <input type="file" name="file" id="file1_image"/>
@@ -145,11 +145,11 @@
 							<img src="../images/loading.gif" alt="loading...">
 							</span>
 							<span id="logo1_image"></span>
-							<input type="button" value="上传" onclick="return ajaxFileUpload1('image');" 
-							class="btn btn-large btn-primary" />(图片大小725*<?php echo $height_num*60-90;?>)
+							<input type="button" value="upload" onclick="return ajaxFileUpload1('image');" 
+							class="btn btn-large btn-primary" />(size:725*<?php echo $height_num*60-90;?>)
 						</p>
 						<br/>
-						<input type="submit" value="添加"></p>
+						<input type="submit" value="add"></p>
 					</form>
 				</div>
 			</div>	

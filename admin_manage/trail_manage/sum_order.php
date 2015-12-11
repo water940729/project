@@ -15,22 +15,22 @@
 		<div class="bgintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">按商城分类</a></li>
+						<li><a href="#">Mall classification</a></li>
 						<li class="l1"><a href="sum_order_shop.php" target="mainFrame">按商铺分类</a></li>
 						<li class="l1"><a href="sum_order_good.php" target="mainFrame">按商品分类</a></li>
 					</ul>		
 				</div>
 				<div class="listintor">
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：订单管理 －&gt;<strong>商品统计列表</strong></span>
+					<span>location:order manage －&gt;<strong>statistic list</strong></span>
 				</div>
 				<div class="content">
 					<form action="#" method ="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-							    <td width="15%">商城编号</td>
-								<td width="40%">统计信息</td>
-								<td width="10%">操作</td>	
+							    <td width="15%">mall no</td>
+								<td width="40%">statistic info</td>
+								<td width="10%">operation</td>	
 							</tr>
 <?php
 $pagesize=20;

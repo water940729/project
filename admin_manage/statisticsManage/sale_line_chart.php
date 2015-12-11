@@ -5,7 +5,7 @@
 	$sql="select sum(ordbuynum) as sum_ordbuynum,FROM_UNIXTIME(ordtime,'%Y-%m') as da from orderlist where ordstatus=1 group by FROM_UNIXTIME(ordtime,'%Y-%m')";
 	$result=mysql_query($sql);
 	$array["series"]=array();
-	$array["series"][0]["name"]="普通商品";
+	$array["series"][0]["name"]="goods";
 	$i=0;
 	while($row=mysql_fetch_array($result)){
 		$array["series"][0]["data"][$i]=(double)$row["sum_ordbuynum"];

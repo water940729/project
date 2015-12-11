@@ -6,7 +6,7 @@
 	$result=mysql_query($sql);
 	$array["series"]=array();
 	//$array["series"][0]=array();
-	$array["series"][0]["name"]="销售额";
+	$array["series"][0]["name"]="sales total";
 	$array["series"][0]["data"]=array();
 	$i=0;
 	while($row=mysql_fetch_array($result)){
