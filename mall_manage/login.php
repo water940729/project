@@ -22,16 +22,16 @@
 		$sql="update admin_manage set last_ip=now_ip,now_ip='{$_SERVER[REMOTE_ADDR]}',time=now_time,now_time=NOW(),log_num=log_num+1 where id=$row[id];";
 		mysql_query($sql) or die("$row[id]");
 		if($row['role']==1){
-			$_SESSION["role_area"]="超级管理员";
+			$_SESSION["role_area"]="SuperAdmin";
 		}else{
 			if($row["role"]==2){
 				$sql="select name from mall where id=$row[mall_id]";
-				$result=mysql_query($sql) or die("未知原因查询失败");
+				$result=mysql_query($sql) or die("Error,query failed");
 				$mall=mysql_fetch_array($result);
 				$_SESSION["role_area"]=$mall["name"];
 			}else{
 				$sql="select name from shop where mall_id=$row[mall_id] and id=$row[shop_id]";
-				$result=mysql_query($sql) or die("未知原因查询失败");
+				$result=mysql_query($sql) or die("Error,query failed");
 				$mall=mysql_fetch_array($result);
 				$_SESSION["role_area"]=$mall["name"];
 			}
@@ -50,6 +50,6 @@
 		}*/
 
 	}else{
-		echo json_encode(array('status'=>0,'data'=>'用户名或密码错误'));
+		echo json_encode(array('status'=>0,'data'=>'Password Error'));
 	}
 ?>

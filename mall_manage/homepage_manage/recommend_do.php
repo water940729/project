@@ -9,9 +9,9 @@
 			$sql="update market_info set recomm_num=$_POST[num] where id=1";	
 		}
 		if(mysql_query($sql)){
-			echo "修改成功";
+			echo "Modify success!";
 		}else{
-			echo "修改失败";
+			echo "Modify failed!";
 		}
 	}else{
 		header("location:../admin_center.php");

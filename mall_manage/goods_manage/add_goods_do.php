@@ -64,8 +64,8 @@
 	$result=mysql_query($select);
 	$row=mysql_fetch_array($result);
 	if($shop_id==0){
-		$shop_name=$row["mall_name"]."自营";
-		$mall_name=$row["mall_name"]."自营";
+		$shop_name=$row["mall_name"]."self-support";
+		$mall_name=$row["mall_name"]."self-support";
 		$mall_id=$_SESSION["mall_id"];
 	}else{
 		$shop_name=$row['name'];
@@ -81,9 +81,9 @@
 			//echo $insert_goods_pic."<br>";
 			mysql_query($insert_goods_pic);
 		}
-		echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add success!');window.location.href='".$url."';</script>";
 	}else{	
-		echo "<script>alert('添加失败,请重新添加!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add failed,please add again!');window.location.href='".$url."';</script>";
 		echo mysql_error();
 	}
 ?>

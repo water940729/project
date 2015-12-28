@@ -13,17 +13,17 @@
 	$sql="insert into floorManage(name,weight,role,background,logo) values('{$_POST["floor_name"]}',$weight,$role,'{$_POST["simple_color_value"]}','{$_POST["pics1"][0]}')";
 	if(mysql_query($sql)){
 		$id=mysql_insert_id();
-		$content="添加了楼层，楼层编号为".$id;
+		$content="Add a floor,No. is".$id;
 		if(add_system_log($content)==1){
 			$url="floor_manage.php";
-			echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add success!');window.location.href='".$url."';</script>";
 		}else{
 			$url="add_floor.php";
-			echo "<script>alert('添加失败，请重新添加!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 		}
 
 	}else{
 		$url="add_floor.php";
-		echo "<script>alert('添加失败，请重新添加!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 	}
 ?>

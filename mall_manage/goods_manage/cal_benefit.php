@@ -31,7 +31,7 @@
 			$ratio1_temp=$row["ratio"];
 			$price=$price*(1-$ratio1_temp/100);
 		}
-		echo "收益".$price;
+		echo "Benefit".$price;
 	}else{
 		//
 		if($shop_id>0){
@@ -48,6 +48,6 @@
 		}else{
 			//商城自营	
 		}
-		echo "收益".$price;	
+		echo "Benefit".$price;	
 	}
 	

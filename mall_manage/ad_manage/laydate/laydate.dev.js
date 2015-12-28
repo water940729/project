@@ -117,7 +117,7 @@ Dates.shde = function(elem, type){
 Dates.query = function(node){
     if(node && node.nodeType === 1){
         if(node.tagName.toLowerCase() !== 'input'){
-            throw new Error('选择器elem错误');
+            throw new Error('Chooser elem error');
         }
         return node;
     }
@@ -268,11 +268,11 @@ Dates.check = function(){
     if(value.replace(/\s/g, '') !== ''){
         if(!exp.test(value)){
             Dates.elem[as.elemv] = '';
-            Dates.msg('日期不符合格式，请重新选择。');
+            Dates.msg('Date Format is illegal,please reselect');
             return 1;
         } else if(isvoid[0]){
             Dates.elem[as.elemv] = '';
-            Dates.msg('日期不在有效期内，请重新选择。');
+            Dates.msg('Date is unvalid,please reselect');
             return 1;
         } else {
             isvoid.value = Dates.elem[as.elemv].match(exp).join();
@@ -370,8 +370,8 @@ Dates.viewDate = function(Y, M, D){
     Dates.ymd = log.ymd;
     
     //锁定年月
-    as.year.value = Dates.ymd[0] + '年';
-    as.month.value = Dates.digit(Dates.ymd[1] + 1) + '月';
+    as.year.value = Dates.ymd[0] + 'YEAR';
+    as.month.value = Dates.digit(Dates.ymd[1] + 1) + 'MONTH';
     
     //定位月
     Dates.each(as.mms, function(i, elem){
@@ -405,25 +405,25 @@ Dates.festival = function(td, md){
     var str;
     switch(md){
         case '1.1':
-            str = '元旦';
+            str = 'New Years Day';
         break;
         case '3.8':
-            str = '妇女';
+            str = 'Womens day';
         break;
         case '4.5':
-            str = '清明';
+            str = 'Clear and bright';
         break;
         case '5.1':
-            str = '劳动';
+            str = 'Labour Day';
         break;
         case '6.1':
-            str = '儿童';
+            str = 'Childrens day';
         break;
         case '9.10':
-            str = '教师';
+            str = 'Teachers day';
         break;
         case '10.1':
-            str = '国庆';
+            str = 'National Day';
         break;
     };
     str && (td.innerHTML = str);
@@ -503,7 +503,7 @@ Dates.follow = function(obj){
 
 //生成表格
 Dates.viewtb = (function(){
-    var tr, view = [], weeks = [ '日', '一', '二', '三', '四', '五', '六'];
+    var tr, view = [], weeks = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'];
     var log = {}, table = doc[creat]('table'), thead = doc[creat]('thead');
     thead.appendChild(doc[creat]('tr'));
     log.creath = function(i){
@@ -580,16 +580,16 @@ Dates.view = function(elem, options){
         
         +'<div class="laydate_bottom">'
           +'<ul id="laydate_hms">'
-            +'<li class="laydate_sj">时间</li>'
+            +'<li class="laydate_sj">Time</li>'
             +'<li><input readonly>:</li>'
             +'<li><input readonly>:</li>'
             +'<li><input readonly></li>'
           +'</ul>'
           +'<div class="laydate_time" id="laydate_time"></div>'
           +'<div class="laydate_btn">'
-            +'<a id="laydate_clear">清空</a>'
-            +'<a id="laydate_today">今天</a>'
-            +'<a id="laydate_ok">确认</a>'
+            +'<a id="laydate_clear">Clear</a>'
+            +'<a id="laydate_today">Today</a>'
+            +'<a id="laydate_ok">Sure</a>'
           +'</div>'
           +(config.isv ? '<a href="http://sentsin.com/layui/laydate/" class="laydate_v" target="_blank">laydate-v'+ laydate.v +'</a>' : '')
         +'</div>';
@@ -769,12 +769,12 @@ Dates.events = function(){
     //选择时分秒
     log.times = S('#laydate_time');
     Dates.hmsin = log.hmsin = S('#laydate_hms input');
-    log.hmss = ['小时', '分钟', '秒数'];
+    log.hmss = ['Hour', 'Minute', 'Second'];
     log.hmsarr = [];
     
     //生成时分秒或警告信息
     Dates.msg = function(i, title){
-        var str = '<div class="laydte_hsmtex">'+ (title || '提示') +'<span>×</span></div>';
+        var str = '<div class="laydte_hsmtex">'+ (title || 'Hint') +'<span>×</span></div>';
         if(typeof i === 'string'){
             str += '<p>'+ i +'</p>';
             Dates.shde(S('#'+as[0]));

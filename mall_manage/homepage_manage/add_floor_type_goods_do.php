@@ -16,8 +16,8 @@
 	}
 	$sql="insert into homePageGoods(floor_type_id,goods_id,goods_name,weight,role) values($floor_type_id,$goods_id,'{$goods_name}',$weight,$role)";
 	if(mysql_query($sql)){
-		$where=$floor_type_id==0?"推荐":"楼层编号".$floor_type_id;
-		$content="添加了".$goods_name."到".$where;
+		$where=$floor_type_id==0?"Command":"FloorNumber".$floor_type_id;
+		$content="Added".$goods_name."to".$where;
 		if(add_system_log($content)==1){
 			if(!empty($urls)){
 				//echo "<script>alert('添加成功!');window.location.href='".$urls."';</script>";
@@ -25,7 +25,7 @@
 			}else{
 				$url="floor_type_goods_manage.php?id=$floor_type_id";		
 			}
-			echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add success!');window.location.href='".$url."';</script>";
 			//echo $url;
 		//echo $content;
 		}else{
@@ -34,7 +34,7 @@
 			}else{
 				$url="floor_type_goods_add.php?id=$goods_id&name=$goods_name&floorid=$floor_type_id";
 			}
-			echo "<script>alert('添加失败，请重新添加!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 			//echo $content;
 			//echo add_system_log($content);
 		}
@@ -48,7 +48,7 @@
 		}else{
 			$url="floor_type_goods_add.php?id=$goods_id&name=$goods_name&floorid=$floor_type_id";
 		}
-		echo "<script>alert('添加失败，请重新添加!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 	}
 	//echo $sql;
 ?>

@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title> 添加商场</title>
+		<title> AddMall</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -20,17 +20,17 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">添加商场</a> </li>
+				<li><a href="#">AddMall</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-			<span>位置：商场管理 －&gt; <strong>添加商场</strong></span>
+			<span>Position:MallManage －&gt; <strong>AddMall</strong></span>
 		</div>		
 		<div class="fromcontent">
 			<form action="add_mall_do.php" method="post" id="doForm">
-				<p>商场名称：<input class="in1" type="text" name="name" id="name"/></p>	
-				<p>商场海报上传: 
+				<p>MallName:<input class="in1" type="text" name="name" id="name"/></p>	
+				<p>MallPostUpload: 
 				 <input type="hidden" name="img_url" id="image_url">
 				 <span id="upd_pics" name=""></span>
 				 <input type="file" name="file" id="file_image"/>
@@ -39,10 +39,10 @@
 				 	</span>
 				 	<span id="logo_image"></span>
                     <input type="button" value="上传" onclick="return ajaxFileUpload('image');" 
-                    class="btn btn-large btn-primary" />(*海报尺寸：500*500以内)
+                    class="btn btn-large btn-primary" />(*PostSize in 500*500)
 				</p>	
 				<br>
-				商场地址：		
+				MallAddress:		
 				    <select name="province" id="province" onchange="obtain_city(this.value)">
 						<?php
 							$sql = "select province_name from county group by province_name";
@@ -56,20 +56,20 @@
 							}
 						?>							
 					</select>
-					市：							
+					City:							
 				    <select name="city" id="city" onchange="obtain_county(this.value)">						
 					</select>	
-					区：
+					Area:
 					 <select name="county" id="county" >						
 					</select>	
 				</p>
 				<!--
 				<p>详细地址：<textarea rows="3" name="detailAddressInfo" cols="100" id="detailAddressInfo" placeholder="不需要重复填写省市区，必须大于5个字符，小于120个字符" onblur="checkAddress()"></textarea></p>
 				-->
-				<p>详细地址：<textarea rows="3" name="detailAddressInfo" cols="100" id="detailAddressInfo" placeholder="不需要重复填写省市区，必须大于5个字符，小于120个字符" ></textarea></p><?php //onblur="checkAddress()"?>
-				<p>商家简介：<textarea  id="introduceInfo" name="introduceInfo" rows="10" ></textarea>
+				<p>DetailAddress:<textarea rows="3" name="detailAddressInfo" cols="100" id="detailAddressInfo" placeholder="Don't need to repeat to fill address,should more than 5 characters,less than 120 characters" ></textarea></p><?php //onblur="checkAddress()"?>
+				<p>MerchantIntroduction:<textarea  id="introduceInfo" name="introduceInfo" rows="10" ></textarea>
 				</p>
-				<p><input type="button" value="确定" onclick="return check()"/></p>
+				<p><input type="button" value="Commit" onclick="return check()"/></p>
 			</form>
 		</div>
 	</div>
@@ -94,7 +94,7 @@ function checkAddress()
 		},
 		function(data,status){
 			if(data==0){
-				alert("您输入的地址有误请重新填写");
+				alert("Address id wrong,please write againS");
 				//doForm.detailAddressInfo.focus();
 			}else if(data==1){
 				flag=1;
@@ -111,7 +111,7 @@ function check()
 {
 	if(form.name.value=="")
 	{
-		alert('请填写商家名称！');
+		alert('Input mechant name!');
 		form.name.focus();
 		return false;
 	}
@@ -127,32 +127,32 @@ function check()
 	*/
 	if(form.province.value=="")
 	{
-		alert('请填写商场所在省！');
+		alert('Input the province!');
 		form.province.focus();
 		return false;
 	} 
 	if(form.city.value=="")
 	{
-		alert('请填写商场所在市！');
+		alert('Input the city!');
 		form.city.focus();
 		return false;
 	}
 	if(form.county.value=="")
 	{
-		alert('请填写商场所在区！');
+		alert('Input the area!');
 		form.county.focus();
 		return false;
 	}
 	if(form.detailAddressInfo.value=="")
 	{
-		alert('请填写商场详细地址！');
+		alert('Input the detail address!');
 		form.detailAddressInfo.focus();
 		return false;
 	}
 	
 	if(form.introduceInfo.value=="")
 	{
-		alert("请填写商场简介");
+		alert("Input the brief introduction!");
 		form.introduceInfo.focus();
 		return false;
 	}
@@ -171,7 +171,7 @@ function ajaxFileUpload(file_type)
 	$("#loading"+"_"+file_type).ajaxStart(function()
 	{
 		$(this).show();
-		$("#logo"+"_"+file_type).html("上传中……");
+		$("#logo"+"_"+file_type).html("Uploading...");
 	})
 	.ajaxComplete(function(){
 		$(this).hide();

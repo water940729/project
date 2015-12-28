@@ -29,49 +29,45 @@
 	<body id="flow">
 		<div class="menu" id="me">
 			<div class="menu_content">
-				<div class="menu_h menu_h3">Marketing Management</div>
+				<div class="menu_h menu_h3">Marketing</div>
 				<div class="menu_intor">
 					<p><a href="mall_manage/add_mall.php" target="mainFrame">Add Marketing</a></p>
 					<p><a href="mall_manage/check_mall.php" target="mainFrame">View Marketing</a></p>
 				</div>
 			</div>
 			<div class="menu_content">
-				<div class="menu_h menu_h3">Store Mangement</div>
+				<div class="menu_h menu_h3">Store</div>
 				<div class="menu_intor">
 					<p><a href="shop_manage/add_shop.php" target="mainFrame">Add Store</a></p>
 					<p><a href="shop_manage/check_shop.php" target="mainFrame">View Store</a></p>
 			   </div>
 			</div>
 			<div class="menu_content">
-				<div class="menu_h menu_h3">Merchandise Management</div>
+				<div class="menu_h menu_h3">Merchandise</div>
 				<div class="menu_intor">
-					<p><a href="goods_manage/add_goods.php" target="mainFrame"></a></p>
+					<p><a href="goods_manage/add_goods.php" target="mainFrame">Add Merchandise</a></p>
 					<p><a href="goods_manage/check_goods.php" target="mainFrame">View Merchandise</a></p>
 					<p><a href="goods_manage/goods_type1.php" target="mainFrame">Merchandise Classify</a></p>
 			   </div>
 			</div>
 			<div class="menu_content">
-				<div class="menu_h menu_h3">User Management</div>
+				<div class="menu_h menu_h3">User</div>
 				<div class="menu_intor">
 				<p><a href="user_manage/search_user.php" target="mainFrame">View User</a></p>
-				<?php
-					if($role==4){
-				?>
+			
 				<p><a href="user_manage/search_address.php" target="mainFrame">View Address</a></p>
-				<?php
-					}
-				?>
+				
 			   </div>
 			</div>
 			<div class="menu_content">
-				<div class="menu_h menu_h3">Order Management</div>
+				<div class="menu_h menu_h3">Order</div>
 				<div class="menu_intor">
 				<p><a href="order_manage/orderManage.php" target="mainFrame">Order Management</a></p>
 				<p><a href="order_manage/sum_order.php" target="mainFrame">Order Count</a></p>
 				</div>
 			</div>
 			<div class="menu_content">
-				<div class="menu_h menu_h3">Administritor Account Management</div>
+				<div class="menu_h menu_h3">Administritor Account</div>
 				<div class="menu_intor">
 					<p><a href="add_manage_account/add_manage_account.php" target="mainFrame">Add Count</a></p>
 					<p><a href="add_manage_account/manage_account.php" target="mainFrame">View Count</a></p>
@@ -94,7 +90,7 @@
 			   </div>
 			</div>
 			<div class="menu_content">
-				<div class="menu_h menu_h3">HomePage Management</div>
+				<div class="menu_h menu_h3">HomePage </div>
 				<div class="menu_intor">
 					<p><a href="homepage_manage/add_focus.php" target="mainFrame">add focus</a></p>
 					<p><a href="homepage_manage/manage_focus.php" target="mainFrame">focus manage</a></p>

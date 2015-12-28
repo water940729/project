@@ -20,17 +20,17 @@
 		$sql="update floorManage set name='{$floor_name}',weight={$weight} where id=$id";	
 	}
 	if(mysql_query($sql)==1){
-		$content="修改了楼层，楼层编号为".$id;
+		$content="Modified floor,No. is:".$id;
 		if(add_system_log($content)==1){
 			$url="floor_manage.php";
-			echo "<script>alert('修改成功!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Modify success!');window.location.href='".$url."';</script>";
 		}else{
 			$url="modify_floor.php?id=$id";
-			echo "<script>alert('修改失败，请重新修改!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Modify failed,please try again!');window.location.href='".$url."';</script>";
 		}
 	}else{
 		$url="modify_floor.php?id=$id";
-		echo "<script>alert('修改失败，请重新修改!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Modify failed,please try again!');window.location.href='".$url."';</script>";
 	}
 
 //	print_r(mysql_query($sql));

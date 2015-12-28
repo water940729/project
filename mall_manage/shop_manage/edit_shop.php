@@ -22,7 +22,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title> 店铺管理</title>
+		<title> ShopManage</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -34,12 +34,12 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">店铺管理</a> </li>
+				<li><a href="#">ShopManage</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-			<span>位置：店铺管理 －&gt; <strong>修改店铺</strong></span>
+			<span>Position:ShopManage －&gt; <strong>ModifyShop</strong></span>
 		</div>		
 		<div class="fromcontent">
 			<form action="edit_shop_do.php" method="post" id="doForm">
@@ -53,8 +53,8 @@
 				<?php
 					}
 				?>
-				<p>店铺名称：<input class="in1" type="text" name="name" id="name" value="<?=$shop_name?>" /></p>	
-				<p>所属商场：
+				<p>Shopname:<input class="in1" type="text" name="name" id="name" value="<?=$shop_name?>" /></p>	
+				<p>Belongs(Mall):
 				<select class="in1" name="mall" id="mall"></p>
 				<?php 
 					$select="select * from mall".$area;
@@ -66,7 +66,7 @@
 					}
 				?>
 				</select><br><br>
-				<p>店铺logo:
+				<p>ShopLogo:
 				<?php 
 					$sql3="select * from shop_pictures where shop_id='$edit_shop_id'";
 					$result3=mysql_query($sql3);
@@ -81,25 +81,25 @@
 				</p>
 				<p> 
 				 <span id="upd_pics" name=""></span>
-				 继续上传:
+				 ContinueUploading:
 				 <input type="hidden" name="img_url" id="image_url">
 				 <input type="file" name="file" id="file_image"/>
 				 	<span id="loading_image" style="display:none;">
 				 	<img src="../images/loading.gif" alt="loading...">
 				 	</span>
 				 	<span id="logo_image"></span>
-                    <input type="button" value="上传" onclick="return ajaxFileUpload('image');" 
-                    class="btn btn-large btn-primary" />(*海报尺寸：500*500以内)
+                    <input type="button" value="Upload" onclick="return ajaxFileUpload('image');" 
+                    class="btn btn-large btn-primary" />(*PostSize:In 500*500)
 				</p><br>				
 				<!--
 				<p>详细地址：<textarea rows="3" name="detailAddressInfo" cols="100" id="detailAddressInfo" placeholder="不需要重复填写省市区，必须大于5个字符，小于120个字符" onblur="checkAddress()"></textarea></p>
 				-->
-				<p>店铺简介：
+				<p>ShopIntroduction:
 					<textarea  id="detail" name="detail" rows="10" >
 						<?=$shop_detail?>
 					</textarea>
 				</p>
-				<p><input type="button" value="确定" onclick="return check()"/></p>
+				<p><input type="button" value="Commit" onclick="return check()"/></p>
 			</form>
 		</div>
 	</div>
@@ -112,13 +112,13 @@ function check()
 {
 	if(form.name.value=="")
 	{
-		alert('请填写店铺名称！');
+		alert('Input shop name!');
 		form.name.focus();
 		return false;
 	}
 	if(form.detail.value=="")
 	{
-		alert("请填写店铺简介");
+		alert("Input shop introduction!");
 		form.detail.focus();
 		return false;
 	}
@@ -131,7 +131,7 @@ function ajaxFileUpload(file_type)
 	$("#loading"+"_"+file_type).ajaxStart(function()
 	{
 		$(this).show();
-		$("#logo"+"_"+file_type).html("上传中……");
+		$("#logo"+"_"+file_type).html("Uploading...");
 	})
 	.ajaxComplete(function(){
 		$(this).hide();
@@ -169,7 +169,7 @@ function ajaxFileUpload(file_type)
 							"<p><img src='"+ info[1] +"' width='100px'> <input type='checkbox' checked name='pics[]' value="+ info[1] +" /> "+info[1]
 							+"</p>");
 						}else{
-							alert("添加图片失败");
+							alert("Add image failed!");
 						}
 					}
 				);

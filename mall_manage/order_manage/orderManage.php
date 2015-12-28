@@ -7,14 +7,14 @@
 		$shopPage = $_SESSION['mall_id'];	
 	}
 	
-	$result=mysql_query("select id,name from mall") or die("数据库异常");
-	    $shopLocation[0]='葵花商城';
+	$result=mysql_query("select id,name from mall") or die("Database error");
+	    $shopLocation[0]='SunflowerMall';
 	 while($array=mysql_fetch_array($result)){
 		  $shopLocation[$array['id']]=$array['name'];
 	 }
 	 
 	mysql_free_result($result);
-	$result=mysql_query("select * from adLocation where pageLocation =$shopPage") or die("数据库异常");
+	$result=mysql_query("select * from adLocation where pageLocation =$shopPage") or die("Database error");
 		while($array=mysql_fetch_array($result)){
 		  $adLocation[]=$array;
 	 }
@@ -38,7 +38,7 @@
    }else{
 	$cat = 0;
     }
-    $tableNameArr = array('商城','团购','秒杀','试用','预售');
+    $tableNameArr = array('Mall','GroupPurchase','Seckill','Try','Presell');
 	$tableArr = array('orderlist','teambuy_orderlist','seckill_orderlist','trial_orderlist','book_orderlist');
 	
 ?>
@@ -88,21 +88,21 @@
 						 //$("#orderTable").append(headStr);
 						 var str ='<tr><td colspan=15 >'+dataObj['headStr']+'</td></tr>'+
 						    ' <tr class="t1" id="adTableLine">'+
-							'<td >订单编号</td>'+
-							'<td >订单用户</td>'+
-							'<td >商品商城</td>'+
-							'<td >商店</td>'+								
-							'<td >商品名称</td>'+					
-							'<td >价格</td>'+
-							'<td >收件人</td>'+
-							'<td >收件地址</td>'+
-							'<td >订单时间</td>'+
-							'<td>支付金额</td>'+
-							'<td>快递名称</td>'+
-							'<td>快递订单号</td>'+
-							'<td >订单状态</td>'+
-							'<td >删除</td>'+
-							'<td >操作</td>'+
+							'<td >OrderNo.</td>'+
+							'<td >OrdersUser</td>'+
+							'<td >Mall</td>'+
+							'<td >Store</td>'+								
+							'<td >GoodsName</td>'+					
+							'<td >Price</td>'+
+							'<td >Recipients</td>'+
+							'<td >RecipientsAddress</td>'+
+							'<td >OrderTime</td>'+
+							'<td>PaiedMoney</td>'+
+							'<td>DeliveryName</td>'+
+							'<td>DeliveryOrderNumber</td>'+
+							'<td >OrderState</td>'+
+							'<td >Delete</td>'+
+							'<td >Operation</td>'+
 						    '</tr>';
 						  $("#orderTable").append(str);
 						   for(var i=0;i<dataObj['data'].length;i++){
@@ -122,14 +122,14 @@
 									"<td>"+dataObj['data'][i]['stausStr']+"</td>";
 									
 							  if(dataObj['data'][i]['right'] == 1){
-								   str += "<td onclick='deleteOrder(this)' style='cursor:pointer'>删除</td>";
+								   str += "<td onclick='deleteOrder(this)' style='cursor:pointer'>Delete</td>";
 								 if(dataObj['data'][i]['ordstatus'] == 1){
-								     str = str + '<td onclick="sendGoods(this)" style="cursor:pointer" >设置发货</td></tr>';
+								     str = str + '<td onclick="sendGoods(this)" style="cursor:pointer" >DeliverSettings</td></tr>';
 							     }
 								 else if(dataObj['data'][i]['ordstatus'] == 4){
-									  str = str + '<td onclick="sendGoods(this)" style="cursor:pointer" >设置换货</td></tr>';
+									  str = str + '<td onclick="sendGoods(this)" style="cursor:pointer" >ChangeSettings</td></tr>';
 								 }else if(dataObj['data'][i]['ordstatus'] == 6){
-									  str = str + '<td onclick="changeStatus(this)" style="cursor:pointer" >设置退货</td></tr>';
+									  str = str + '<td onclick="changeStatus(this)" style="cursor:pointer" >ReturnSettings</td></tr>';
 								 }
 								 else{
 								     str = str+'<td onclick="" style="cursor:pointer" ></td></tr>';
@@ -171,7 +171,7 @@
 			searchGoods();
 		}
 		function deleteOrder(ele){
-			var r=confirm("确认删除");
+			var r=confirm("Confirm to delete?");
 			if(r==false){
 				return ;
 			}
@@ -195,7 +195,7 @@
 		function sendGoods(ele){
 			if($(ele).attr('tag') == 1) return;
 			$(ele).attr('tag',1);
-			var str = "<tr style='background-color:#FFF5EE'><td colspan=15 >订单号：<input name='expressNum' value=''  type='text' /> ----- 快递名称：<input name='expressName' type='text' /> ---- <input type='button' onclick ='sendGoodsDo(this,"+$(ele).parent().attr('name')+")' value='确认' /><input onclick='sendGoodsCancel(this)' type='button' value='取消' /></td></tr>"
+			var str = "<tr style='background-color:#FFF5EE'><td colspan=15 >OrderNumber:<input name='expressNum' value=''  type='text' /> ----- DeliverName:<input name='expressName' type='text' /> ---- <input type='button' onclick ='sendGoodsDo(this,"+$(ele).parent().attr('name')+")' value='Commit' /><input onclick='sendGoodsCancel(this)' type='button' value='取消' /></td></tr>"
 		    $(ele).parent().after(str);
 		}
 		function sendGoodsCancel(ele){
@@ -204,7 +204,7 @@
 		}
 		
 		function sendGoodsDo(ele,id){
-			var r=confirm("确认操作");
+			var r=confirm("Commit operation?");
 			if(r==false){
 				return ;
 			}
@@ -227,7 +227,7 @@
 		
 		function changeStatus(ele){
 			
-			var r=confirm("确认操作");
+			var r=confirm("Commit operation?");
 			if(r==false){
 				return ;
 			}
@@ -322,7 +322,7 @@ margin: 0px;
 
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：订单管理 ----  <strong><?php echo  $shopLocation[$mallId] ;?></strong>------<strong><?php echo $result[0] ;?></strong><strong>------<?php echo $tableNameArr[$cat] ;?></strong></span>	
+					<span>Position:OrderManage ----  <strong><?php echo  $shopLocation[$mallId] ;?></strong>------<strong><?php echo $result[0] ;?></strong><strong>------<?php echo $tableNameArr[$cat] ;?></strong></span>	
 
 				</div>		
 			<div class="listintor">
@@ -330,19 +330,19 @@ margin: 0px;
 
 				<div class="content" style='height:1000px'>
 				<div class='controllDiv' id='controllDiv'>
-				<span id='orginOrder' name='DESC' onclick='chooseOrder(this)' style='background-color:#87ceeb;'>按时间降序</span>
-				<span name='ASC' onclick='chooseOrder(this)'>按时间升序</span>
+				<span id='orginOrder' name='DESC' onclick='chooseOrder(this)' style='background-color:#87ceeb;'>DescendingOrderByTime</span>
+				<span name='ASC' onclick='chooseOrder(this)'>OrderByTime</span>
 				
-				<span  name=-1 id='orginType' style='margin-left:40px; background-color:#87ceeb;' onclick='chooseStatus(this)' name='' >全部</span>
-				<span name=0 onclick='chooseStatus(this)'>已下单</span>
-				<span name=1 onclick='chooseStatus(this)'>已支付</span>
-				<span name=2 onclick='chooseStatus(this)'>已发货</span>
-				<span name=3 onclick='chooseStatus(this)'>已收货</span>
-				<span name=4 onclick='chooseStatus(this)'>待换货</span>
-				<span name=4 onclick='chooseStatus(this)'>已换货</span>
-				<span name=6 onclick='chooseStatus(this)'>待退货</span>
-				<span name=7 onclick='chooseStatus(this)'>已退货</span>
-				<span name=8 onclick='chooseStatus(this)'>已评价</span>
+				<span  name=-1 id='orginType' style='margin-left:40px; background-color:#87ceeb;' onclick='chooseStatus(this)' name='' >All</span>
+				<span name=0 onclick='chooseStatus(this)'>OrderPlaced</span>
+				<span name=1 onclick='chooseStatus(this)'>Paied</span>
+				<span name=2 onclick='chooseStatus(this)'>Delivered</span>
+				<span name=3 onclick='chooseStatus(this)'>Taken</span>
+				<span name=4 onclick='chooseStatus(this)'>WaitingToChange</span>
+				<span name=4 onclick='chooseStatus(this)'>Changed</span>
+				<span name=6 onclick='chooseStatus(this)'>WaitingToReturn</span>
+				<span name=7 onclick='chooseStatus(this)'>Returned</span>
+				<span name=8 onclick='chooseStatus(this)'>Evaluated</span>
 				<div class='pageConDiv' id='pageConDiv' style='float:right'>
 
 				</div>

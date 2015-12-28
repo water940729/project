@@ -24,14 +24,14 @@
 				mysql_query($update);
 			}
 		}
-		$content="添加了一个商铺，商铺名为".$name."，商铺编号为".$shop_id."，所属商场为".$mall_name."，商铺简介".$introduceInfo;
+		$content="Added a shop,shop name is:".$name.",shop number is:".$shop_id."belongs to the mall:".$mall_name.",shop introduction:".$introduceInfo;
 		if(add_system_log($content)){
-			echo "<script>alert('添加成功!');window.location.href='check_shop.php';</script>";		
+			echo "<script>alert('Add success!');window.location.href='check_shop.php';</script>";		
 		}else{
-			echo "<script>alert('添加失败,请重新添加!');window.location.href='check_shop.php';</script>";		
+			echo "<script>alert('Add failed,please try again!');window.location.href='check_shop.php';</script>";		
 		}
 	}else{
-		echo "<script>alert('添加失败,请重新添加!');window.location.href='check_shop.php';</script>";
+		echo "<script>alert('Add failed,please try again!');window.location.href='check_shop.php';</script>";
 		echo mysql_error();
 	}
 	//print_r($_POST);

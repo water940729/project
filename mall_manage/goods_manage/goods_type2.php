@@ -25,18 +25,18 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">商品分类</a></li>
+						<li><a href="#">GoodsSort</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：商品管理 －&gt; 商品分类－&gt; <strong>二级分类</strong></span>
+					<span>Position:GoodsManage -&gt; GoodsSort-&gt; <strong>SortLevel2</strong></span>
 				</div>
 				<div class="content">
 					<div style="text-align:left">
-						<p>当前分类：<?=$type1_name?></p><br>
+						<p>CurrentSort:<?=$type1_name?></p><br>
 						<form action="add_type_do.php" method="post" id="doForm">
-							<p>分类名称：<input class="in1" type="text" name="goods_type"/>	
-							<input type="button" value="确定添加" onclick="return check()"></p>
+							<p>SortName:<input class="in1" type="text" name="goods_type"/>	
+							<input type="button" value="SureToAdd" onclick="return check()"></p>
 							<input type="hidden" value=2 name="type">
 							<input type="hidden" value="<?=$type1_id?>" name="type1_id">
 						</form>
@@ -44,9 +44,9 @@
 					<br/>
 					<table style="width:100%">
 						<tr class="t1">
-							<td style="10%">序号</td>
-							<td style="10%">分类名称</td>
-							<td style="10%">操作</td>
+							<td style="10%">No.</td>
+							<td style="10%">SortName</td>
+							<td style="10%">Operation</td>
 						</tr>
 						<?php
 						$select="select * from goods_type2 where type1_id='$type1_id'";
@@ -58,13 +58,13 @@
 							<tr>
 								<td><?php echo $type2_id ?></td>
 								<td><?php echo $type2_name?></td>
-								<td><a href="<?php echo "goods_type3.php?id=$type1_id&&type_name=$type2_name&&type1_id=$type2_id";?>">查看子分类</a>|<a href="<?php echo "modify_shop_food.php?id=$type2_id";?>">修改</a>|<a href="javascript:void(0);" onclick="delete_foods2(<?php echo $type2_id ?>)">删除</a></td>
+								<td><a href="<?php echo "goods_type3.php?id=$type1_id&&type_name=$type2_name&&type1_id=$type2_id";?>">CheckChildSort</a>|<a href="<?php echo "modify_shop_food.php?id=$type2_id";?>">Modify</a>|<a href="javascript:void(0);" onclick="delete_foods2(<?php echo $type2_id ?>)">Delete</a></td>
 							</tr>
 						<?php
 						}
 						?>
 					</table>
-					<a href='goods_type1.php'>返回</a>
+					<a href='goods_type1.php'>Back</a>
 				</div>
 			</div>
 		</div>
@@ -76,7 +76,7 @@ function check()
 {
 	if(form.goods_type.value=="")
 	{
-		alert('请填写分类名称！');
+		alert('Input name of this sort!');
 		form.name.focus();
 		return false;
 	}else{
@@ -84,18 +84,18 @@ function check()
 	}	
 }
 function delete_foods2(id){
-		if(confirm("确认删除吗")){
+		if(confirm("Confirm to delete?")){
 			$.post("delete_foods2_do.php",
 				{
 					goods_id:id
 				},
 				function(data,status){
 					if(data==1){
-						alert("删除成功!");
+						alert("Delete success!");
 						location.reload();
 					}else{
 						alert(data);
-						alert("删除失败");
+						alert("Delete failed!");
 					}
 				}
 			);

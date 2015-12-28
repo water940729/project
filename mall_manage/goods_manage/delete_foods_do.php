@@ -11,7 +11,7 @@
 	$result=mysql_query($sql);
 	$row=mysql_fetch_array($result);
 	if(mysql_query($delete_type1)&&mysql_query($delete_type2)&&mysql_query($delete_goods)&&mysql_query($delete_type3)){
-		$content="删除了商品一级分类，分类名称：".$row["name"];
+		$content="Deleted level1 sort of goods,name is".$row["name"];
 		if(add_system_log($content)==1){
 			echo 1;
 			//echo $content;

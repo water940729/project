@@ -53,10 +53,10 @@ include_once("../menu.php");
 			?>
 			<li class="item">
 				<header class="clearfix">
-					<a href="javascript:window.open('../other_message/home_page.php?community_user_id=<?php echo $community_user_id ?>')"><img class="avatar" src="<?php echo $row1['head_img_url']  ?>" alt="用户名">
+					<a href="javascript:window.open('../other_message/home_page.php?community_user_id=<?php echo $community_user_id ?>')"><img class="avatar" src="<?php echo $row1['head_img_url']  ?>" alt="Username">
 					<div>
 						<span class="name"><a href="javascript:window.open('../other_message/home_page.php?community_user_id=<?php echo $community_user_id ?>')"><?php echo $row1['community_account'] ?></a></span>
-						<span class="action"><?php if($type==1) echo '发表';else echo "转载";?>了一个问答</span>
+						<span class="action"><?php if($type==1) echo 'Issued';else echo "Transfered";?>a question</span>
 					</div>
 					<div class="time"><?php echo $create_time?></div>
 				</header>
@@ -65,22 +65,22 @@ include_once("../menu.php");
 					<p><?php echo $question_content?></p>
 				</section>
 				<footer>
-					<a href='../paper_manage/mypaper_content.php?paper_id=<?php echo $content_id?>&community_user_id = <?php echo $passive_user_id?>' class="search"> 查看详情<i class="icon-search"></i></a>
+					<a href='../paper_manage/mypaper_content.php?paper_id=<?php echo $content_id?>&community_user_id = <?php echo $passive_user_id?>' class="search"> Details<i class="icon-search"></i></a>
 					<ul class="tools">
 						<li>
-							<span id = "s_<?php echo $content_id?>" onclick = "comment_opnion(<?php echo $content_id?>)">赞(<span id="s_num_<?php echo $content_id?>"><?php echo $support_num?></span>)</span><i id="z_<?php echo $content_id?>" class="icon-up"></i>
+							<span id = "s_<?php echo $content_id?>" onclick = "comment_opnion(<?php echo $content_id?>)">Praise(<span id="s_num_<?php echo $content_id?>"><?php echo $support_num?></span>)</span><i id="z_<?php echo $content_id?>" class="icon-up"></i>
 						</li>
 						<li>
-							<span>评论(<?php echo $comment_num?>)</span><i class="icon-comment"></i>
+							<span>Issue(<?php echo $comment_num?>)</span><i class="icon-comment"></i>
 						</li>
 						<li>
-							<span id="store" onclick="store(<?php echo $community_user_id;?>,<?php echo $content_id; ?>,<?php echo $passive_user_id;?>,2)">收藏(<span id="num_store_<?php echo $content_id?>"><?php echo $store_num;?></span>)</span><i class="icon-favourite"></i>
+							<span id="store" onclick="store(<?php echo $community_user_id;?>,<?php echo $content_id; ?>,<?php echo $passive_user_id;?>,2)">Store(<span id="num_store_<?php echo $content_id?>"><?php echo $store_num;?></span>)</span><i class="icon-favourite"></i>
 						</li>
 						<li>
-							<span id = "reprint_<?php echo $content_id?>" onclick = "reprint_paper(<?php echo $content_id;?>)">转发(<span id="reprint_num_<?php echo $content_id?>"><?php echo $reprint_num?></span>)</span><i class="icon-send"></i>
+							<span id = "reprint_<?php echo $content_id?>" onclick = "reprint_paper(<?php echo $content_id;?>)">Transfer(<span id="reprint_num_<?php echo $content_id?>"><?php echo $reprint_num?></span>)</span><i class="icon-send"></i>
 						</li>
 						<li>
-							<span>分享</span><i class="icon-share"></i>
+							<span>Shared</span><i class="icon-share"></i>
 						</li>
 					</ul>
 				</footer>

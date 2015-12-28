@@ -130,7 +130,7 @@ FileProgress.prototype.toggleCancel = function (show, swfUploadInstance,message)
     //edit by ue
     var cancelBtn = this.fileProgressElement.childNodes[0];
 	cancelBtn.style.visibility = show ? "visible" : "hidden";
-    cancelBtn.title = message?message:"取消上传";
+    cancelBtn.title = message?message:"Cancle Upload";
 	if (swfUploadInstance) {
         //edit by ue
         var me = this;

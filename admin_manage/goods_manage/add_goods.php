@@ -13,7 +13,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>商品管理</title>
+		<title>Goods Manager</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -28,7 +28,7 @@
 				//计算收益
 				$("#price").blur(function(){
 					if($(this).val()==0){
-						alert("请输入商品价格");
+						alert("Please enter the goods price");
 					}else{
 						var id=$("#shop").val();
 						var price=$(this).val();
@@ -50,19 +50,19 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">商品管理</a> </li>
+				<li><a href="#">Goods Manager</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-			<span>位置：商品管理 －&gt; <strong>添加商品</strong></span>
+			<span>Location：Goods Manager －&gt; <strong>Add Goods</strong></span>
 		</div>		
 		<div class="fromcontent">
 			<form action="add_goods_do.php" method="post" id="doForm">
-				<p><font style="font-size:15px;color:red">商品基本信息:</font></p>
-				<p>商品名称：<input class="in1" type="text" name="goodsName" id="goodsName"/></p>
+				<p><font style="font-size:15px;color:red">Goods info:</font></p>
+				<p>Goods name：<input class="in1" type="text" name="goodsName" id="goodsName"/></p>
 				
-				<p>所属商家：
+				<p>Markting belong：
 				<?php
 					if($_GET["shop_id"]){
 						$sql1="select id,name from shop where id=$_GET[shop_id]";
@@ -71,7 +71,7 @@
 					}
 				?>
 					<select class="in1" name="shop" id="shop">
-					<option value="0" select="selected">不选表示葵花自营</option>
+					<option value="0" select="selected"></option>
 					<?php
 						$result1=mysql_query($sql1);
 						while($row1=mysql_fetch_array($result1))
@@ -85,8 +85,8 @@
 					?>
 					</select>
 				</p>
-				<p>商品类别：
-					分类1：
+				<p>Goods Classify：
+					Category1：
 					<select class="in1" name="goodsType" id="goodsType" onclick=choose_type(this.value)>
 					<?php
 						$sql1="select * from goods_type1";
@@ -101,31 +101,31 @@
 						}	
 					?>
 					</select>&nbsp;&nbsp;&nbsp;&nbsp;
-					分类2：							
+					Category2：							
 				    <select name="type2" id="type2" onclick=choose_type2(this.value)>
 					</select>&nbsp;&nbsp;&nbsp;&nbsp;
-					分类3：							
+					Category3：							
 				    <select name="type3" id="type3" onclick=choose_type3(this.value)>						
 					</select></p>
 				<div id="attribute">
 				</div>
-				<p>商品价格：<input class="in1" type="text" name="price" id="price"/><span class="ratio" style="color:red;"></span>(*请输入一个数字)</p>	
-				<p>商品原价：<input class="in1" type="text" name="original_price" id="original_price"/>(可不填)</p>	
-				<p>商品数量：<input class="in1" type="text" name="goodsnum" id="goodsnum"/>(*请输入一个数字)</p>	
+				<p>Goods Price：<input class="in1" type="text" name="price" id="price"/><span class="ratio" style="color:red;"></span>(*Please enter a number)</p>	
+				<p>Goods original price：<input class="in1" type="text" name="original_price" id="original_price"/>(can be empty)</p>	
+				<p>Goods number：<input class="in1" type="text" name="goodsnum" id="goodsnum"/>(*Please enter a number)</p>	
 				<br>
 				
-				<p>商品可选属性1：<input class="in1" type="text" name="extattribute1">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
-				<p>商品可选属性2：<input class="in1" type="text" name="extattribute2">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
-				<p>商品可选属性3：<input class="in1" type="text" name="extattribute3">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
+				<p>Goods optional attribute1：<input class="in1" type="text" name="extattribute1">(No, don't fill in format property name. Properties 1, properties, 2 commas in English between multiple attribute, the attribute name in English a semicolon)</p><br/>
+				<p>Goods optional attribute2：<input class="in1" type="text" name="extattribute2">(No, don't fill in format property name. Properties 1, properties, 2 commas in English between multiple attribute, the attribute name in English a semicolon)</p><br/>
+				<p>Goods optional attribute3：<input class="in1" type="text" name="extattribute3">(No, don't fill in format property name. Properties 1, properties, 2 commas in English between multiple attribute, the attribute name in English a semicolon)</p><br/>
 				
-				<p><font style="font-size:15px;color:red">商品SEO信息:</font></p>	
-				<p>商品关键字：<input class="in1" type="text" name="keywords" id="keywords"/>(各个关键字以空格分开)</p>
-				<p>商品简介：
+				<p><font style="font-size:15px;color:red">Goods SEO infomation:</font></p>	
+				<p>Goods keyword：<input class="in1" type="text" name="keywords" id="keywords"/>(The keywords separated by Spaces)</p>
+				<p>Goods Description：
 					<textarea cols="20" rows="3" id='goodsDesc' name='goodsDesc'></textarea>
 				</p><br>
 				
-				<p><font style="font-size:15px;color:red">商品图片简介:</font></p>	
-				<p>图片上传: 
+				<p><font style="font-size:15px;color:red">Goods pictures Description:</font></p>	
+				<p>Picture upload: 
 					 <span id="upd_pics"></span>
 					 <input type="file" name="file" id="file" onchange="check_file()"/>
 					 	<span id="loading" style="display:none;">
@@ -134,20 +134,20 @@
 					 	<span id="logo"></span>
                         <input type="hidden" name="filename" id="filename" value="" />
 						<input type="hidden" name="goods_desc" id="goods_desc" value="" />
-                        <input type="button" value="上传" onclick="return ajaxFileUpload();" 
+                        <input type="button" value="upload" onclick="return ajaxFileUpload();" 
                         class="btn btn-large btn-primary" />
 					</p>
 				<p>
-				<p>商品描述:</p>
+				<p>Goods Description:</p>
 					<script id="editor" type="text/plain" name="goods_info" style="width:1024px;height:300px;">
 					</script>
-				<p>包装及参数:</p>
+				<p>package and parameter:</p>
 					<script id="editor2" type="text/plain" name="package_info" style="width:1024px;height:300px;">
 					</script>
-				<p>售后保障:</p>
+				<p>After-sale protection:</p>
 					<script id="editor3" type="text/plain" name="sales_support" style="width:1024px;height:300px;">
 					</script>					
-				<input type="button" value="提交" onclick="return check()"></p>
+				<input type="button" value="Commit" onclick="return check()"></p>
 			</form>
 		</div>
 	</div>

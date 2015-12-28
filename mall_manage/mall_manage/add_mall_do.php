@@ -25,9 +25,9 @@
 				//echo $insert_shop_pic."<br>";
 				mysql_query($insert_mall_pic);
 			}
-			echo "<script>alert('添加成功!');window.location.href='check_mall.php';</script>";
+			echo "<script>alert('Add success!');window.location.href='check_mall.php';</script>";
 	}else{
-		echo "<script>alert('添加失败,请重新添加!');window.location.href='check_mall.php';</script>";
+		echo "<script>alert('Add failed,please try again!');window.location.href='check_mall.php';</script>";
 		echo mysql_error();
 	}
 	

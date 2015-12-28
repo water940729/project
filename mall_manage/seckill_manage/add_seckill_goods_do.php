@@ -52,13 +52,13 @@ Array ( [goodsName] => 测试 [price] => 329 [start] => 2015-06-18 13:00:00 [end
 			//echo $insert_goods_pic."<br>";
 			mysql_query($insert_goods_pic);
 		}
-		$content="添加了一种秒杀商品，商品信息：商品名".$goodsName;
+		$content="Added a kind of seckill goods ,details:Goodsname:".$goodsName;
 		if(add_system_log($content)==1){
 			$url="manage_seckill_type.php?id=$type_id";
-			echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add success!');window.location.href='".$url."';</script>";
 			//echo $content;
 		}else{
-			echo "<script>alert('添加失败,请重新添加!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 			//echo $content;
 			//echo add_system_log($content);
 		}
@@ -66,7 +66,7 @@ Array ( [goodsName] => 测试 [price] => 329 [start] => 2015-06-18 13:00:00 [end
 		//echo $insert_goods_pic;
 //		print_r($insert);
 	}else{	
-		echo "<script>alert('添加失败,请重新添加!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 		echo mysql_error();
 	}
 ?>

@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>HomepageManage</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -37,7 +37,7 @@
 			$("#weight").keyup(function(){
 				var val=$(this).val();
 				if(val!=""&&(val<1||val>9999)){
-					alert("请输入合法的数！");
+					alert("Input an illegal number!");
 					$(this).val("");
 					//return false;
 				}
@@ -46,7 +46,7 @@
 		function check(){
 			var name=$.trim($("#prev").val());//去除多余空格
 			if(name==""){
-				alert("分类名称不能为空");
+				alert("Sort name cannot be empty!");
 				return false;
 			}else{
 				$("#doForm").submit();
@@ -63,15 +63,15 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">HomepageManage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>添加楼层</strong> －&gt; <strong>分类管理</strong> －&gt; <strong>添加分类</strong></span>
+					<span>Position:HomepageManage －&gt; <strong>AddFloor</strong> －&gt; <strong>SortManage</strong> －&gt; <strong>AddSort</strong></span>
 				</div>
 				<div class="content">
 					<form action="add_floor_type_do.php" method="post" id="doForm">
-						<p>分类名称:<input class="in1" type="text" name="type_name" id="prev"/>从现有分类中选择	
+						<p>SortName:<input class="in1" type="text" name="type_name" id="prev"/>Choose in esisting sort:	
 						<select name="typename">
 							<?php
 								$sql="select * from goods_type1 where typebelong=$_SESSION[mall_id]";
@@ -80,13 +80,13 @@
 									echo "<option value='{$rows["id"]}'>$rows[name]</option>";
 								}
 							?>
-						</select> <button id="addType">添加</button></p><br/>
-						<p><input type="checkbox" name="map" id="map">是否建立关联</p><br/>
+						</select> <button id="addType">Add</button></p><br/>
+						<p><input type="checkbox" name="map" id="map">Confirm to connect</p><br/>
 						<input type="hidden" name="type1_id" id="type1_id">
 						<input type="hidden" name="type1_name" id="type1_name">
-						<p>分类权重:<input class="in1" type="text" name="weight" id="weight"/>(输入1-9999中的任意数，数值越大楼层越靠前，默认为1)</p><br/>
+						<p>SortWeight:<input class="in1" type="text" name="weight" id="weight"/>(Input any number between 1 & 9999,The larger the numerical floor the top,Default is 1)</p><br/>
 						<br/>
-						<input type="button" value="确定添加" onclick="return check()"></p>
+						<input type="button" value="SureToAdd" onclick="return check()"></p>
 						<input type="hidden" value="<?=$name?>" name="floor_name">
 						<input type="hidden" value="<?=$id?>" name="floor_id">
 					</form>

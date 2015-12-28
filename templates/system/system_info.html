@@ -13,7 +13,7 @@
 						$("#loading"+"_"+file_type).ajaxStart(function()
 						{
 							$(this).show();
-							$("#logo"+"_"+file_type).html("上传中……");
+							$("#logo"+"_"+file_type).html("uploading……");
 						})
 						.ajaxComplete(function(){
 							$(this).hide();
@@ -77,7 +77,7 @@
 						data:content,
 						success:function(data){
 							if(data==1){
-								alert("修改成功");
+								alert("edit success");
 							}else{
 								alert(data);
 							}
@@ -93,20 +93,20 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">系统设置</a></li>
+						<li><a href="#">System Setting</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：系统设置 －&gt; <strong>系统信息</strong></span>
+					<span>Location：System Setting －&gt; <strong>System info</strong></span>
 				</div><div class="fromcontent">
 			<form action="http://<{$url}>/admin_manage/system_manage/system_modify.php" method="post" id="doForm">
-				<p>网站全名：<input class="in1" type="text" name="web_name" id="name" value="<{$array['web_name']}>" /></p>			
-				 <p>网站关键字：
-				 <input type="text" name="key_word" value="<{$array['key_word']}>" />（多个关键字以，分隔）
+				<p>Web site name：<input class="in1" type="text" name="web_name" id="name" value="<{$array['web_name']}>" /></p>			
+				 <p> Keyword varchar：
+				 <input type="text" name="key_word" value="<{$array['key_word']}>" />（Multiple keywords to space）
 				 </p>							
-				 <p>网站LOGO：
+				 <p>Web site LOGO：
 				 <{if ($array['pics'])}>
-				 <img src="<{$array['pics']}>" width="50px" height="60px" alt="网站LOGO"/>
+				 <img src="<{$array['pics']}>" width="50px" height="60px" alt="Web Site LOGO"/>
 				 <{/if}>
 				 <span id="shop_images" name=""></span>
 				 <input type="file" name="file" id="file_image"/>
@@ -115,19 +115,19 @@
 				 	</span>
 				 	<span id="logo_image"></span>
                     <input type="button" value="上传" onclick="return ajaxFileUpload('image');" 
-                    class="btn btn-large btn-primary" />(*海报尺寸：500*500以内)	
+                    class="btn btn-large btn-primary" />(*The poster size: 500 * 500 or less)	
 				</p>					
 				<br>
 				<!--<p>热门关键词：<input class="in1" type="text" name="hot_word" id="name" value="<{$array['hot_word']}>" /></p>(多个关键字以,分隔)-->
-				<p>网站描述：<input class="in1" type="text" name="description" id="name" value="<{$array['description']}>" /></p>
-				<p>管理员电话：<input class="in1" type="text" name="phone" id="name" value="<{$array['phone']}>" /></p>
-				<p>客服QQ：<input class="in1" type="text" name="qq" id="qq" value="<{$array['qq']}>" /></p>
-				<p>客服旺旺：<input class="in1" type="text" name="wangwang" id="wangwang" value="<{$array['wangwang']}>" /></p>				
+				<p>Site Description：<input class="in1" type="text" name="description" id="name" value="<{$array['description']}>" /></p>
+				<p>The administrator phone：<input class="in1" type="text" name="phone" id="name" value="<{$array['phone']}>" /></p>
+				<p>Customer Service QQ：<input class="in1" type="text" name="qq" id="qq" value="<{$array['qq']}>" /></p>
+				<p> ID lonemiss：<input class="in1" type="text" name="wangwang" id="wangwang" value="<{$array['wangwang']}>" /></p>				
 				<p>Email：<input class="in1" type="text" name="email" id="name" value="<{$array['email']}>" /></p>
-				<p>邮箱密码：<input class="in1" type="password" name="email_pass" id="name" value="<{$array['email_pass']}>" /></p>
-				<p>缓存生存时间:<input class="in1" type="text" name="lifetime" value="<{$array['lifetime']}>" />(单位s)</p>
-				<p>版权信息设置：<input class="in1" type="text" name="copyright" id="name" value="<{$array['copyright']}>" /></p>
-				<p><input type="submit" value="确定" id="submit" /></p>
+				<p>Email password：<input class="in1" type="password" name="email_pass" id="name" value="<{$array['email_pass']}>" /></p>
+				<p>Cache time to live:<input class="in1" type="text" name="lifetime" value="<{$array['lifetime']}>" />(Units)</p>
+				<p>Copyright information set：<input class="in1" type="text" name="copyright" id="name" value="<{$array['copyright']}>" /></p>
+				<p><input type="submit" value="sure" id="submit" /></p>
 			</form>
 		</div>
 	</div>

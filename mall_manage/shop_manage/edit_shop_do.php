@@ -34,14 +34,14 @@
 				mysql_query($delete);
 			}	
 		}
-		$conn="修改了".$rows["name"]."店铺，修改内容为：店铺名".$name.",店铺简介".$shop_detail."，所属商城".$mall_name;
+		$conn="Modified".$rows["name"]."shop,details：shop name:".$name.",shop introduction:".$shop_detail.",belongs to the mall:".$mall_name;
 		if(add_system_log($conn)){
-			echo "<script>alert('修改成功!');window.location.href='".$url."';</script>";		
+			echo "<script>alert('Modify success!');window.location.href='".$url."';</script>";		
 		}else{
-			echo "<script>alert('修改失败,请重试!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Modify failed,please try again!');window.location.href='".$url."';</script>";
 		}
 	}else{
-		echo "<script>alert('修改失败,请重试!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Modify failed,please try again!');window.location.href='".$url."';</script>";
 		echo mysql_error();
 	}
 ?>

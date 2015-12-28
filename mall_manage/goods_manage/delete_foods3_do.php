@@ -9,7 +9,7 @@
 	$result=mysql_query($sql);
 	$row=mysql_fetch_array($result);
 	if(mysql_query($delete_good)&&mysql_query($delete)){
-		$content="删除了商品三级分类，分类名称：".$row["name"];
+		$content="Deleted level3 sort of goods,name is".$row["name"];
 		if(add_system_log($content)==1){
 			echo 1;
 				//echo $content;

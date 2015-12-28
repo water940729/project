@@ -11,13 +11,13 @@
 	$time=time();
 	$role=$_SESSION["mall_id"];
 	$sql="insert into keyword_manage(keyword,weight,time,role) values('{$keyword}',$weight,$time,$role)";
-	$content="添加了一个关键词，关键词名字".$keyword;
+	$content="Added a keyword,name is:".$keyword;
 	if(mysql_query($sql)&&(add_system_log($content)==1)){
 		$url="keyword_manage.php";
-		echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add success!');window.location.href='".$url."';</script>";
 	}else{
 		$url="add_keyword.php";
-		echo "<script>alert('添加失败，请重新添加!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 	}
 	//echo $sql;
 	//echo $content;

@@ -105,12 +105,12 @@
 		}
 		//echo $insert;
 		mysql_query($insert);
-		echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add success!');window.location.href='".$url."';</script>";
 
 		
 		//echo "<script>alert('修改成功!');window.location.href='".$url."';</script>";
 	}else{	
-		echo "<script>alert('修改失败,请重新修改!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 		echo mysql_error();
 		//echo $insert;
 		//echo $update;

@@ -39,7 +39,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>商品管理</title>
+		<title>GoodsManage</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -54,7 +54,7 @@
 				//计算收益
 				$("#price").blur(function(){
 					if($(this).val()==0){
-						alert("请输入商品价格");
+						alert("Input goods price");
 					}else{
 						var id=$("#shop").val();
 						var price=$(this).val();
@@ -76,12 +76,12 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">商品管理</a> </li>
+				<li><a href="#">GoodsManage</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-			<span>位置：商品管理 －&gt; <strong>修改商品</strong></span>
+			<span>Position:GoodsManage －&gt; <strong>ModifyGoods</strong></span>
 		</div>		
 		<div class="fromcontent">
 			<form action="edit_goods_do.php" method="post" id="doForm">
@@ -95,10 +95,10 @@
 				<?php
 					}
 				?>
-				<p><font style="font-size:15px;color:red">商品基本信息:</font></p>
-				<p>商品名称：<input class="in1" type="text" name="goodsName" id="goodsName" value="<?=$goods_name?>"/></p>
+				<p><font style="font-size:15px;color:red">GoodsBasicInformation:</font></p>
+				<p>GoodsName:<input class="in1" type="text" name="goodsName" id="goodsName" value="<?=$goods_name?>"/></p>
 				
-				<p>所属商家：
+				<p>Belongs:
 					<select class="in1" name="shop" id="shop">
 					<?php
 						$sql1="select id,name from shop".$area;
@@ -114,8 +114,8 @@
 					?>
 					</select>
 				</p>
-				<p>商品类别：
-					分类1：
+				<p>GoodsSort：
+					Sort1:
 					<select class="in1" name="goodsType" id="goodsType" onchange=choose_type(this.value)>
 					<?php
 						$sql1="select * from goods_type1";
@@ -130,7 +130,7 @@
 						}	
 					?>
 					</select>&nbsp;&nbsp;&nbsp;&nbsp;
-					分类2：
+					Sort2:
 					<select name="type2" id="type2" onchange=choose_type2(this.value)>
 					<?php 
 						$sql2="select * from goods_type2 where type1_id=$goods_type1_id";					
@@ -144,7 +144,7 @@
 						}
 					?>
 					</select>
-					分类3：
+					Sort3:
 					<select name="type3" id="type3" onchange=choose_type3(this.value)>
 					<?php 
 						$sql3="select * from goods_type3 where type2_id=$goods_type2_id";					
@@ -160,23 +160,23 @@
 					</select>	
 				<div id="attribute">
 				</div>					
-				<p>商品价格：<input class="in1" type="text" name="price" id="price" value=<?=$goods_price?> /><span class="ratio" style="color:red;"></span>(*请输入一个数字)</p>	
-				<p>商品原价：<input class="in1" type="text" name="original_price" id="original_price" value=<?=$original_price?> />(可不填)</p>	
-				<p>商品数量：<input class="in1" type="text" name="goodsnum" id="goodsnum" value=<?=$goodsnum?> />(*请输入一个数字)</p>	
+				<p>GoodsPrice:<input class="in1" type="text" name="price" id="price" value=<?=$goods_price?> /><span class="ratio" style="color:red;"></span>(*Input a number)</p>	
+				<p>GoodsOriginalPrice:<input class="in1" type="text" name="original_price" id="original_price" value=<?=$original_price?> />(fill or not)</p>	
+				<p>Amount:<input class="in1" type="text" name="goodsnum" id="goodsnum" value=<?=$goodsnum?> />(*Input a number)</p>	
 				</p><br>
 				
 				
-				<p>商品可选属性1：<input class="in1" type="text" name="extattribute1" value="<?=$extattribute1?>">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
-				<p>商品可选属性2：<input class="in1" type="text" name="extattribute2" value="<?=$extattribute2?>">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
-				<p>商品可选属性3：<input class="in1" type="text" name="extattribute3" value="<?=$extattribute3?>">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
+				<p>Property1:<input class="in1" type="text" name="extattribute1" value="<?=$extattribute1?>">(fill or not,format   propertyname:property1,property2,property3  muti property divided by ',',propertyname devided by ';' )</p><br/>
+				<p>Property2:<input class="in1" type="text" name="extattribute2" value="<?=$extattribute2?>">(fill or not,format   propertyname:property1,property2,property3  muti property divided by ',',propertyname devided by ';' )</p><br/>
+				<p>Property3:<input class="in1" type="text" name="extattribute3" value="<?=$extattribute3?>">(fill or not,format   propertyname:property1,property2,property3  muti property divided by ',',propertyname devided by ';' )</p><br/>
 								
-				<p><font style="font-size:15px;color:red">商品SEO信息:</font></p>	
-				<p>商品关键字：<input class="in1" type="text" name="keywords" id="keywords" value="<?=$goods_keywords?>"/>(各个关键字以空格分开)</p>
-				<p>商品简介：
+				<p><font style="font-size:15px;color:red">Goods SEO Information:</font></p>	
+				<p>KeyWords<input class="in1" type="text" name="keywords" id="keywords" value="<?=$goods_keywords?>"/>(devided by ' ')</p>
+				<p>BriefIntroduction:
 					<textarea cols="20" rows="3" id='goodsDesc' name='goodsDesc'><?=$goods_desc?></textarea>
 				</p><br>
 				
-				<p><font style="font-size:15px;color:red">商品图片简介:</font></p><br>
+				<p><font style="font-size:15px;color:red">ImageIntroduction:</font></p><br>
 				<?php 
 					$sql3="select * from goods_pictures where goods_id='$goods_id'";
 					//echo $sql3;
@@ -189,7 +189,7 @@
 				<?php
 					}
 				?>
-				<p>添加图片: 
+				<p>AddImage: 
 					 <span id="upd_pics"></span>
 					 <input type="file" name="file" id="file" onchange="check_file()"/>
 					 	<span id="loading" style="display:none;">
@@ -198,23 +198,23 @@
 					 	<span id="logo"></span>
                         <input type="hidden" name="filename" id="filename" value="" />
 						<input type="hidden" name="goods_desc" id="goods_desc" value="" />
-                        <input type="button" value="上传" onclick="return ajaxFileUpload();" 
+                        <input type="button" value="upload" onclick="return ajaxFileUpload();" 
                         class="btn btn-large btn-primary" />
 					</p>
 				<p>
-				<p>商品描述:</p>
+				<p>Description:</p>
 					<script id="editor1" type="text/plain" name="goods_info" style="width:1024px;height:300px;">
 						<?=$goods_info?>
 					</script>
-				<p>包装及参数:</p>
+				<p>PackageAndParams:</p>
 					<script id="editor2" type="text/plain" name="package_info" style="width:1024px;height:300px;">
 						<?=$package_info?>
 					</script>
-				<p>售后保障:</p>
+				<p>After-sale protection:</p>
 					<script id="editor3" type="text/plain" name="sales_support" style="width:1024px;height:300px;">
 						<?=$sales_support?>
 					</script>
-				<input type="button" value="提交" onclick="return check()"></p>
+				<input type="button" value="Submit" onclick="return check()"></p>
 			</form>
 		</div>
 	</div>
@@ -294,25 +294,25 @@ function check()
 {
 	if(form.goodsName.value=="")
 	{
-		alert('请填写商品名称！');
+		alert('Input goods name!');
 		form.goodsName.focus();
 		return false;
 	}
 	if(form.goodsType.value=="") 
 	{
-		alert('请填写商品类型！');
+		alert('Input goods type!');
 		form.goodsType.focus();
 		return false;
 	}
 	if(form.price.value=="") 
 	{
-		alert('请填写商品价格！');
+		alert('Input goods price!');
 		form.price.focus();
 		return false;
 	}
 	if(form.goodsnum.value=="") 
 	{
-		alert('请填写商品数量！');
+		alert('Input goods amount!');
 		form.price.focus();
 		return false;
 	}	
@@ -327,7 +327,7 @@ function ajaxFileUpload()
         $("#loading")
         .ajaxStart(function(){
             $(this).show();
-            document.getElementById('logo').innerHTML="图片上传中……";
+            document.getElementById('logo').innerHTML="Image uploading...";
         })
         .ajaxComplete(function(){
                 $(this).hide();
@@ -361,7 +361,7 @@ function ajaxFileUpload()
 							$("#upd_pics").html(c +
 							"<p><img src='"+ info[1] +"' width='100px'> <input type='checkbox' checked name='pics[]' value="+ info[1] +" /> "+info[1]
 							+"</p>");							}else{
-									alert("添加图片失败");
+									alert("Add image failed");
 								}
 							}
 						);

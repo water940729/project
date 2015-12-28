@@ -35,18 +35,18 @@
 		}
 		//echo $insert;
 		if(mysql_query($insert)){
-			$content="添加了商品{$type}级分类，分类名称：".$goods_type;
+			$content="Added Goods{$type}levels sort,SortName:".$goods_type;
 			if(add_system_log($content)==1){
-				echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+				echo "<script>alert('Add success!');window.location.href='".$url."';</script>";
 				//echo $content;
 			}else{
 				echo "-1";
 				//echo $content;
 				//echo add_system_log($content);
 			}
-			echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add success!');window.location.href='".$url."';</script>";
 		}else{	
-			echo "<script>alert('添加失败,请重新添加!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 			echo mysql_error();
 		}
 	}else{
@@ -77,9 +77,9 @@
 		}
 		//echo $insert;
 		if(mysql_query($insert)){
-			echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add success!');window.location.href='".$url."';</script>";
 		}else{	
-			echo "<script>alert('添加失败,请重新添加!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add failed,please try again!');window.location.href='".$url."';</script>";
 			echo mysql_error();
 		}
 	}

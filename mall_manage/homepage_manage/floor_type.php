@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>HomepageManage</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -15,7 +15,7 @@
 		<!--<script type="text/javascript" src="../js/upload.js"></script>-->
 		<script>
 			function delete_floor_type(id){
-				if(confirm("确认删除")){
+				if(confirm("Confirm to delete?")){
 					$.ajax({
 						data:"id="+id,
 						type:"POST",
@@ -34,22 +34,22 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">HomepageManage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>楼层管理</strong> －&gt; <strong>分类管理</strong></span>
+					<span>Position:HomepageManage －&gt; <strong>FloorManage</strong> －&gt; <strong>SortManage</strong></span>
 				</div>
 				<div class="content">
-					<a href="add_floor_type.php?id=<?php echo $id;?>&name=<?=$name?>"><strong>添加分类</strong></a><br/>
+					<a href="add_floor_type.php?id=<?php echo $id;?>&name=<?=$name?>"><strong>AddSort</strong></a><br/>
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">自定义分类名</td>
-							<td width="10%">楼层名</td>
-							<td width="10%">分类权重</td>
+							<td width="5%">CustomSortName</td>
+							<td width="10%">FloorName</td>
+							<td width="10%">SortWeight</td>
 							<!--<td width="10%">类别</td>-->
-							<td width="10%">对应的系统分类</td>
-							<td width="10%">操作</td>
+							<td width="10%">CorrespondingSystemSort</td>
+							<td width="10%">Operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -85,8 +85,8 @@
 							<td><?php echo $type1_name?></td>
 							<?php /*<td><?php echo $type?></td>*/?>
 							<td>
-								<a href="floor_type_goods_manage.php?id=<?=$id?>">商品管理</a>|
-								<a href="javascript:void(0);" onclick="delete_floor_type(<?php echo $id;?>)">删除</a>
+								<a href="floor_type_goods_manage.php?id=<?=$id?>">GoodsManage</a>|
+								<a href="javascript:void(0);" onclick="delete_floor_type(<?php echo $id;?>)">Delete</a>
 							</td>
 						</tr>
 						<?php
@@ -95,11 +95,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>No such information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current:<?php echo $page;?>/<?php echo $pagecount;?>Page EveryPage <?php echo $pagesize?> Items</div>
 						<div class="pageafter">
 						<?php echo showPage("check_goods.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

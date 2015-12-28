@@ -1,11 +1,11 @@
 ﻿<?php 
 	function getRole($role){
 		if($role==1){
-			return "超级管理员";
+			return "SuperAdmin";
 		}else if($role==2){
-			return "商场管理员";
+			return "MallManager";
 		}else if($role==3){
-			return "商户管理员";
+			return "StoreManager";
 		}
 	}
 	function getRoleArea($role,$shop_id,$mall_id){

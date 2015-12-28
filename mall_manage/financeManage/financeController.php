@@ -14,14 +14,14 @@ if(isset($_SESSION['mall_id'])){
 	exit();
 }
 
-$result=mysql_query("select id,name from shop where mall_id =".$mallId) or die("数据库异常");
+$result=mysql_query("select id,name from shop where mall_id =".$mallId) or die("Database Exception");
 	    $shopList[0]='';
 while($array=mysql_fetch_array($result)){
 		$shopList[$array['id']]=$array['name'];
 	 }
 	 
 	 
-$statusArr= array('待处理','已审核','提款中','已成功','已驳回');
+$statusArr= array('Waitting','Has Verified','Drawing','Succeed','Refused');
 $pageNum = 5;
 
 if($action == 'apply'){
@@ -41,7 +41,7 @@ if($action == 'apply'){
 
 		$balance = $res[0];
 		$total = $res[1];
-		if($total <= $sum){echo json_encode(array('status'=>0,'msg'=>'余额不足'));exit();}
+		if($total <= $sum){echo json_encode(array('status'=>0,'msg'=>'Balance is not enough'));exit();}
 		$sql = 'update `mall` set useMoney='.($total-$sum).' where id='.$mallId;
 	    if(mysql_query($sql)){
 		$time = time();
@@ -135,14 +135,14 @@ if($action == 'searchShop'){
     
 
 	if($page>1){
-		$conStr.='<div onclick="changePage(this)"  name="'.($page-1).'">上一页</div>';
+		$conStr.='<div onclick="changePage(this)"  name="'.($page-1).'">Previous</div>';
 	}
 	for($i=$startPage;$i<=$endPage;$i++){
 		if($page==$i){$color='#87ceeb';}else{$color='#ffc0cb';}
 		$conStr.='<span onclick="changePage(this)" style="background-color:'.$color.'" name="'.$i.'">'.$i.'</span>';
 	}
 	if($page<$pageTotal){
-		$conStr.='<div onclick="changePage(this)"  name="'.($page+1).'">下一页</div>';
+		$conStr.='<div onclick="changePage(this)"  name="'.($page+1).'">Next</div>';
 	}
 
 	
@@ -158,7 +158,7 @@ if($action == 'searchShop'){
 			$row['status'] = $statusArr[$row['status']];
 			$data[] = $row;
 		}
-		echo json_encode(array('status'=>1,'data'=>$data,'constr'=>$conStr,'headStr'=>'此分类下 总计: '.$total.'个请求'));
+		echo json_encode(array('status'=>1,'data'=>$data,'constr'=>$conStr,'headStr'=>'Current Sort Total: '.$total.'Requests'));
 	}else{
 		echo json_encode(array('status'=>0));
 		exit();

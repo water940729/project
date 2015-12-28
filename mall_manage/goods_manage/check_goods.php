@@ -14,7 +14,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>商品管理</title>
+		<title>GoodsManage</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -24,26 +24,26 @@
 		<div class="bgintor">
 <div class="tit1">
 					<ul>				
-						<li><a href="#">商品管理</a></li>
+						<li><a href="#">GoodsManage</a></li>
 					</ul>		
 				</div>		
 			<div class="listintor">
 				
 				<div class="header1">
-					<span>位置：商品管理 －&gt; <strong>查看商品</strong></span>
+					<span>position:GoodsManage －&gt; <strong>CheckGoods</strong></span>
 				</div>
 				<div class="content">
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">商品序号</td>
-							<td width="10%">名称</td>
-							<td width="10%">价格</td>
-							<td width="10%">分类1</td>
-							<td width="10%">分类2</td>
-							<td width="10%">分类3</td>
-							<td width="10%">所属商户</td>
-							<td width="10%">所属商场</td>
-							<td width="10%">操作</td>
+							<td width="5%">GoodsNo.</td>
+							<td width="10%">Name</td>
+							<td width="10%">Price</td>
+							<td width="10%">Sort1</td>
+							<td width="10%">Sort2</td>
+							<td width="10%">Sort3</td>
+							<td width="10%">StoreBelongs</td>
+							<td width="10%">MallBelongs</td>
+							<td width="10%">Operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -106,8 +106,8 @@
 							<td><?php echo $mall_name?></td>
 							<td>
 								<!--<a href="../homepage_manage/recommend.php?goods_id=<?=$id?>">推荐到首页</a>|-->
-								<a href="edit_goods.php?goods_id=<?=$id?>&from=goods">修改商品</a>|
-								<a href="javascript:void(0);" onclick="delete_goods(<?=$id?>)">删除</a>
+								<a href="edit_goods.php?goods_id=<?=$id?>&from=goods">ModifyGoods</a>|
+								<a href="javascript:void(0);" onclick="delete_goods(<?=$id?>)">Delete</a>
 							</td>
 						</tr>
 						<?php
@@ -116,11 +116,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>No such information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current:<?php echo $page;?>/<?php echo $pagecount;?>page Everypage <?php echo $pagesize?> items</div>
 						<div class="pageafter">
 						<?php echo showPage("check_goods.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>
@@ -134,17 +134,17 @@
 </html>
 <script>
 	function delete_goods(goods_id){
-		if(confirm("确认删除吗")){
+		if(confirm("Sure to delete?")){
 			$.post("delete_goods_do.php",
 				{
 					goods_id:goods_id
 				},
 				function(data,status){
 					if(data==1){
-						alert("删除成功!");
+						alert("Delete Success!");
 						location.reload();
 					}else{
-						alert("删除失败");
+						alert("Delete Fialed!");
 					}
 				}
 			);

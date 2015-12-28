@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>商品管理</title>
+		<title>GoodsManage</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -26,18 +26,18 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">商品管理</a> </li>
+				<li><a href="#">GoodsManage</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1">
-			<span>位置：商品管理 －&gt; <strong>添加商品</strong></span>
+			<span>Position:GoodsManage －&gt; <strong>AddGoods</strong></span>
 		</div>		
 		<div class="fromcontent">
 			<form action="modify_info.php" method="post" id="doForm">
-				<p>商场名称：<input class="in1" type="text" disabled name="name" id="name" value='<?=$row["name"]?>'/></p>	
-				<p>收益比例：<input class="in1" type="text" disabled name="ratio" id="ratio" value='<?=$row["ratio"]?>'/></p>（比如：80表示一笔支付商城获得80%，商场获得20%）
-				<p>商场LOGO上传:
+				<p>GoodsName:<input class="in1" type="text" disabled name="name" id="name" value='<?=$row["name"]?>'/></p>	
+				<p>EarningsRatio:<input class="in1" type="text" disabled name="ratio" id="ratio" value='<?=$row["ratio"]?>'/></p>（example:80 means mall earns 80%,store earns 20%）
+				<p>Mall LOGO Upload:
 				<img src="<?=$row["image_url"]?>" width="100" ><input type='checkbox' checked name='pics[]' value="<?=$mp_id?>"/> 
 				 <input type="hidden" name="img_url" id="image_url">
 				 <span id="upd_pics" name=""></span>
@@ -46,11 +46,11 @@
 				 	<img src="../images/loading.gif" alt="loading...">
 				 	</span>
 				 	<span id="logo_image"></span>
-                    <input type="button" value="上传" onclick="return ajaxFileUpload('image');" 
-                    class="btn btn-large btn-primary" />(*海报LOGO：289*110)
+                    <input type="button" value="Upload" onclick="return ajaxFileUpload('image');" 
+                    class="btn btn-large btn-primary" />(*Post LOGO：289*110)
 				</p>	
 				<br>
-				商场地址：		
+				MallAddress:		
 				    <select name="province" id="province" onchange="obtain_city(this.value)">
 						<?php
 							$sql = "select province_name from county group by province_name";
@@ -64,22 +64,22 @@
 							}
 						?>							
 					</select>
-					市：							
+					City：							
 				    <select name="city" id="city" onchange="obtain_county(this.value)">						
 					</select>	
-					区：
+					Area：
 					 <select name="county" id="county" >						
 					</select>	
 				</p>
 				<!--
 				<p>详细地址：<textarea rows="3" name="detailAddressInfo" cols="100" id="detailAddressInfo" placeholder="不需要重复填写省市区，必须大于5个字符，小于120个字符" onblur="checkAddress()"></textarea></p>
 				-->
-				<p>详细地址：<textarea style="vertical-align:top;font-size:14px;color:#353535;font-family:'microsoft yahei'" rows="3" name="detailAddressInfo" cols="100" id="detailAddressInfo" placeholder="不需要重复填写省市区，必须大于5个字符，小于120个字符" value='<?=$row["detail_address"]?>'></textarea></p><?php //onblur="checkAddress()"?>
-				<p>商家简介：<textarea  id="introduceInfo" name="introduceInfo" rows="10" value='<?=$row["introduceInfo"]?>'></textarea>
+				<p>DetailAddress:<textarea style="vertical-align:top;font-size:14px;color:#353535;font-family:'microsoft yahei'" rows="3" name="detailAddressInfo" cols="100" id="detailAddressInfo" placeholder="Don't need to repeat fill in the address,longer than 5 characters,less than 120 characters" value='<?=$row["detail_address"]?>'></textarea></p><?php //onblur="checkAddress()"?>
+				<p>MerchantInfomation:<textarea  id="introduceInfo" name="introduceInfo" rows="10" value='<?=$row["introduceInfo"]?>'></textarea>
 				</p>
-				<p>客服QQ：<input class="in1" type="text" name="qq" value='<?=$row["qq"]?>'/>
-				<p>客服旺旺：<input class="in1" type="text" name="wangwang" value='<?=$row["wangwang"]?>'/>
-				<p><input type="button" value="确定" onclick="return check()"/></p>
+				<p>ServiceQQ：<input class="in1" type="text" name="qq" value='<?=$row["qq"]?>'/>
+				<p>ServiceAlitalk：<input class="in1" type="text" name="wangwang" value='<?=$row["wangwang"]?>'/>
+				<p><input type="button" value="Submit" onclick="return check()"/></p>
 			</form>
 		</div>
 	</div>

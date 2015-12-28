@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>商场登陆</title>
+	<title>Mall Login</title>
 	<link href="<?php echo $PUBLIC ;?>/Css/mall_login.css" type="text/css" rel="stylesheet">
 	<script src="<?php echo $PUBLIC ;?>/Js/jquery/jquery.js"></script>
 	<script src="<?php echo $PUBLIC ;?>/Js/mall_login/index.js"></script>
@@ -24,7 +24,7 @@
 					if(dataObj['status'] == 1){
 						window.location.href="./admin_center.php";
 					}else{
-						alert("用户名密码错误");
+						alert("Password Error!");
 					 }
 				   }
 				});
@@ -48,19 +48,19 @@
 	<div class="inner_con">
 		<div class="form_contain">
 			<div>
-				<label for="buss_name">商场名称</label>
+				<label for="buss_name">Mall Name</label>
 				<input type="text" id="buss_name" />
 			</div>
 			<div>
-				<label for="buss_psd">登录密码</label>
+				<label for="buss_psd">Password</label>
 				<input type="password" id="buss_psd" />
 			</div>
 			<div>
 				<input type="checkbox" id="auto" />
-				<label for="auto" id="auto_login">自动登录</label>
-				<a href="javascript:alert('请联系商城管理员')" id="forget">忘记密码?</a>
+				<label for="auto" id="auto_login">Autologin</label>
+				<a href="javascript:alert('Contact Mall Manager')" id="forget">forgot password?</a>
 			</div>
-			<input type="submit" class="login" value="登录">
+			<input type="submit" class="login" value="Login">
 		</div>
 		</div>
 	</div>

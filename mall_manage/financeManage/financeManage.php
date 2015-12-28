@@ -44,16 +44,16 @@ if(isset($_SESSION['mall_id'])){
 						// var headStr ='<tr><td colspan=11 >'+dataObj['headStr']+'</td></tr>';
 						 //$("#orderTable").append(headStr);
 						  var str =' <tr class="t1" id="adTableLine">'+
-						    '<td >申请商铺</td>'+
-						 	'<td>状态</td>'+
-							'<td >申请时间</td>'+
-							'<td >处理时间</td>'+
-							'<td>到账时间</td>'+					
-							'<td>申请金额</td>'+
-							'<td>申请后余额</td>'+
-							'<td >消息</td>'+
-							'<td >驳回</td>'+
-							'<td >操作</td>'+
+						    '<td >Applying Store</td>'+
+						 	'<td>State</td>'+
+							'<td >Apply Time</td>'+
+							'<td >Handle Time</td>'+
+							'<td>Receive Time</td>'+					
+							'<td>Amount</td>'+
+							'<td>Balance</td>'+
+							'<td >Message</td>'+
+							'<td >Refuse</td>'+
+							'<td >Operations</td>'+
 						    '</tr>';
 						  $("#orderTable").append(str);
 						  if(!dataObj['data'])return;
@@ -69,17 +69,17 @@ if(isset($_SESSION['mall_id'])){
 									"<td>"+dataObj['data'][i]['appendRes']+"</td>";
 									
 									if(dataObj['data'][i]['tag'] < 3){
-										str+="<td onclick='reDrow(this)'>驳回</td>";
+										str+="<td onclick='reDrow(this)'>Refuse</td>";
 									}else{
 										str+="<td onclick='' ></td>";
 									}
 									
 									 if(dataObj['data'][i]['tag'] == 0){
-								     str = str + '<td onclick="changeStatus(this)" style="cursor:pointer" >审核</td></tr>';
+								     str = str + '<td onclick="changeStatus(this)" style="cursor:pointer" >Verify</td></tr>';
 							         }else if(dataObj['data'][i]['tag'] == 1){
-									 str = str + '<td onclick="changeStatus(this)" style="cursor:pointer" >提款</td></tr>';
+									 str = str + '<td onclick="changeStatus(this)" style="cursor:pointer" >Draw</td></tr>';
 								     }else if(dataObj['data'][i]['tag'] == 2){
-									 str = str + '<td onclick="changeStatus(this)" style="cursor:pointer" >提款成功</td></tr>';
+									 str = str + '<td onclick="changeStatus(this)" style="cursor:pointer" >Draw Success</td></tr>';
 								     }else{
 								     str = str+'<td onclick="" style="cursor:pointer" ></td></tr>';
 							       }
@@ -113,7 +113,7 @@ if(isset($_SESSION['mall_id'])){
 			searchGoods();
 		}
 		function deleteOrder(ele){
-			var r=confirm("确认删除");
+			var r=confirm("Sure to delete");
 			if(r==false){
 				return ;
 			}
@@ -134,7 +134,7 @@ if(isset($_SESSION['mall_id'])){
 			searchGoods();
 		}
 		function reDrow(ele){
-			var r=confirm("确认操作");
+			var r=confirm("Sure to operate");
 			if(r==false){
 				return ;
 			}
@@ -153,7 +153,7 @@ if(isset($_SESSION['mall_id'])){
 		}
 		function changeStatus(ele){
 			
-			var r=confirm("确认操作");
+			var r=confirm("Sure to operate");
 			if(r==false){
 				return ;
 			}
@@ -245,24 +245,24 @@ margin: 0px;
 		<div class="bgintor" style='height:800px'>
 				<div class="tit1">
 					<ul>				
-						<li style='text-align:center'>财务管理</li>
+						<li style='text-align:center'>Finance Manage</li>
 					</ul>		
 				</div>				
 			<div class="listintor">
 				<div class="header1">
-					<span>位置：提现管理 <strong><?php echo $shopLocation[$shopPage]; ?></strong></span>	
+					<span>Position:Draw Manage <strong><?php echo $shopLocation[$shopPage]; ?></strong></span>	
 				</div>
 				<div class="content" style='height:1000px'>
 				<div class='controllDiv'>
-				<span id='orginOrder' name='DESC' onclick='chooseOrder(this)' style='background-color:#87ceeb;'>按时间降序</span>
-				<span name='ASC' onclick='chooseOrder(this)'>按时间升序</span>
+				<span id='orginOrder' name='DESC' onclick='chooseOrder(this)' style='background-color:#87ceeb;'>Desc By Time</span>
+				<span name='ASC' onclick='chooseOrder(this)'>Asc By Time</span>
 				
-				<span id='orginType' style='margin-left:40px; background-color:#87ceeb;' onclick='chooseStatus(this)' name='' >全部</span>
-				<span name=0 onclick='chooseStatus(this)'>待处理</span>
-				<span name=1 onclick='chooseStatus(this)'>已审核</span>
-				<span name=2 onclick='chooseStatus(this)'>提款中</span>
-				<span name=3 onclick='chooseStatus(this)'>已成功</span>
-				<span name=4 onclick='chooseStatus(this)'>已驳回</span>
+				<span id='orginType' style='margin-left:40px; background-color:#87ceeb;' onclick='chooseStatus(this)' name='' >All</span>
+				<span name=0 onclick='chooseStatus(this)'>Waiting</span>
+				<span name=1 onclick='chooseStatus(this)'>Has Verified</span>
+				<span name=2 onclick='chooseStatus(this)'>Drawing</span>
+				<span name=3 onclick='chooseStatus(this)'>Succeed</span>
+				<span name=4 onclick='chooseStatus(this)'>Refused</span>
 				<div class='pageConDiv' id='pageConDiv' style='float:right'>
 
 				</div>

@@ -22,7 +22,7 @@
 		$update="update mall set name='$name',province='$province',city='$city',county='$county',detail_address='$detailAddressInfo',image_url='{$_POST["addpics"][0]}',introduceInfo='$introduceInfo' where id='$mall_id'";	
 	}
 	if(mysql_query($update)){
-		$content="修改了".$lastname."商场，修改内容为：商城名".$name."，地址".$province.$city.$county."，详细信息".$detailAddressInfo."，简介".$introduceInfo;
+		$content="Modified".$lastname."Mall,details:mall name:".$name.",address".$province.$city.$county."details".$detailAddressInfo.",brief introduction".$introduceInfo;
 		$admin_name=$_SESSION["name"];
 		/*$select1="select mp_id from mall_pictures where mall_id='$mall_id'";
 		$result1=mysql_query($select1);
@@ -34,10 +34,10 @@
 			}	
 		}
 		*/
-		echo "<script>alert('修改成功!');window.location.href='check_mall.php';</script>";
+		echo "<script>alert('Modify success!');window.location.href='check_mall.php';</script>";
 		//print_r($_POST);
 	}else{
-		echo "<script>alert('修改失败,请重新添加!');window.location.href='check_mall.php';</script>";
+		echo "<script>alert('Modify failed,please try again!');window.location.href='check_mall.php';</script>";
 		echo mysql_error();
 	}
 	

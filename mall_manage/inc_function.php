@@ -10,7 +10,7 @@
  * @informaition  
  */
 function excelDays2Date($t){
-	if($t=='无')
+	if($t=='no')
 	{
 		return $t;
 	}
@@ -97,12 +97,12 @@ function checkData($data,$name,$type){
 	switch($type){
 		case 0:
 			if(!preg_match('/^\d*$/',$data)){
-				alertInfo("非法参数".$name,'',1);
+				alertInfo("illegal params".$name,'',1);
 			}
 			break;
 		case 1:
 			if(empty($data)){
-				alertInfo($name."不能为空","",1);
+				alertInfo($name."cannot be empty","",1);
 			}
 			break;
 	}
@@ -113,10 +113,10 @@ function checkEmail($email,$name)
 {
 	if(empty($email))
 	{
-		alertInfo($name.'不能为空','',1);
+		alertInfo($name.'cannot be empty','',1);
 	}else if(!eregi("^[a-zA-Z0-9]([a-zA-Z0-9]*[-_.]?[a-zA-Z0-9]+)+@([a-zA-Z0-9]+\.)+[a-zA-Z]{2,}$", $email)) 
 	{
-		alertInfo($name.'输入格式不正确','',1);
+		alertInfo($name.'Format incorrect','',1);
 	}
 
 }
@@ -168,17 +168,17 @@ function showPage($url,$page,$pagecount,$images){
 	$spacer="?";
 	if(strpos($url,"?")>-1) $spacer='&';
 	$url.=$spacer;
-	$tempStr="<a href='".$url."page=1'><img src='$images/firstpage.jpg' alt='首页' onclick='ajaxchoose($page)'/></a>";
+	$tempStr="<a href='".$url."page=1'><img src='$images/firstpage.jpg' alt='First' onclick='ajaxchoose($page)'/></a>";
 	if($page>1)
-		$tempStr.=" <a href='".$url."page=".($page-1)."'><img src='$images/prepage.jpg' alt='上一页' onclick='ajaxchoose($page)'/></a>";
+		$tempStr.=" <a href='".$url."page=".($page-1)."'><img src='$images/prepage.jpg' alt='Pre' onclick='ajaxchoose($page)'/></a>";
 	else
-		$tempStr.=" <img src='$images/prepage.jpg' alt='上一页' />";
+		$tempStr.=" <img src='$images/prepage.jpg' alt='Pre' />";
 	if($page<$pagecount)
-		$tempStr.=" <a href='".$url."page=".($page+1)."'><img src='$images/nextpage.gif' alt='下一页' onclick='ajaxchoose($page)'/></a>";
+		$tempStr.=" <a href='".$url."page=".($page+1)."'><img src='$images/nextpage.gif' alt='Next' onclick='ajaxchoose($page)'/></a>";
 	else
-		$tempStr.=" <img src='$images/nextpage.gif' alt='下一页' />";
-	$tempStr.=" <a href='".$url."page=".$pagecount."'><img src='$images/lastpage.gif' alt='末页' onclick='ajaxchoose($page)'/></a>";
-	$tempStr.=" 转到第<input type='text' id='pageTo' size='3' style='width:26px;height:14px;' value='".$page."'/>页<a id='jump' href='javascript:location.href=\"".$url."page=\"+document.getElementById(\"pageTo\").value;'><img src='$images/foward.gif' class='img1' alt='转到' onclick='ajaxchoose($page)'/></a>";
+		$tempStr.=" <img src='$images/nextpage.gif' alt='Next' />";
+	$tempStr.=" <a href='".$url."page=".$pagecount."'><img src='$images/lastpage.gif' alt='Last' onclick='ajaxchoose($page)'/></a>";
+	$tempStr.=" Turn to<input type='text' id='pageTo' size='3' style='width:26px;height:14px;' value='".$page."'/>Page<a id='jump' href='javascript:location.href=\"".$url."page=\"+document.getElementById(\"pageTo\").value;'><img src='$images/foward.gif' class='img1' alt='Turn to' onclick='ajaxchoose($page)'/></a>";
 	return $tempStr;
 }
 

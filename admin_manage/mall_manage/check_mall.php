@@ -15,23 +15,23 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">商场管理</a></li>
+						<li><a href="#">Markting Manager</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：商场管理 －&gt; <strong>查看商场</strong></span>
+					<span>Location：Markting Manager －&gt; <strong>View Markting</strong></span>
 				</div>
 				<div class="content">
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">商场序号</td>
-							<td width="10%">商场名称</td>
-							<td width="10%">省份</td>
-							<td width="10%">市</td>
-							<td width="10%">区</td>
-							<td width="20%">详细地址</td>
-							<td width="20%">商场简介</td>
-							<td width="15%">操作</td>
+							<td width="5%">Markting number</td>
+							<td width="10%">Markting name</td>
+							<td width="10%">Privince</td>
+							<td width="10%">City</td>
+							<td width="10%">Region</td>
+							<td width="20%">Detail Address</td>
+							<td width="20%">Markting Description</td>
+							<td width="15%">operate</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -73,12 +73,12 @@
 							<td>
 							<?php
 								if($_SESSION["role"]==1){
-									echo"<a href='../shop_manage/add_shop.php?mall_id={$id}'>添加店铺</a>";
+									echo"<a href='../shop_manage/add_shop.php?mall_id={$id}'>Add Store|</a>";
 								}
 							?>
-								<a href="check_mall_shop.php?mall_id=<?=$id?>&mall_name=<?=$name?>">查看店铺</a>|
-								<a href="edit_mall.php?mall_id=<?=$id?>">修改商场</a>|
-								<a href="javascript:void(0);" onclick="delete_mall(<?=$id?>,'<?=$name?>')">删除</a>
+								<a href="check_mall_shop.php?mall_id=<?=$id?>&mall_name=<?=$name?>">View Store</a>|
+								<a href="edit_mall.php?mall_id=<?=$id?>">Edit Markting</a>|
+								<a href="javascript:void(0);" onclick="delete_mall(<?=$id?>,'<?=$name?>')">Delete</a>
 							</td>
 						</tr>
 						<?php
@@ -87,11 +87,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>Empty infomation！</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current page:<?php echo $page;?>/<?php echo $pagecount;?>page every_page <?php echo $pagesize?> piece</div>
 						<div class="pageafter">
 						<?php echo showPage("check_mall.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>
@@ -105,14 +105,14 @@
 </html>
 <script>
 	function delete_mall(mall_id,mall_name){
-		if(confirm("删除商场会同时删除商场所对应的所有店铺和商品，您确认要删除"+mall_name+"吗")){
+		if(confirm("Delete mall will also delete mall for all shops and goods, are you sure you want to delete"+mall_name+"?")){
 			$.post("delete_mall_do.php",
 				{
 					mall_id:mall_id
 				},
 				function(data,status){
 					if(data==1){
-						alert("删除成功!");
+						alert("Delete success!");
 						location.reload();
 					}else{
 						alert(data);

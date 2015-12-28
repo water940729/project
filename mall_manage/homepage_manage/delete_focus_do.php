@@ -4,13 +4,13 @@
 	$id=$_POST["id"];
 	$sql="delete from homeFocus where id=$id";
 	if(mysql_query($sql)){
-		$content="删除了焦点图，焦点图编号为".$id;
+		$content="Deleted focus picture,No. is:".$id;
 		if(add_system_log($content)==1){
-			echo"删除成功";
+			echo"Delete success!";
 		}else{
-			echo"删除失败";
+			echo"Deleted failed!";
 		}
 	}else{
-		echo"删除失败!";
+		echo"Deleted failed!";
 	}
 ?>

@@ -15,16 +15,16 @@
 					var id=$parent.attr("id");
 					var state=$parent.children(".state").attr("name");
 					if(state==1){
-						alert("该用户已审核过");
+						alert("this user is checked");
 					}else if(state==-1){
-						alert("该用户已失效");
+						alert("this user is lose efficacy");
 					}else{
 						$.post("check_user.php",{user_id:id},function(data){
 							if(data==1){
-								alert("审核成功");
+								alert(" Audit Success");
 								location.reload();
 							}else{
-								alert("未知错误，请稍后再试");
+								alert("Error please wait");
 							}
 						});	
 					}
@@ -34,14 +34,14 @@
 					var id=$parent.attr("id");
 					var state=$parent.children(".state").attr("name");
 					if(state==-1){
-						alert("该用户已失效，不可重复删除");
+						alert("Delete failure, the user has not repeatable");
 					}else{
 						$.post("delete_user.php",{user_id:id},function(data){
 							if(data==1){
-								alert("删除成功，该用户已失效");
+								alert("Deleted successfully, the user has been failure");
 								location.reload();
 							}else{
-								alert("未知错误，请稍后再试");
+								alert("Unknown error, please try again later");
 							}
 						});
 					}
@@ -54,20 +54,20 @@
 		<div class="bgintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">用户管理</a></li>
+						<li><a href="#">user manager</a></li>
 					</ul>		
 				</div>
 				<div class="listintor">
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：用户管理 －&gt;<strong>查看用户</strong></span>
+					<span>Location：user manager －&gt;<strong>View User</strong></span>
 				</div>
 				<div class="content">
 					<form action="#" method ="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-							    <td width="10%">序号</td>							
-							    <td width="10%">账号</td>													
-							    <td width="10%">上次登录时间</td>
+							    <td width="10%">serial number</td>							
+							    <td width="10%">account</td>													
+							    <td width="10%">last login time</td>
 							</tr>
 							<?php
 								$pagesize=20;							
@@ -101,11 +101,11 @@
 					</form>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>Without access to relevant information！</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">current page:<?php echo $page;?>/<?php echo $pagecount;?>page every page <?php echo $pagesize?> piece</div>
 						<div class="pageafter">
 						<?php echo showPage("search_user.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

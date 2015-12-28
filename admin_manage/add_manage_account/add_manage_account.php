@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title> 添加账号</title>
+		<title> add account</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -19,29 +19,30 @@
 		<div class="bgintor">
 			<div class="tit1">
 				<ul>				
-					<li><a href="#">账号管理</a></li>
+					<li><a href="#">account manager</a></li>
 				</ul>		
 			</div>
 			<div class="listintor">
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：账号管理 －&gt; <strong>添加账号</strong></span>
+					<span>Location：account manager －&gt; <strong>add account</strong></span>
 				</div>		
 				<div class="fromcontent">
 					<form action="add_manage_account_do.php" method="post" id="doForm">
-						<p>用户名：<input class="in1" type="text" name="name" id="name" onblur="return check_name()"/><font id="notice"></font></p>
+						<p>username：<input class="in1" type="text" name="name" id="name" onblur="return check_name()"/><font id="notice"></font></p>
 						<br>
-						<div>角&nbsp;&nbsp;色：
+						<div>ro&nbsp;&nbsp;le：
 							<select name="role" id="role" onchange=choose_area(this.value)>
-								<option value="0">----请选择----</option>
+								<option value="0">----Select----</option>
 								<?php 
 									if($role==1){
 								?>
-								<option value="1">超级管理员</option>
-								<option value="2">商城管理员</option>
+								<option value="1">super manager</option>
+								<option value="2">mall manager</option>
 								<?php
 									}else{
+										
 								?>
-								<option value="3">商户管理员</option>
+								<option value="3">Merchants administrator</option>
 								<?php 
 									}
 								?>
@@ -49,12 +50,12 @@
 							<span id="area" name="area">
 							</span>
 						</div>
-						<p>姓&nbsp;&nbsp;名：<input class="in1" type="text" name="username" id="username"/></p>
-						<p>手机号：<input class="in1" type="text" name="phone" id="phone"/></p>
-						<p>邮&nbsp;&nbsp;箱：<input class="in1" type="text" name="email" id="email"/></p>
-						<p>密&nbsp;&nbsp;码：<input class="in1" type="password" name="password" id="password"/></p>
-						<p>确认密码：<input class="in1" type="password" name="password1" id="password1"/></p>	
-						<p><input type="button" value="确定" onclick="return check()"></p>
+						<p>name：<input class="in1" type="text" name="username" id="username"/></p>
+						<p>phone：<input class="in1" type="text" name="phone" id="phone"/></p>
+						<p>email：<input class="in1" type="text" name="email" id="email"/></p>
+						<p>password：<input class="in1" type="password" name="password" id="password"/></p>
+						<p>ensuer passwd：<input class="in1" type="password" name="password1" id="password1"/></p>	
+						<p><input type="button" value="sure" onclick="return check()"></p>
 					</form>
 				</div>
 			</div>
@@ -74,9 +75,9 @@ function choose_area(value){
 		data=eval('('+data+')');
 		var div;
 		if(value==2){
-			div="&nbsp;&nbsp;请选择管理的商场:<select name='mall' id='mall'>";
+			div="&nbsp;&nbsp;Please select a store management:<select name='mall' id='mall'>";
 		}else if(value==3){
-			div="&nbsp;&nbsp;请选择管理的商户:<select name='shop' id='shop'>";
+			div="&nbsp;&nbsp;Please select a management businesses:<select name='shop' id='shop'>";
 		}
 		for (var i=0;i<data.length;i++)
 		{

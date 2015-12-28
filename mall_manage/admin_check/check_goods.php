@@ -3,14 +3,14 @@ require_once('../../conn/config.php');
 $conn=mysql_connect(WIIDBHOST,WIIDBUSER,WIIDBPASS);
 	 
 if (!$conn){
-		die ('数据库连接失败');
+		die ('Database Connection Failed!');
 	}
-mysql_select_db(WIIDBNAME, $conn) or die ("没有找到数据库。");
+mysql_select_db(WIIDBNAME, $conn) or die ("Database Not Found!");
 mysql_query("set names utf8");
 
-$result=mysql_query("select id,name from mall") or die("数据库异常");
+$result=mysql_query("select id,name from mall") or die("Database Exception");
 
-$shopLocation[0]='葵花商城首页';
+$shopLocation[0]='Sunflower Mall Homepage';
  while($array=mysql_fetch_array($result)){
 	 $shopLocation[$array['id']]=$array['name'];
 }
@@ -55,12 +55,12 @@ if($_SESSION['role'] == 1){
 					 if(dataObj['status'] == 1){
 						 $("#goodsTable").empty();
 						 var str =' <tr class="t1" id="adTableLine">'+
-							'<td width="10%">商品名称</td>'+
-							'<td width="10%">商城</td>'+
-							'<td width="10%">价格</td>'+					
-							'<td width="10%">折扣</td>'+
-							'<td width="10%">审核状态</td>'+
-							'<td width="10%">操作</td>'+
+							'<td width="10%">Goods Name</td>'+
+							'<td width="10%">Mall</td>'+
+							'<td width="10%">Price</td>'+					
+							'<td width="10%">Discount</td>'+
+							'<td width="10%">Verify State</td>'+
+							'<td width="10%">Operations</td>'+
 						    '</tr>';
 						  $("#goodsTable").append(str);
 						  for(var i=0;i<dataObj['data'].length;i++){
@@ -68,14 +68,14 @@ if($_SESSION['role'] == 1){
 						      var color;
 						      var tag;
 							 if(dataObj['data'][i]['state'] == 1){
-								 showStr = '已审核';
-								 showStr1 = '取消审核';
+								 showStr = 'Has Verified';
+								 showStr1 = 'Cancel Verify';
 								 color = '#FFFFCC';
 								 tag = 1;
 							 }else{
 								  color = 'white';
-								  showStr = '未审核';
-								  showStr1 = '通过审核';
+								  showStr = 'Not Verified';
+								  showStr1 = 'Passed';
 								  tag = 0;
 							 }
 							  str ="<tr tag='"+tag+"' style='background-color:"+color+"' name='"+dataObj['data'][i]['id']+"'>"+
@@ -111,7 +111,7 @@ if($_SESSION['role'] == 1){
 		
 		function checkInGoods(ele){
 			var id = $(ele).parent().attr('name');
-			var r=confirm("确认审核");
+			var r=confirm("Verify Confirm");
 			if(r==false){
 				return ;
 			}
@@ -123,8 +123,8 @@ if($_SESSION['role'] == 1){
 					 var dataObj=eval("("+msg+")");//转换为json对象
 					  if(dataObj['status'] == 1){
 						   $(ele).parent().attr('name',dataObj['state']);
-						   var str = dataObj['state']==0 ? '通过审核':'取消审核';
-						   var str1 = dataObj['state']==1 ? '已审核':'未审核';
+						   var str = dataObj['state']==0 ? 'Passed':'Cancel Verify';
+						   var str1 = dataObj['state']==1 ? 'Has Verified':'Not Verified';
 						   var color = dataObj['state']==1 ? '#FFFFCC':'white';
 						   $(ele).parent().css('background-color',color);
 						   $(ele).siblings("#tagShow").html(str1);
@@ -185,22 +185,22 @@ margin: 0px;
 		<div class="bgintor" style='height:800px'>
 				<div class="tit1">
 					<ul>				
-						<li style='text-align:center'>商品审核</li>
+						<li style='text-align:center'>Verify Goods</li>
 					</ul>		
 				</div>				
 			<div class="listintor">
 				<div class="header1">
-					<span>位置：商品审核 －&gt; <strong><?php echo $shopLocation[$shopPage]; ?></strong></span>
+					<span>Position:Verify Goods －&gt; <strong><?php echo $shopLocation[$shopPage]; ?></strong></span>
 					 
 				</div>
 				<div class="content" style='height:800px;'>
 				
 				<div style='width:800px;height:40px;'>
-				<span style='background-color:white;margin-left:20px; float:left' >选择商城 :
+				<span style='background-color:white;margin-left:20px; float:left' >Malls:
 				<select id='mallSelect' >
 				<?php if($_SESSION['role'] == 1){
 					?>
-				<option value='-1'>所有</option>
+				<option value='-1'>All</option>
 			     <? } ?>
 				<?php
 					foreach($shopLocation as $k=>$val){
@@ -209,19 +209,19 @@ margin: 0px;
 				?> 
 				</select >
 				</span>
-				<span id='stateSelect' style=' margin-left:20px; float:left;'>选择状态 :
+				<span id='stateSelect' style=' margin-left:20px; float:left;'>Choose state:
 				<select>
-				<option value='-1'>所有</option>
-				<option value=0>未审核</option>
-				<option value=1>已审核</option>
+				<option value='-1'>A </option>
+				<option value=0>Not Verified</option>
+				<option value=1>Has Verified</option>
 				</select>
 				</span>
 				
-				<span style='background-color:white;margin-left:20px; float:left ; cursor:pointer' onclick='checkGoods()'>搜索</span>
+				<span style='background-color:white;margin-left:20px; float:left ; cursor:pointer' onclick='checkGoods()'>Search</span>
 				
-				<span id='upPage' style=' display:none; float:right ; cursor:pointer ; margin-right:100px' name='up' onclick='checkGoods(this)'>上一页</span>
+				<span id='upPage' style=' display:none; float:right ; cursor:pointer ; margin-right:100px' name='up' onclick='checkGoods(this)'>Preview</span>
 				
-				<span style=' float:right ; cursor:pointer ; display:block ; margin-right:20px ' name='down' onclick='checkGoods(this)' >下一页</span>
+				<span style=' float:right ; cursor:pointer ; display:block ; margin-right:20px ' name='down' onclick='checkGoods(this)' >Next</span>
 				
 				</div>
 				

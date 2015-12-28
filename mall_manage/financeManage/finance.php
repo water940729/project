@@ -43,14 +43,14 @@ $res = mysql_fetch_row(mysql_query($sql));
 					 if(dataObj['status'] == 1){
 						 $("#goodsTable").empty();
 						 var str =' <tr class="t1" id="adTableLine">'+
-						 	'<td width="10%">状态</td>'+
-							'<td width="10%">申请时间</td>'+
-							'<td width="10%">处理时间</td>'+
-							'<td width="10%">到账时间</td>'+					
-							'<td width="10%">申请金额</td>'+
-							'<td width="10%">申请后余额</td>'+
-							'<td width="10%">消息</td>'+
-							'<td width="10%">操作</td>'+
+						 	'<td width="10%">State</td>'+
+							'<td width="10%">Apply Time</td>'+
+							'<td width="10%">Handle Time</td>'+
+							'<td width="10%">Arrive Time</td>'+					
+							'<td width="10%">Apply Sum</td>'+
+							'<td width="10%">Banance</td>'+
+							'<td width="10%">Message</td>'+
+							'<td width="10%">Operations</td>'+
 						    '</tr>';
 						  $("#goodsTable").append(str);
 						  if(!dataObj['data'])return;
@@ -59,14 +59,14 @@ $res = mysql_fetch_row(mysql_query($sql));
 						      var color;
 						      var tag;
 							 if(dataObj['data'][i]['state'] == 1){
-								 showStr = '已审核';
-								 showStr1 = '取消审核';
+								 showStr = 'Has verified';
+								 showStr1 = 'Cancle verify';
 								 color = '#FFFFCC';
 								 tag = 1;
 							 }else{
 								  color = 'white';
-								  showStr = '未审核';
-								  showStr1 = '通过审核';
+								  showStr = 'Not Verified';
+								  showStr1 = 'Passed';
 								  tag = 0;
 							 }
 							  str ="<tr tag='"+tag+"' style='background-color:"+color+"' name='"+dataObj['data'][i]['id']+"'>"+
@@ -114,7 +114,7 @@ $res = mysql_fetch_row(mysql_query($sql));
 		
 		function reApply(ele){
 			var id = $(ele).parent().attr('name');
-			var r=confirm("确认撤回");
+			var r=confirm("Sure to recall");
 			if(r==false){
 				return ;
 			}
@@ -125,7 +125,7 @@ $res = mysql_fetch_row(mysql_query($sql));
 				   success: function(msg){
 					 var dataObj=eval("("+msg+")");//转换为json对象
 					  if(dataObj['status'] == 1){
-						 alert('提交成功'); 
+						 alert('Submit success'); 
                          searchGoods();						 
 					  }   
 				   }
@@ -136,7 +136,7 @@ $res = mysql_fetch_row(mysql_query($sql));
 		function apply(){
 			
 			var sum = $('#sumInput').val();
-			var r=confirm("确认审核提现");
+			var r=confirm("Sure to withdraw deposit");
 			if(r==false){
 				return ;
 			}
@@ -147,7 +147,7 @@ $res = mysql_fetch_row(mysql_query($sql));
 				   success: function(msg){
 					 var dataObj=eval("("+msg+")");//转换为json对象
 					  if(dataObj['status'] == 1){
-						 alert('提交成功'); 
+						 alert('Submit success'); 
                          searchGoods();						 
 					  }else{
 						  alert(dataObj['msg']);
@@ -203,12 +203,12 @@ margin: 0px;
 		<div class="bgintor" style='height:800px'>	
 				<div class="tit1">
 					<ul>				
-						<li style='text-align:center;line-height:26px;'>商品审核</li>
+						<li style='text-align:center;line-height:26px;'>Goods Verify</li>
 					</ul>		
 				</div>			
 			<div class="listintor">
 				<div class="header1">
-					<span>位置：财务管理 ---- <strong><?php echo $_SESSION['role_area']; ?></strong></span>
+					<span>Position:Finance Manage---- <strong><?php echo $_SESSION['role_area']; ?></strong></span>
 					 
 				</div>
 				<div class="content" style='height:1000px;'>
@@ -216,12 +216,12 @@ margin: 0px;
 				<div style='width:1000px;height:30px;margin-left:20px;font-size:18px;'>
 				<span>
                 <?php
-				    echo '当前余额 : '.$res[0].'    '.'当前可用余额 : '.$res[1].' 分成比例:'.$res[2].'%';
+				    echo 'Balance : '.$res[0].'    '.'Balance Avliable : '.$res[1].' Scale:'.$res[2].'%';
 				?>
 				</span>
 				<span style='float:right ;font-size:14px; margin-right:30px;'>
-				<span onclick='apply()' style="cursor:pointer;background-color:#FF7EAC;display:inline-block;width:110px;height:30px;line-height:30px;text-align:center;color:white;border-radius:5px;font-weight:bold;margin-bottom:5px;"> 提现申请 ----</span>
-				金额：
+				<span onclick='apply()' style="cursor:pointer;background-color:#FF7EAC;display:inline-block;width:110px;height:30px;line-height:30px;text-align:center;color:white;border-radius:5px;font-weight:bold;margin-bottom:5px;"> Withdraw Deposit Application----</span>
+				Amount:
 				<input id='sumInput' type='text' name='sum' style='width:50px;' />
 				</span>
 				</div>

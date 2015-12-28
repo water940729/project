@@ -8,18 +8,18 @@ $update ="update admin_manage set passwd='$password' where id='$id'";
 
 if(mysql_query($update))
 {
-	$content="修改了密码";
+	$content="Password Modified";
 	if(add_system_log($content)==1){
-		echo "<script>alert('修改成功!');window.location.href='edit_manage_account.php';</script>";
+		echo "<script>alert('Modify Success!');window.location.href='edit_manage_account.php';</script>";
 		//echo $content;
 	}else{
-		echo "<script>alert('修改失败!');window.location.href='edit_manage_account.php';</script>";
+		echo "<script>alert('Modify Failed!');window.location.href='edit_manage_account.php';</script>";
 		//echo $content;
 		//echo add_system_log($content);
 	}
 }
 else
 {
-    echo "<script>alert('修改失败!');window.location.href='edit_manage_account.php';</script>";
+    echo "<script>alert('Modify Failed!');window.location.href='edit_manage_account.php';</script>";
 }
 ?>

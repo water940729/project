@@ -5,13 +5,13 @@ header("Content-type:text/html;charset=utf-8");
 require_once('../../conn/conn.php');
 require_once('../inc_function.php');
 
-$result=mysql_query("select id,name from mall") or die("数据库异常");
-	    $shopLocation[0]='葵花商城首页';
+$result=mysql_query("select id,name from mall") or die("Database error");
+	    $shopLocation[0]='SunflowerMall';
 while($array=mysql_fetch_array($result)){
 		$shopLocation[$array['id']]=$array['name'];
 	 }
 	 
-$statusArr= array('已下单','已支付','已发货','已收货','待换货','已换货','待退货','已退货','已评价');
+$statusArr= array('Ordered','Paied','Delivered','Taken','WaitingToChange','Changed','Returning','Returned','Evaluated');
 
 $controllArr = array('delete');
 $pageNum = 10;
@@ -42,7 +42,7 @@ if($action == 'search'){
 	while($row = mysql_fetch_assoc($res)){
 		$shopList[$row['id']] = $row['name'];
 	}	
-	$shopList[0] = '自营';
+	$shopList[0] = 'Self-support';
 	
 	$condition = ' where 1=1 ';
 	if($mallId !== ''){
@@ -91,14 +91,14 @@ if($action == 'search'){
     
 
 	if($page>1){
-		$conStr.='<div onclick="changePage(this)"  name="'.($page-1).'">上一页</div>';
+		$conStr.='<div onclick="changePage(this)"  name="'.($page-1).'">Last</div>';
 	}
 	for($i=$startPage;$i<=$endPage;$i++){
 		if($page==$i){$color='#87ceeb';}else{$color='#ffc0cb';}
 		$conStr.='<span onclick="changePage(this)" style="background-color:'.$color.'" name="'.$i.'">'.$i.'</span>';
 	}
 	if($page<$pageTotal){
-		$conStr.='<div onclick="changePage(this)"  name="'.($page+1).'">下一页</div>';
+		$conStr.='<div onclick="changePage(this)"  name="'.($page+1).'">Next</div>';
 	}
 
 	
@@ -116,7 +116,7 @@ if($action == 'search'){
 			$row['right'] =($row['mall_id']==$mallId && $row['shop_id']==0 )?1:0; 
 			$data[] = $row;
 		}
-		echo json_encode(array('status'=>1,'data'=>$data,'constr'=>$conStr,'headStr'=>'此分类下 总计: '.$total.'个订单'));
+		echo json_encode(array('status'=>1,'data'=>$data,'constr'=>$conStr,'headStr'=>'InThisSort Total: '.$total.'Orders'));
 	}else{
 		echo json_encode(array('status'=>0));
 		exit();

@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title> 商品分类</title>
+		<title> GoodsSort</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -20,17 +20,17 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">商品分类</a> </li>
+				<li><a href="#">GoodsSort</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-			<span>位置：商品管理 －&gt; <strong>商品分类</strong></span>
+			<span>position:GoodsManage －&gt; <strong>GoodsSort</strong></span>
 		</div>		
 		<div class="fromcontent">
 			<form action="add_type_do.php" method="post" id="doForm">
-				<p>分类名称：<input class="in1" type="text" name="goods_type"/>	
-				<input type="button" value="确定添加" onclick="return check()"></p>
+				<p>SortName:<input class="in1" type="text" name="goods_type"/>	
+				<input type="button" value="Add" onclick="return check()"></p>
 				<input type="hidden" value="<?=$type?>" name="type">
 				<input type="hidden" value="<?=$id?>" name="id">
 			</form>
@@ -47,7 +47,7 @@ function check()
 {
 	if(form.goods_type.value=="")
 	{
-		alert('请填写用户名！');
+		alert('Input your username');
 		form.name.focus();
 		return false;
 	}else{

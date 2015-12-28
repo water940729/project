@@ -22,26 +22,26 @@
 		<div class="bgintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">账号管理</a></li>
+						<li><a href="#">Account Manage</a></li>
 					</ul>		
 				</div>
 				<div class="listintor">
 				<div class="header1">
-					<span>位置：账号管理 －&gt;<strong>查看账号</strong></span>
+					<span>Position:Account Manage －&gt;<strong>Check Account</strong></span>
 				</div>
 				<div class="content">
 					<form action="#" method ="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-							    <td width="10%">序号</td>							
-							    <td width="10%">管理员账号</td>							
-							    <td width="10%">权限</td>							
-							    <td width="10%">管理区域</td>							
-								<td width="10%">上次登录IP</td>
-								<td width="10%">本次登录IP</td>
-								<td width="10%">登录次数</td>								
-								<td width="10%">上次登录时间</td>
-								<td width="10%">操作</td>
+							    <td width="10%">No.</td>							
+							    <td width="10%">Manager Account</td>							
+							    <td width="10%">Access</td>							
+							    <td width="10%">Manage Area</td>							
+								<td width="10%">Last Login At</td>
+								<td width="10%">This Login At</td>
+								<td width="10%">Login Times</td>								
+								<td width="10%">Last Login Time</td>
+								<td width="10%">Operations</td>
 							</tr>
 							<?php
 								$pagesize=20;							
@@ -73,7 +73,7 @@
 								<td><?php echo $row["now_ip"] ?></td>
 								<td><?php echo $row["log_num"] ?></td>
 								<td><?php echo $row["time"] ?></td>
-								<td><a onclick="return check(<?=$row["id"]?>)" href="javascript:void(0)">删除</a></td> 								
+								<td><a onclick="return check(<?=$row["id"]?>)" href="javascript:void(0)">Delete</a></td> 								
 							</tr>
 							<?php }?>
 						
@@ -81,11 +81,11 @@
 					</form>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>No Related Message</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current<?php echo $page;?>/<?php echo $pagecount;?>Page EveryPage <?php echo $pagesize?> Items</div>
 						<div class="pageafter">
 						<?php echo showPage("manage_account.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>
@@ -100,7 +100,7 @@
 <script>
 function check(admin_manager_id)
 {
-	var del=confirm("你确定要删除吗？");
+	var del=confirm("Sure to delete?");
 	if(del){
 		alert(admin_manager_id);
 		$.post("delete_manager_account.php",
@@ -109,10 +109,10 @@ function check(admin_manager_id)
 			},
 			function(data,status){
 				if(data==1){
-					alert("删除成功");
+					alert("Delete success!");
 					window.location.href="manage_account.php";
 				}else{
-					alert("删除失败！");
+					alert("Delete failed!");
 					return false;
 				}
 			}

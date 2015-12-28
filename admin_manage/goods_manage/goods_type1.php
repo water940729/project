@@ -31,17 +31,17 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">商品分类</a></li>
+						<li><a href="#">Goods classify</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：商品管理 －&gt; 商品分类－&gt; <strong>一级分类</strong></span>
+					<span>Location：Goods Manager －&gt; Goods Classify－&gt; <strong>first classification</strong></span>
 				</div>
 				<div class="content">
 					<form action="add_type_do.php" method="post" id="doForm">
-						<p>分类名称：<input class="in1" type="text" name="goods_type"/></p><br/>
-						<p>分类权重：<input class="in1 weight" type="text" name="weight" />(输入1-9999中的任意数，数值越大楼层越靠前，默认为1)</p><br/>
-						<p>分类LOGO上传: 
+						<p>classify name：<input class="in1" type="text" name="goods_type"/></p><br/>
+						<p>classify weight：<input class="in1 weight" type="text" name="weight" />(Input of arbitrary number 1-9999, the larger the numerical floor the top, the default is 1)</p><br/>
+						<p>Classify LOGO uploading: 
 						 <input type="hidden" name="img_url" id="image_url">
 						 <span id="upd_pics" name=""></span>
 						 <input type="file" name="file" id="file_image"/>
@@ -50,18 +50,18 @@
 							</span>
 							<span id="logo_image"></span>
 							<input type="button" value="上传" onclick="return ajaxFileUpload('image');" 
-							class="btn btn-large btn-primary" />(*LOGO尺寸：500*500以内)
+							class="btn btn-large btn-primary" />(in *LOGO size：500*500)
 						</p>	
-						<p><input type="checkbox" name="display"/>是否首页分类显示</p><br/>
-						<input type="button" value="确定添加" onclick="return check()"></p>
+						<p><input type="checkbox" name="display"/>According to whether the home page classification</p><br/>
+						<input type="button" value="sure add" onclick="return check()"></p>
 						<input type="hidden" value="<?=$type?>" name="type">
 						<input type="hidden" value="<?=$id?>" name="id">
 					</form>
 					<form action="modify_type_do.php" method="post" id="replace" style="display:none;">
-						<p>分类名称：<input class="in1" type="text" name="goods_type"/></p><br/>
-						<p>分类权重：<input class="in1 weight" type="text" name="weight" />(输入1-9999中的任意数，数值越大楼层越靠前，默认为1)</p><br/>
-						<p>分类LOGO：<img class="logo" src="" name="11"/></p>
-						<p>分类LOGO上传: 
+						<p>classification name：<input class="in1" type="text" name="goods_type"/></p><br/>
+						<p>classification weight：<input class="in1 weight" type="text" name="weight" />(Input of arbitrary number 1-9999, the larger the numerical floor the top, the default is 1)</p><br/>
+						<p>classification LOGO：<img class="logo" src="" name="11"/></p>
+						<p>classification LOGO upload: 
 						 <input type="hidden" name="img_url" id="image_url">
 						 <span id="upd_pics" name=""></span>
 						 <input type="file" name="file" id="file_image"/>
@@ -69,22 +69,22 @@
 							<img src="../images/loading.gif" alt="loading...">
 							</span>
 							<span id="logo_image"></span>'
-							<input type="button" value="上传" onclick="return ajaxFileUpload('image');" 
-							class="btn btn-large btn-primary" />(*LOGO尺寸：500*500以内)
+							<input type="button" value="upload" onclick="return ajaxFileUpload('image');" 
+							class="btn btn-large btn-primary" />(*LOGO size：in 500*500)
 						</p>	
-						<p><input type="checkbox" name="display"/>是否首页分类显示</p><br/>
-						<input type="button" value="确定修改" onclick="return checks()"></p>
+						<p><input type="checkbox" name="display"/>According to whether the home page classification</p><br/>
+						<input type="button" value="sure edit" onclick="return checks()"></p>
 						<input type="hidden" value="<?=$type?>" name="type">
 						<input type="hidden" value="<?=$id?>" name="id">
 					</form><br>
 					<table style="width:100%">
 						<tr class="t1">
-							<td style="10%">序号</td>
-							<td style="10%">分类LOGO</td>						
-							<td style="10%">分类名称</td>
-							<td style="10%">分类权重</td>
-							<td style="10%">首页显示</td>
-							<td style="10%">操作</td>
+							<td style="10%">number</td>
+							<td style="10%">classification LOGO</td>						
+							<td style="10%">classification name</td>
+							<td style="10%">classification weight</td>
+							<td style="10%">show on home page</td>
+							<td style="10%">operator</td>
 						</tr>
 						<?php
 						//查看商场的分类
@@ -100,8 +100,8 @@
 								<td class="logo"><img src="<?php echo $row["logo"] ?>" /></td>
 								<td class="name"><?php echo $type1_name?></td>
 								<td class="weight"><?php echo $row["weight"]?></td>
-								<td class="display"><?php echo $row["display"]==1?"显示":"不显示";?></td>
-								<td><a href="#" class="modify">修改</a>|<a href="goods_type2.php?id=<?=$type1_id?>&type1_name=<?=$type1_name?>">查看子分类</a>|<a href="javascript:void(0);" onclick="delete_foods(<?php echo $type1_id?>)">删除</a></td>
+								<td class="display"><?php echo $row["display"]==1?"show":"hind";?></td>
+								<td><a href="#" class="modify">edit</a>|<a href="goods_type2.php?id=<?=$type1_id?>&type1_name=<?=$type1_name?>">view child classification</a>|<a href="javascript:void(0);" onclick="delete_foods(<?php echo $type1_id?>)">delete</a></td>
 							</tr>
 						<?php
 						}

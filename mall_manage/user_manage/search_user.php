@@ -15,16 +15,16 @@
 					var id=$parent.attr("id");
 					var state=$parent.children(".state").attr("name");
 					if(state==1){
-						alert("该用户已审核过");
+						alert("The user has been checked!");
 					}else if(state==-1){
-						alert("该用户已失效");
+						alert("The user is disabled!");
 					}else{
 						$.post("check_user.php",{user_id:id},function(data){
 							if(data==1){
-								alert("审核成功");
+								alert("Check success!");
 								location.reload();
 							}else{
-								alert("未知错误，请稍后再试");
+								alert("Unkown error,please try later!");
 							}
 						});	
 					}
@@ -34,14 +34,14 @@
 					var id=$parent.attr("id");
 					var state=$parent.children(".state").attr("name");
 					if(state==-1){
-						alert("该用户已失效，不可重复删除");
+						alert("The user is disabled,donot operate repeatly");
 					}else{
 						$.post("delete_user.php",{user_id:id},function(data){
 							if(data==1){
-								alert("删除成功，该用户已失效");
+								alert("Delete success,the user is disabled!");
 								location.reload();
 							}else{
-								alert("未知错误，请稍后再试");
+								alert("Unkown error,please try later!");
 							}
 						});
 					}
@@ -54,22 +54,22 @@
 		<div class="bgintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">用户管理</a></li>
+						<li><a href="#">UserManage</a></li>
 					</ul>		
 				</div>
 				<div class="listintor">
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：用户管理 －&gt;<strong>查看用户</strong></span>
+					<span>Position:UserManage －&gt;<strong>CheckUsers</strong></span>
 				</div>
 				<div class="content">
 					<form action="#" method ="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-							    <td width="10%">序号</td>							
-							    <td width="10%">账号</td>							
-							    <td width="10%">状态</td>							
-							    <td width="10%">上次登录时间</td>
-								<td width="10%">操作</td>
+							    <td width="10%">No.</td>							
+							    <td width="10%">AccountNumber</td>							
+							    <td width="10%">State</td>							
+							    <td width="10%">LastLoginedTime</td>
+								<td width="10%">Operation</td>
 							</tr>
 							<?php
 								$pagesize=20;							
@@ -99,19 +99,19 @@
 							<?php
 								switch($row["state"]){
 									case 0:
-										echo "待审核";
+										echo "Checking";
 										break;
 									case 1:
-										echo "活跃";
+										echo "Active";
 										break;
 									case -1:
-										echo "失效";
+										echo "Disabled";
 										break;
 								}
 							?>
 								</td> 
 								<td><?php echo date("Y-m-d H:i:s",$row["last_time"]); ?></td>
-								<td><a href="#" target="mainFrame" class="delete">删除</a>|<a href="#" target="mainFrame" class="check">审核</a></td>
+								<td><a href="#" target="mainFrame" class="delete">Delete</a>|<a href="#" target="mainFrame" class="check">Check</a></td>
 							</tr>
 							<?php }?>
 						
@@ -119,11 +119,11 @@
 					</form>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>No such information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current:<?php echo $page;?>/<?php echo $pagecount;?>Page EveryPage <?php echo $pagesize?> Items</div>
 						<div class="pageafter">
 						<?php echo showPage("search_user.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

@@ -36,10 +36,10 @@
 			}	
 		}
 		*/
-		echo "<script>alert('修改成功!');window.location.href='info.php';</script>";
+		echo "<script>alert('Modify success!');window.location.href='info.php';</script>";
 		//print_r($_POST);
 	}else{
-		echo "<script>alert('修改失败,请重新添加!');window.location.href='info.php';</script>";
+		echo "<script>alert('Modify failed,please try again!');window.location.href='info.php';</script>";
 		echo mysql_error();
 	}
 	

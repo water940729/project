@@ -3,13 +3,13 @@ require_once('../../conn/config.php');
 $conn=mysql_connect(WIIDBHOST,WIIDBUSER,WIIDBPASS);
 	 
 if (!$conn){
-		die ('数据库连接失败');
+		die ('Database Connection Failed!');
 	}
-mysql_select_db(WIIDBNAME, $conn) or die ("没有找到数据库。");
+mysql_select_db(WIIDBNAME, $conn) or die ("Database Not Found!");
 mysql_query("set names utf8");
 
-$result=mysql_query("select id,name from mall") or die("数据库异常");
-	$shopLocation[0]='葵花商城首页';
+$result=mysql_query("select id,name from mall") or die("Database Exception");
+	$shopLocation[0]='Sunflower Mall Homepage';
 	while($array=mysql_fetch_array($result)){
 		  $shopLocation[$array['id']]=$array['name'];
 	}

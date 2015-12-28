@@ -11,14 +11,14 @@
 		<script>
 		$(function(){
 			$(".delete").click(function(){
-				if(confirm("确认删除")){
+				if(confirm("Confirm to delete?")){
 					var id=$(this).parents("tr").attr("id");
 					$.post("delete_order.php",{id:id},function(data){
 						if(data==1){
-							alert("删除成功");
+							alert("Delete success");
 							location.reload();
 						}else{
-							alert("未知错误，请稍后再试");
+							alert("UnKown error,please try later");
 						}
 					})
 				}
@@ -31,31 +31,31 @@
 		<div class="bgintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">秒杀管理</a></li>
+						<li><a href="#">SeckillManage</a></li>
 					</ul>		
 				</div>
 				<div class="listintor">
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：秒杀管理 －&gt;<strong>查看订单</strong></span>
+					<span>Position:SeckillManage －&gt;<strong>CheckOrders</strong></span>
 				</div>
 				<div class="content">
 					<form action="#" method ="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-							    <td width="5%">订单编号</td>
-								<td width="5%">客户编号</td>
-								<td width="5%">商城编号</td>
-								<td width="5%">商家编号</td>
-								<td width="5%">商品编号</td>
-								<td width="5%">数量</td>
-								<td width="5%">总价</td>
-								<td width="5%">客户名</td>								
-							    <td width="5%">收件人</td>							
-							    <td width="5%">地址</td>
-								<td width="5%">联系方式</td>
-								<td width="5%">状态</td>
-							    <td width="5%">订单时间</td>
-								<td width="5%">操作</td>
+							    <td width="5%">OrderNo.</td>
+								<td width="5%">GuestNo.</td>
+								<td width="5%">MallNo.</td>
+								<td width="5%">SjopNo.</td>
+								<td width="5%">GoodsNo.</td>
+								<td width="5%">Amount</td>
+								<td width="5%">TotalPrice</td>
+								<td width="5%">GuestName</td>								
+							    <td width="5%">Receiver</td>							
+							    <td width="5%">Address</td>
+								<td width="5%">Contacts</td>
+								<td width="5%">State</td>
+							    <td width="5%">OrderTime</td>
+								<td width="5%">Operation</td>
 							</tr>
 							<?php
 								$pagesize=20;							
@@ -107,16 +107,16 @@
 							<?php
 								switch($row["state"]){
 									case 0:
-										echo "未付款";
+										echo "Not paied";
 										break;
 									case 1:
-										echo "已付款，待收货";
+										echo "Paied,receiving";
 										break;
 									case 2:
-										echo "已收货";
+										echo "Received";
 										break;
 									case 3:
-										echo "待确认";
+										echo "CheckingS";
 										break;
 								}
 							?>
@@ -135,11 +135,11 @@
 					</form>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>No such information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current:<?php echo $page;?>/<?php echo $pagecount;?>Page EveryPage <?php echo $pagesize?> Items</div>
 						<div class="pageafter">
 						<?php echo showPage("search_order.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

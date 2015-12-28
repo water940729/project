@@ -15,7 +15,7 @@ $id=$_SESSION['id'];
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="Jiangting@WiiPu -- http://www.wiipu.com" />
-		<title> 后台管理中心  </title>
+		<title> Back-stage Management  Center</title>
 	</head>
 	<frameset rows="80,*,123" frameborder="no" border="0" framespacing="0" id="top">
 	  <frame src="header.php" id="topFrame" scrolling="no" noresize="noresize" title="TopFrame" />

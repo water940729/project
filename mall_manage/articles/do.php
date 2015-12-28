@@ -7,7 +7,7 @@
 	$act = sqlReplace(trim($_GET['act']));
 	//检测$act的值
 	if(!$act=='add'||!$act=='update'||!$act=='del'){
-		alertInfo('非法操作！','',1);
+		alertInfo('Illegal Operation','',1);
 	}
 	$time = time();
 	switch($act){
@@ -22,17 +22,17 @@
 				       " values('$title','$content',$time,$role,$belong)";
 			if(mysql_query($sql_add))
 			{
-				$content="添加了一篇文章，文章名".$title;
+				$content="Added an article,name is:".$title;
 				if(add_system_log($content)==1){
-					alertInfo('文章添加成功','list.php',0);
+					alertInfo('Add success','list.php',0);
 					//echo $content;
 				}else{
-					alertInfo('文章添加失败','',1);
+					alertInfo('Add failed','',1);
 					//echo $content;
 					//echo add_system_log($content);
 				}
 			}else{
-				alertInfo('文章添加失败','',1);
+				alertInfo('Add failed','',1);
 			}
 			break;
 		case 'update':
@@ -42,39 +42,39 @@
 			$content = sqlReplace(trim($_POST['content']));
 
 			if($id==""){
-				alertInfo('非法操作','list.php',0);
+				alertInfo('Illegal Operation','list.php',0);
 			}
 			$sql_update = "update articles set title='$title',content = '$content' where aid = ".$id;		
 			if(mysql_query($sql_update))
 			{
-				$content="修改了一篇文章，文章名".$title;
+				$content="Modified an article,name is:".$title;
 				if(add_system_log($content)==1){
-					alertInfo('文章添加成功','list.php',0);
+					alertInfo('Add success','list.php',0);
 					//echo $content;
 				}else{
-					alertInfo('文章添加失败','',1);
+					alertInfo('Add Failed','',1);
 					//echo $content;
 					//echo add_system_log($content);
 				}
 				//alertInfo('修改成功！','list.php',0);
 			}else{
-				alertInfo('修改失败！','',1);
+				alertInfo('Modify Failed','',1);
 			}
 			break;
 		case 'del':
 			//得到sortlist传递的值，并检测
 			$id = sqlReplace(trim($_GET['id']));
 			if($id==""){
-				alertInfo('非法操作','list.php',0);
+				alertInfo('Illegal Operation','list.php',0);
 			}
 			$sql_del = "delete from articles where aid = $id";
 			if(mysql_query($sql_del)){
-				$content="删除了一篇文章，文章编号".$title;
+				$content="Deleted an article,No. is:".$title;
 				if(add_system_log($content)==1){
-					alertInfo('删除成功','list.php',0);
+					alertInfo('Deleted success','list.php',0);
 					//echo $content;
 				}else{
-					alertInfo('文章删除失败','',1);
+					alertInfo('Delete failed','',1);
 					//echo $content;
 					//echo add_system_log($content);
 				}

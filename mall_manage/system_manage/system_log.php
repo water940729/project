@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>系统管理</title>
+		<title>SystemManage</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -19,19 +19,19 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">系统管理</a></li>
+						<li><a href="#">SystemManage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：系统管理 －&gt; <strong>系统日志</strong></span>
+					<span>Position:SystemManage －&gt; <strong>SystemLogs</strong></span>
 				</div>
 				<div class="content">
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">日志序号</td>
-							<td width="5%">管理员名字</td>
-							<td width="40%">内容</td>
-							<td width="5%">时间</td>
+							<td width="5%">LogNo.</td>
+							<td width="5%">ManagerName</td>
+							<td width="40%">Content</td>
+							<td width="5%">Time</td>
 							<!--<td width="10%">操作</td>-->
 						</tr>
 						<?php
@@ -79,11 +79,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>No such information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current:<?php echo $page;?>/<?php echo $pagecount;?>Page EveryPage <?php echo $pagesize?> Items</div>
 						<div class="pageafter">
 						<?php echo showPage("system_log.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>商品管理</title>
+		<title>GoodsManage</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -64,19 +64,19 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">秒杀管理</a> </li>
+				<li><a href="#">SeckillManage</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-			<span>位置：秒杀管理 －&gt; <strong>分类管理</strong> －&gt; <strong>添加商品</strong></span>
+			<span>Position:SeckillManage －&gt; <strong>SortManage</strong> －&gt; <strong>AddGoods</strong></span>
 		</div>		
 		<div class="fromcontent">
 			<form action="add_seckill_goods_do.php" method="post" id="doForm">
-				<p><font style="font-size:15px;color:red">商品基本信息:</font></p>
-				<p>商品名称：<input class="in1" type="text" name="goodsName" id="goodsName"/>(*)</p>						
-				<p>所属店铺：<select id="select_mall" name="mall">
-				<option value="0" select="selected">--请选择商场--</option>
+				<p><font style="font-size:15px;color:red">GoodsIntroduction:</font></p>
+				<p>GoodsName<input class="in1" type="text" name="goodsName" id="goodsName"/>(*)</p>						
+				<p>Shop:<select id="select_mall" name="mall">
+				<option value="0" select="selected">--Choose a mall--</option>
 				<?php
 					$sql="select id,name from mall";
 					$result=mysql_query($sql);
@@ -87,25 +87,25 @@
 					}
 				?>
 				</select>
-				<select id="select_shop" name="shop"><option value="0" select="selected">--请选择店铺--</option></select>
-				(*不选择表示商城自营)
-				<p>商品价格：<input class="in1" type="text" name="price" id="price"/>(*请输入一个数字)</p><br>			
-				<p>开始时间：
+				<select id="select_shop" name="shop"><option value="0" select="selected">--Choose a shop--</option></select>
+				(*Unchosen means its supported by mall itself)
+				<p>GoodsPrice:<input class="in1" type="text" name="price" id="price"/>(*Input a number)</p><br>			
+				<p>StartTime:
 				<input type="text" id="start" name="start" value="" class="text" >(*)<br/></p>						
-				<p>结束时间：<!--<input class="in1" type="text" name="end" id="goodsName"/>-->
+				<p>EndTime:<!--<input class="in1" type="text" name="end" id="goodsName"/>-->
 				<input type="text" id="end" name="end" value="" class="text">(*)<br/></p>						
-				<p>商品数量：<input class="in1" type="text" name="num" id="num"/>(*请输入一个数字)</p><br>
-				<p>商品属性1：<input class="in1" type="text" name="extattribute1">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
-				<p>商品属性2：<input class="in1" type="text" name="extattribute2">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
-				<p>商品属性3：<input class="in1" type="text" name="extattribute3">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
-				<p><font style="font-size:15px;color:red">商品SEO信息:</font></p>	
-				<p>商品关键字：<input type="text" name="keyword">(多个关键字，用英文逗号隔开)</p>
-				<p>商品简介：
+				<p>Amount:<input class="in1" type="text" name="num" id="num"/>(*Input a number)</p><br>
+				<p>Property1:<input class="in1" type="text" name="extattribute1">(Fill or not,format:property1,property2,property3,properties devided by ',',names divided by ';')</p><br/>
+				<p>Property2:<input class="in1" type="text" name="extattribute2">(Fill or not,format:property1,property2,property3,properties devided by ',',names divided by ';')</p><br/>
+				<p>Property3:<input class="in1" type="text" name="extattribute3">(Fill or not,format:property1,property2,property3,properties devided by ',',names divided by ';')</p><br/>
+				<p><font style="font-size:15px;color:red">Goods SEO information:</font></p>	
+				<p>GoodsKeyword:<input type="text" name="keyword">(keywords divided by ',')</p>
+				<p>GoodsIntroduction:
 					<textarea cols="20" rows="3" id='goodsDesc' name='goodsDesc'></textarea>
 				</p><br>
 				
-				<p><font style="font-size:15px;color:red">商品图片简介:</font></p>	
-				<p>图片上传: 
+				<p><font style="font-size:15px;color:red">GoodsImage:</font></p>	
+				<p>ImageUpload: 
 					 <span id="upd_pics"></span>
 					 <input type="file" name="file" id="file" onchange="check_file()"/>
 					 	<span id="loading" style="display:none;">
@@ -114,15 +114,15 @@
 					 	<span id="logo"></span>
                         <input type="hidden" name="filename" id="filename" value="" />
 						<input type="hidden" name="goods_desc" id="goods_desc" value="" />
-                        <input type="button" value="上传" onclick="return ajaxFileUpload();" 
+                        <input type="button" value="Upload" onclick="return ajaxFileUpload();" 
                         class="btn btn-large btn-primary" />
 					</p>
 				<p>
-				<p>商品描述:</p>
+				<p>GoodsDescription:</p>
 					<script id="editor" type="text/plain" name="goods_info" style="width:1024px;height:300px;">
 					</script>
 				<input type="hidden" value="<?php echo $type_id;?>" name="type_id"/>
-				<input type="button" value="提交" onclick="return check()"></p>
+				<input type="button" value="Submit" onclick="return check()"></p>
 			</form>
 		</div>
 	</div>
@@ -138,7 +138,7 @@ editor.render('editor');
 						var f=document.getElementById('doForm');
 						if(f.title.value=="")
 						{
-							alert('文章标题不能为空');
+							alert('Title cannot be empty!');
 							f.title.focus();
 							return false;
 						}
@@ -153,31 +153,31 @@ function check()
 {
 	if(form.goodsName.value=="")
 	{
-		alert('请填写商品名称！');
+		alert('Input goods name!');
 		form.goodsName.focus();
 		return false;
 	}
 	if(form.price.value=="") 
 	{
-		alert('请填写商品价格！');
+		alert('Input goods price!');
 		form.price.focus();
 		return false;
 	}
 	if(form.start.value=="")
 	{
-		alert('请填写商品开始时间！');
+		alert('Input start time!');
 		form.start.focus();
 		return false;
 	}
 	if(form.end.value=="")
 	{
-		alert('请填写商品结束时间！');
+		alert('Input end time!');
 		form.end.focus();
 		return false;
 	}
 	if(form.num.value==""||isNaN(form.num.value))
 	{
-		alert('请填写商品数量！');
+		alert('Input the amount!');
 		form.num.focus();
 		return false;
 	}
@@ -192,7 +192,7 @@ function ajaxFileUpload()
         $("#loading")
         .ajaxStart(function(){
             $(this).show();
-            document.getElementById('logo').innerHTML="图片上传中……";
+            document.getElementById('logo').innerHTML="Uploading...";
         })
         .ajaxComplete(function(){
                 $(this).hide();
@@ -247,7 +247,7 @@ function ajaxFileUpload()
 	function exportClick() {
 		$("#spanMsg").html('');
 		if ($("#file").val() == '') {
-			alert('请先选择要导入的文件');
+			alert('Choose the file to be imported!');
 			return false;
 		}
 	}

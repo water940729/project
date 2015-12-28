@@ -14,22 +14,22 @@
 		<div class="bgintor">
 				<div class="tit1">
 					<ul>				
-						<li class="l1"><a href="sum_order.php" target="mainFrame">按商城分类</a></li>
-						<li><a href="#" target="mainFrame">按商铺分类</a></li>
-						<li class="l1"><a href="sum_order_good.php" target="mainFrame">按商品分类</a></li>
+						<li class="l1"><a href="sum_order.php" target="mainFrame">SortedByMall</a></li>
+						<li><a href="#" target="mainFrame">SortedByShop</a></li>
+						<li class="l1"><a href="sum_order_good.php" target="mainFrame">SortedByGoods</a></li>
 					</ul>		
 				</div>
 				<div class="listintor">
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：订单管理 －&gt;<strong>商品统计列表</strong></span>
+					<span>Position:OrderManage －&gt;<strong>GoodsList</strong></span>
 				</div>
 				<div class="content">
 					<form action="#" method ="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-							    <td width="15%">商铺编号</td>
-								<td width="40%">统计信息</td>
-								<td width="10%">操作</td>	
+							    <td width="15%">ShopNo.</td>
+								<td width="40%">StatisticalInformation</td>
+								<td width="10%">Operation</td>	
 							</tr>
 <?php
 $pagesize=20;
@@ -67,22 +67,22 @@ while($row=mysql_fetch_array($res)){
 ?>
 							<tr>
 								<td><?php echo $shop_id;?></td>   
-								<td><a href="order_list_stats.php?state=0&type=shop&id=<?php echo $shop_id; ?>">未付款：
+								<td><a href="order_list_stats.php?state=0&type=shop&id=<?php echo $shop_id; ?>">NotPaied:
 									<?php
 										echo $row1["total"]?$row1["total"]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="order_list_stats.php?state=1&type=shop&id=<?php echo $shop_id; ?>">已付款：
+								    ?>pieces </a>&nbsp;|&nbsp;<a href="order_list_stats.php?state=1&type=shop&id=<?php echo $shop_id; ?>">Paied:
 									<?php
 										echo $row2["total"]?$row2["total"]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="order_list_stats.php?state=2&type=shop&id=<?php echo $shop_id; ?>">已发货：
+								    ?>pieces </a>&nbsp;|&nbsp;<a href="order_list_stats.php?state=2&type=shop&id=<?php echo $shop_id; ?>">Delivered:
 									<?php
 										echo $row3["total"]?$row3["total"]:0;
-								    ?>件</a>&nbsp;|&nbsp;<a href="order_list_stats.php?state=3&type=shop&id=<?php echo $shop_id; ?>">已确认：
+								    ?>pieces </a>&nbsp;|&nbsp;<a href="order_list_stats.php?state=3&type=shop&id=<?php echo $shop_id; ?>">Checked:
 									<?php
 										echo $row4["total"]?$row4["total"]:0;
-								    ?>件</a>
+								    ?>pieces </a>
 								</td>
 								<td>
-								     <a href="order_list_stats.php?type=shop&id=<?php echo $shop_id; ?>">查看所有订单</a>
+								     <a href="order_list_stats.php?type=shop&id=<?php echo $shop_id; ?>">CheckAllOrder</a>
 								</td>
 								</tr>
 							<?php }?>
@@ -90,11 +90,11 @@ while($row=mysql_fetch_array($res)){
 					</form>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>No such information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current:<?php echo $page;?>/<?php echo $pagecount;?>Page EveryPage <?php echo $pagesize?> Items</div>
 						<div class="pageafter">
 						<?php echo showPage('order_stats.php',$page,$pagecount);?>
 						<div class="clear"></div>

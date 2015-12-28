@@ -13,25 +13,25 @@
 	if(!empty($_FILES[$fileElementName]['error'])){
 		switch($_FILES[$fileElementName]['error']){
 		case '1':
-			$info = 'E|上传的文件大小超过了系统限制。';
+			$info = 'E|Upload file size is more than the system limit';
 			break;
 		case '3':
-			$info = 'E|上传文件过程出错。';
+			$info = 'E|Error occurs while uploading file';
 			break;
 		case '4':
-			$info = 'E|没有选择文件。';
+			$info = 'E|No file choosed';
 			break;
 		case '6':
-			$info = 'E|系统错误：不存在临时文件夹。';
+			$info = 'E|System error:no temp directory exists';
 			break;
 		case '7':
-			$info = 'E|系统错误：写入文件出错。';
+			$info = 'E|System error:error occurs while writing into file';
 			break;
 		default:
-			$info = 'E|未知错误。';
+			$info = 'E|Unknown error';
 		}
 	}elseif(empty($_FILES[$fileElementName]['tmp_name']) || $_FILES[$fileElementName]['tmp_name'] == 'none'){
-		$info = 'E|没有选择文件。';
+		$info = 'E|No file choosed';
 	}else{
 		$f_name=$_FILES[$fileElementName]['name'];
 		$f_size=$_FILES[$fileElementName]['size'];
@@ -54,10 +54,10 @@
 		$checkExt = false;
 		}
 		if($checkExt){
-			$info = 'E|文件格式不正确，格式必须为MP3。';
+			$info = 'E|File format is wrong,format must be MP3';
 		}else{
 			if($f_size>800*1024*1024){
-				$info = 'E|文件大小不能超过800M。';					
+				$info = 'E|File size cannot more than 800M。';					
 			}else{
 				$random= rand(100,999); 
 				$pub_name = time().$random;
@@ -77,7 +77,7 @@
 					$info = "S|".$f_fullpath;
 									
 				}else{
-					$info = 'E|文件保存的目标文件夹不存在或无写权限。'.$f_path;
+					$info = 'E|The save directory is not exist or permission denied'.$f_path;
 				}
 			}
 		}

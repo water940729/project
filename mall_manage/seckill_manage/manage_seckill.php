@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>HomePageManage</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -20,7 +20,7 @@
 		<script>
 			//删除楼层
 			function delete_seckill_type(id){
-				if(confirm("确认删除")){
+				if(confirm("Confirm to delete?")){
 					$.ajax({
 						type:"POST",
 						url:"delete_seckill_type.php",
@@ -39,20 +39,20 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">HomePageManage</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>秒杀管理</strong></span>
+					<span>Position:HomePageManage －&gt; <strong>SeckillManage</strong></span>
 				</div>
 				<div class="content">
-					<a href="add_seckill.php">添加秒杀分类</a>
+					<a href="add_seckill.php">AddSeckillSort</a>
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">分类编号</td>
-							<td width="5%">分类名称</td>
-							<td width="10%">分类权重</td>
-							<td width="10%">操作</td>
+							<td width="5%">SortNo.</td>
+							<td width="5%">SortName</td>
+							<td width="10%">SortWeight</td>
+							<td width="10%">Operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -84,8 +84,8 @@
 							<td><?php echo $name?></td>
 							<td><?php echo $weight?></td>
 							<td>
-								<a href="manage_seckill_type.php?id=<?=$id?>&name=<?=$name?>">分类管理</a>|
-								<a href="javascript:void(0);" onclick="delete_seckill_type(<?php echo $id;?>)">删除</a>
+								<a href="manage_seckill_type.php?id=<?=$id?>&name=<?=$name?>">SortManage</a>|
+								<a href="javascript:void(0);" onclick="delete_seckill_type(<?php echo $id;?>)">Delete</a>
 							</td>
 						</tr>
 						<?php
@@ -94,11 +94,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>No such information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current:<?php echo $page;?>/<?php echo $pagecount;?>Page EveryPage <?php echo $pagesize?> Items</div>
 						<div class="pageafter">
 						<?php echo showPage("check_goods.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

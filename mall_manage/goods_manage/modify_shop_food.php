@@ -19,18 +19,18 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">商品分类</a></li>
+						<li><a href="#">GoodsSort</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：商品管理 －&gt; 商品分类－&gt; <strong>二级分类</strong></span>
+					<span>Position:GoodsManage -&gt; GoodsSort-&gt;<strong>SortLevel2</strong></span>
 				</div>
 				<div class="content">
 					<div style="text-align:left">
-						<p>当前分类：<?php echo $row["name"];?></p><br>
+						<p>CurrentSort:<?php echo $row["name"];?></p><br>
 						<form action="modify_shop_food_do.php" method="post" id="doForm">
-							<p>分类名称：<input class="in1" type="text" name="goods_type"/>	
-							<input type="submit" value="修改"></p>
+							<p>SortName:<input class="in1" type="text" name="goods_type"/>	
+							<input type="submit" value="Modify"></p>
 							<input type="hidden" value=2 name="type">
 							<input type="hidden" value="<?php echo $id;?>" name="id">
 						</form>
