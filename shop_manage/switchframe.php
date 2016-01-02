@@ -4,17 +4,17 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="author" content="Jiangting@WiiPu -- http://www.wiipu.com" />
 	<link rel="stylesheet" href="css/style2.css" type="text/css" />
-	<title>显示/隐藏左侧导航栏</title>
+	<title>Show/Hide left navigation bar</title>
 	<script language="JavaScript">
 		function Submit_onclick(){
 			if(window.top.document.getElementById('frams').cols == "205,7,*") {
 				window.top.document.getElementById('frams').cols="0,7,*";
 				document.getElementById("ImgArrow").src="images/switch_right.gif";
-				document.getElementById("ImgArrow").alt="打开左侧导航栏";
+				document.getElementById("ImgArrow").alt="Open left navigation bar";
 			} else {
 				window.top.document.getElementById('frams').cols="205,7,*";
 				document.getElementById("ImgArrow").src="images/switch_left.gif";
-				document.getElementById("ImgArrow").alt="隐藏左侧导航栏";
+				document.getElementById("ImgArrow").alt="Hide left navigation bar";
 			}
 		}
 
@@ -29,7 +29,7 @@
 </head>
 <body>
 	<div id="switchpic">
-		<a href="javascript:Submit_onclick()"><img src="images/switch_left.gif" alt="隐藏左侧导航栏" id="ImgArrow" /></a>
+		<a href="javascript:Submit_onclick()"><img src="images/switch_left.gif" alt="Hide left navigation bar" id="ImgArrow" /></a>
 	</div>
 </body>
 </html>

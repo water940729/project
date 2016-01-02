@@ -21,9 +21,9 @@
 				       " values('$title','$content',$time,$role,$belong)";			
 			if(mysql_query($sql_add))
 			{
-				alertInfo('文章添加成功','list.php',0);
+				alertInfo('The article added successful','list.php',0);
 			}else{
-				alertInfo('文章添加失败','',1);
+				alertInfo('The article add failure','',1);
 			}
 			break;
 		case 'update':
@@ -33,27 +33,27 @@
 			$content = sqlReplace(trim($_POST['content']));
 
 			if($id==""){
-				alertInfo('非法操作','list.php',0);
+				alertInfo('Illegal operation','list.php',0);
 			}
 			$sql_update = "update articles set title='$title',content = '$content' where aid = ".$id;		
 			if(mysql_query($sql_update))
 			{
-				alertInfo('文章添加成功','list.php',0);
+				alertInfo('The article added successful','list.php',0);
 					//echo $content;
 				//alertInfo('修改成功！','list.php',0);
 			}else{
-				alertInfo('修改失败！','',1);
+				alertInfo('Modify failure!','',1);
 			}
 			break;
 		case 'del':
 			//得到sortlist传递的值，并检测
 			$id = sqlReplace(trim($_GET['id']));
 			if($id==""){
-				alertInfo('非法操作','list.php',0);
+				alertInfo('Illegal operation','list.php',0);
 			}
 			$sql_del = "delete from articles where aid = $id";
 			if(mysql_query($sql_del)){
-				alertInfo('删除成功','list.php',0);
+				alertInfo('Deleted successful','list.php',0);
 					//echo $content;
 			}
 			break;

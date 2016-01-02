@@ -21,25 +21,25 @@
 	if(!empty($_FILES[$fileElementName]['error'])){
 		switch($_FILES[$fileElementName]['error']){
 		case '1':
-			$info = 'E|上传的文件大小超过了系统限制。';
+			$info = 'E|Upload file size is more than system limit.';
 			break;
 		case '3':
-			$info = 'E|上传文件过程出错。';
+			$info = 'E|Upload file error in process.';
 			break;
 		case '4':
-			$info = 'E|没有选择文件。';
+			$info = 'E|No file chosed';
 			break;
 		case '6':
-			$info = 'E|系统错误：不存在临时文件夹。';
+			$info = 'E|System error: there is no temporary folder.';
 			break;
 		case '7':
-			$info = 'E|系统错误：写入文件出错。';
+			$info = 'E|System error: error writing file.';
 			break;
 		default:
-			$info = 'E|未知错误。';
+			$info = 'E|Unknown error.';
 		}
 	}elseif(empty($_FILES[$fileElementName]['tmp_name']) || $_FILES[$fileElementName]['tmp_name'] == 'none'){
-		$info = 'E|没有选择文件。';
+		$info = 'E|No file chosed.';
 	}else{
 		$f_name=$_FILES[$fileElementName]['name'];
 		$f_size=$_FILES[$fileElementName]['size'];
@@ -63,7 +63,7 @@
 			//$info = 'E|文件格式不正确，格式必须为xls。';
 		}else{
 			if($f_size>8*1024*1024){
-				$info = 'E|文件大小不能超过8M。';					
+				$info = 'E|File size no more than 8M.';					
 			}else{
 				$random= rand(100,999); 
 				/*
@@ -89,7 +89,7 @@
 					$info = "S|".$sys_fullpath;
 									
 				}else{
-					$info = 'E|文件保存的目标文件夹不存在或无写权限。';
+					$info = 'E|Files stored in the destination folder does not exist or has no write permission.';
 				}
 			}
 		}

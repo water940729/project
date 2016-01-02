@@ -7,16 +7,16 @@
 	$sql="insert into seckill_focus(image_url,link_url,weight) values('{$_POST["pics1"][0]}','{$_POST["link_url"]}',$_POST[weight])";
 	if(mysql_query($sql)){
 		$id=mysql_insert_id();
-		$content="添加了秒杀焦点图，焦点图编号为".$id;
+		$content="Added seconds kill focus figure, figure Numbers for focus".$id;
 		if(add_system_log($content)==1){
 			$url="manage_focus.php";
-			echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add successful!');window.location.href='".$url."';</script>";
 		}else{
 			$url="add_focus.php";
-			echo "<script>alert('添加失败!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Add failure!');window.location.href='".$url."';</script>";
 		}
 	}else{
 		$url="add_focus.php";
-		echo "<script>alert('添加失败!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add failure!');window.location.href='".$url."';</script>";
 	}
 ?>

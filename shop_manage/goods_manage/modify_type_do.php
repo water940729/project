@@ -23,11 +23,11 @@
 	$sql.=" where id=$_POST[id]";
 	$url="goods_type1.php";
 	if(mysql_query($sql)){
-		$content="修改了商品一级分类，分类名称：".$row["name"];
-			echo "<script>alert('修改成功!');window.location.href='".$url."';</script>";
+		$content="Modify the commodity level classification, classification name:".$row["name"];
+			echo "<script>alert('Modify successful!');window.location.href='".$url."';</script>";
 		//echo 11;
 	}else{
 		//echo $sql;
-		echo "<script>alert('修改失败,请重新添加!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Modify failure,please add again!');window.location.href='".$url."';</script>";
 	}
 	//echo $sql;

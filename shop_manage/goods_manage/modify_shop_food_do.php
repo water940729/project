@@ -5,12 +5,12 @@
 	$type1_id=$row['type1_id'];
 	$sql="update goods_type2 set name='".$_POST[goods_type]."' where id=$_POST[id]";
 	if(mysql_query($sql)){
-		$content="修改了商品二级分类，分类名称：".$_POST["goods_type"];
+		$content="Modified the goods secondary classification, classification name:".$_POST["goods_type"];
 			$url='goods_type2.php?id='.$type1_id;
-			echo "<script>alert('修改成功!');window.location.href='".$url."';</script>";
+			echo "<script>alert('Modify successful!');window.location.href='".$url."';</script>";
 			//echo $content;
 	}else{
 		$url="modify_shop_food.php?id=$_POST[id]";
-		echo "<script>alert('修改失败,请重新修改!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Modify failure,please add again!');window.location.href='".$url."';</script>";
 		echo mysql_error();
 	}

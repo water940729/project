@@ -15,20 +15,20 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">查看店铺</a></li>
+						<li><a href="#">View the shop</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：店铺管理 －&gt; <strong>查看店铺</strong></span>
+					<span>Location: shop management －&gt; <strong>View the shop</strong></span>
 				</div>
 				<div class="content">
 					<table width="100%">
 						<tr class="t1">
-							<td width="10%">店铺序号</td>
-							<td width="10%">店铺名称</td>
-							<td width="10%">所属商城</td>
-							<td width="10%">店铺详情</td>
-							<td width="15%">操作</td>
+							<td width="10%">Shop ID</td>
+							<td width="10%">Shop name</td>
+							<td width="10%">The mall</td>
+							<td width="10%">Shop's details</td>
+							<td width="15%">Operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -70,12 +70,12 @@
 							<td>
 							<?php
 								if($role<3){
-									echo "<a href='../goods_manage/add_goods.php?shop_id={$id}'>添加商品</a>|";
+									echo "<a href='../goods_manage/add_goods.php?shop_id={$id}'>Add Merchandise</a>|";
 								}
 							?>
-								<a href="check_shop_goods.php?shop_id=<?=$id?>&shop_name=<?=$name?>&from=shop">查看商品</a>|
-								<a href="edit_shop.php?shop_id=<?=$id?>">修改店铺</a>|
-								<a href="javascript:void(0);" onclick="delete_shop(<?=$id?>,'<?=$name?>')">删除店铺</a>
+								<a href="check_shop_goods.php?shop_id=<?=$id?>&shop_name=<?=$name?>&from=shop">View Product </a>|
+								<a href="edit_shop.php?shop_id=<?=$id?>">Modify the store</a>|
+								<a href="javascript:void(0);" onclick="delete_shop(<?=$id?>,'<?=$name?>')">Delete the store</a>
 							</td>
 						</tr>
 						<?php
@@ -84,11 +84,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>There is no relevant information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current page:<?php echo $page;?>/<?php echo $pagecount;?>page Each page <?php echo $pagesize?> one</div>
 						<div class="pageafter">
 						<?php echo showPage("check_shop.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>
@@ -102,17 +102,17 @@
 </html>
 <script>
 	function delete_shop(shop_id,shop_name){
-		if(confirm("删除店铺将会同时删除店铺所对应的商品，您确认要删除"+shop_name+"吗;")){
+		if(confirm("Delete shops will delete shops of the goods at the same time, are you sure you want to delete"+shop_name+"?;")){
 			$.post("delete_shop_do.php",
 				{
 					shop_id:shop_id
 				},
 				function(data,status){
 					if(data==1){
-						alert("删除成功!");
+						alert("Deleted successfully!");
 						location.reload();
 					}else{
-						alert("删除失败");
+						alert("Delete failed");
 					}
 				}
 			);

@@ -16,7 +16,7 @@
 			}else{
 				$sql1="select count(order_id) as total from seckill_orderlist where $this->type=$this->id";
 			}
-			$result=mysql_query($sql1) or die("数据库异常".$sql1);
+			$result=mysql_query($sql1) or die("EDatabaseError".$sql1);
 			$row=mysql_fetch_array($result);
 			$num=$row["total"];
 			return $num;
@@ -27,7 +27,7 @@
 			}else{
 				$sql1="select order_id,user_id,mall_id,shop_id,good_id,num,price,username,rec_name,address,phone,state,time from seckill_orderlist where $this->type=$this->id order by order_id desc limit ".$a.",".$b;
 			}
-			$result=mysql_query($sql1) or die("数据库异常"+$sql1);
+			$result=mysql_query($sql1) or die("EDatabaseError"+$sql1);
 			//$row=mysql_fetch_array($result);
 			return $result;
 		}

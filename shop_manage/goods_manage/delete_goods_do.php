@@ -8,7 +8,7 @@
 	$delete="delete from goods where id=$goods_id";
 	$delete_info="delete from goods_pictures where goods_id=$goods_id";
 	if(mysql_query($delete)&&mysql_query($delete_info)){
-		$content="删除了一种商品，商品信息：商品名".$row["name"]."，商品编号".$row["id"];
+		$content="Removed a commodity, commodity information, commodity name".$row["name"].", the commodity id".$row["id"];
 		if(add_system_log($content)==1){
 			echo 1;
 			//echo $content;

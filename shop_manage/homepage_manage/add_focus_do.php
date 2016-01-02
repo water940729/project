@@ -7,11 +7,11 @@
 	
 	if(mysql_query($sql)){
 		$id=mysql_insert_id();
-		$content="添加了焦点图，焦点图编号为".$id;
+		$content="Added focus figure, figure number is".$id;
 		$url="manage_focus.php";
-		echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add successful!');window.location.href='".$url."';</script>";
 	}else{
 		$url="add_focus.php";
-		echo "<script>alert('添加失败!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add failure!');window.location.href='".$url."';</script>";
 	}
 ?>

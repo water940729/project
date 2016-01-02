@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>Home page management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -20,7 +20,7 @@
 		})
 		*/
 		function delete_focus(id){
-			if(confirm("确认删除")){
+			if(confirm("Confirm Delete")){
 				$.ajax({
 					data:"id="+id,
 					type:"POST",
@@ -39,20 +39,20 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">Home page management</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>焦点图管理</strong></span>
+					<span>Location: home page management －&gt; <strong>Focus figure management</strong></span>
 				</div>
 				<div class="content">
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">焦点图编号</td>
-							<td width="5%">跳转链接</td>
-							<td width="10%">权重</td>
-							<td width="10%">图片</td>
-							<td width="10%">操作</td>
+							<td width="5%">Focus figure ID</td>
+							<td width="5%">Chaining</td>
+							<td width="10%">Weight</td>
+							<td width="10%">Image</td>
+							<td width="10%">Operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -86,7 +86,7 @@
 							<td><?php echo $weight?></td>
 							<td><img src="<?php echo $image_url?>"/></td>
 							<td>
-								<a href="javascript:void(0);" onclick="delete_focus(<?php echo $id;?>)">删除</a>
+								<a href="javascript:void(0);" onclick="delete_focus(<?php echo $id;?>)">Delete</a>
 							</td>
 						</tr>
 						<?php
@@ -95,11 +95,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>There is no relevant information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current page:<?php echo $page;?>/<?php echo $pagecount;?>page Each page <?php echo $pagesize?> one</div>
 						<div class="pageafter">
 						<?php echo showPage("check_goods.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

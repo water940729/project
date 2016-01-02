@@ -97,12 +97,12 @@ function checkData($data,$name,$type){
 	switch($type){
 		case 0:
 			if(!preg_match('/^\d*$/',$data)){
-				alertInfo("非法参数".$name,'',1);
+				alertInfo("Invalid argument ".$name,'',1);
 			}
 			break;
 		case 1:
 			if(empty($data)){
-				alertInfo($name."不能为空","",1);
+				alertInfo($name."Not null","",1);
 			}
 			break;
 	}
@@ -113,10 +113,10 @@ function checkEmail($email,$name)
 {
 	if(empty($email))
 	{
-		alertInfo($name.'不能为空','',1);
+		alertInfo($name.'Not null','',1);
 	}else if(!eregi("^[a-zA-Z0-9]([a-zA-Z0-9]*[-_.]?[a-zA-Z0-9]+)+@([a-zA-Z0-9]+\.)+[a-zA-Z]{2,}$", $email)) 
 	{
-		alertInfo($name.'输入格式不正确','',1);
+		alertInfo($name.'Format wrong','',1);
 	}
 
 }

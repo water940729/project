@@ -9,13 +9,13 @@
 	$result=mysql_query($sql3);
 	$row=mysql_fetch_array($result);
 	if(mysql_query($sql)&&mysql_query($sql1)){
-		$content="删除了秒杀分类，分类编号为".$row["id"]."，分类为".$row["typename"];
+		$content="Delete the seconds kill classification, classification number".$row["id"].", classified as".$row["typename"];
 		if(add_system_log($content)==1){
-			echo"删除成功";
+			echo"Deleted successfully";
 		}else{
-			echo"删除失败";
+			echo"Delete failed";
 		}
 	}else{
-		echo"删除失败，请重试";
+		echo"Delete failed, please try again";
 	}
 ?>

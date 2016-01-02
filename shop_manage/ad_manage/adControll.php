@@ -22,13 +22,13 @@ if($action == 'delete'){
 		unlink ( $filePath[0] );
 		?>
 		<script  type="text/javascript"> 
-		         alert('删除成功'); 
+		         alert('Deleted success'); 
 		         history.back();
 		</script>
 		<?
 	}else{
 		?>
-		<script  type="text/javascript"> alert('删除失败');
+		<script  type="text/javascript"> alert('Delete failure');
 		history.back();
 		</script>
 		<?
@@ -46,7 +46,7 @@ if($action == 'delete'){
 		if(mysql_query($sql)){
 		    ?>
 		<script  type="text/javascript"> 
-		         alert('置顶成功'); 
+		         alert('Top success'); 
 		         history.back();
 		</script>
 		<?
@@ -54,7 +54,7 @@ if($action == 'delete'){
 	 }else{
 	  ?>
 		 <script  type="text/javascript"> 
-		         alert('置顶失败'); 
+		         alert('Top failure'); 
 		         history.back();
 		</script>
 		<?

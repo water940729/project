@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>Homepage management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -18,7 +18,7 @@
 				$("#loading"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo"+"_"+file_type).html("上传中……");
+					$("#logo"+"_"+file_type).html("Uploading...");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -65,7 +65,7 @@
 				$("#loading1"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo1"+"_"+file_type).html("上传中……");
+					$("#logo1"+"_"+file_type).html("Uploading...");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -110,7 +110,7 @@
 				$("#weight").keyup(function(){
 					var val=$(this).val();
 					if(val!=""&&(val<1||val>9999)){
-						alert("请输入合法的数！");
+						alert("Please enter the legal number!");
 						$(this).val("");
 						//return false;
 					}
@@ -123,17 +123,17 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">Homepage management</a></li>
 					</ul>		
 				</div>
 				<div class="header1">
-					<span>位置：首页管理 －&gt; <strong>添加焦点图</strong></span>
+					<span>Location: home page management －&gt; <strong>Add focus figure</strong></span>
 				</div>
 				<div class="content">
 					<form action="add_focus_do.php" method="post" id="doForm">
-						<p>　跳转URL:<input class="in1" type="text" name="link_url"/></p><br/>
-						<p>焦点图权重:<input class="in1" type="text" name="weight" id="weight"/>(输入1-9999中的任意数，数值越大焦点图越靠前，默认为1)</p><br/>
-						<p>焦点图上传: 
+						<p>Jump URL:<input class="in1" type="text" name="link_url"/></p><br/>
+						<p>Focus figure weight:<input class="in1" type="text" name="weight" id="weight"/>(Input number between 1 to 9999, the greater the numerical figure the more, the default is 1)</p><br/>
+						<p>Focus figure to upload: 
 						 <input type="hidden" name="img1_url" id="image1_url">
 						 <span id="upd1_pics" name=""></span>
 						 <input type="file" name="file" id="file1_image"/>
@@ -141,11 +141,11 @@
 							<img src="../images/loading.gif" alt="loading...">
 							</span>
 							<span id="logo1_image"></span>
-							<input type="button" value="上传" onclick="return ajaxFileUpload1('image');" 
-							class="btn btn-large btn-primary confirm" />(图片大小1429*639)
+							<input type="button" value="Upload" onclick="return ajaxFileUpload1('image');" 
+							class="btn btn-large btn-primary confirm" />(Image size is 1429*639)
 						</p>
 						<br/>
-						<input type="submit" value="添加" class="confirm"></p>
+						<input type="submit" value="Add" class="confirm"></p>
 					</form>
 				</div>
 			</div>	

@@ -21,7 +21,7 @@ margin: 0px;
 
 // 配置文件       
 $typeArr = array('jame','kurry','kebe','zhangweiping','dadiao');
-$directionArr[0] = '葵花商城首页';
+$directionArr[0] = 'Sunflower mall homepage';
 $sql1 = 'select id,name from mall';
 $res = mysql_query($sql1);
     while($row = mysql_fetch_assoc($res)){
@@ -30,45 +30,45 @@ $res = mysql_query($sql1);
 	
 
 
-$locationArr = array('顶部','一层','二层','三层','四层');
+$locationArr = array('Top','First floor','Second floor','Third floor','Fourth floor');
 
 //$directionArr = array('jame','kurry','kebe','zhangweiping','dadiao');
 ?>
  <form method="post" action="insertAdControll.php" enctype="multipart/form-data" name='upload'>
 <ul>
-<li>广告指向：<input type="text" name='adName'/></li>
-<li>开始时间: 
+<li>Directions:<input type="text" name='adName'/></li>
+<li>Start Time: 
 <select name='startYear' id='startYear'>
 
-</select>年
+</select>Y
 <select name='startMonth' id='startMonth'>
-</select>月
+</select>M
 <select name='startDay' id='startDay'>
-</select>日
+</select>D
 </li>
-<li>结束时间: 
+<li>End time: 
 <select name='endYear' id='endYear'>
-</select>年
+</select>Y
 <select name='endMonth' id='endMonth'>
-</select>月
+</select>M
 <select name='endDay' id='endDay'>
-</select>日
+</select>D
 </li>
-<li>广告类型:<select name='adType'>
+<li>Ad Type:<select name='adType'>
 <?php foreach($typeArr as $k=>$value){
     ?>
 	<option value ='<?php echo $k ; ?>'><?php echo $value ; ?></option>
    <?
 } ?>
 </select></li>
-<li>投放商城位置:<select name='adLocation'>
+<li>Mall location:<select name='adLocation'>
 <?php foreach($directionArr as $k=>$value){
     ?>
 	<option value ='<?php echo $k ; ?>'><?php echo $value ; ?></option>
    <?
 } ?>
 </select></li>
-<li>投放楼层位置:<select name='adSecLocation'>
+<li>Position on the floor:<select name='adSecLocation'>
 <?php foreach($locationArr as $k=>$value){
     ?>
 	<option value ='<?php echo $k ; ?>'><?php echo $value ; ?></option>
@@ -76,10 +76,10 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 } ?>
 </select></li>
 
-<li>高度: <input name="width" type="text" /> </li>
-<li>宽度: <input name="height" type="text" /> </li>
+<li>Height: <input name="width" type="text" /> </li>
+<li>Width: <input name="height" type="text" /> </li>
 
-<li>图片: <input name="imgfile" type="file" /> </li>
+<li>Image: <input name="imgfile" type="file" /> </li>
 <li><input type="submit" value='提交' onclick="return check()" /></li>
 <ul>
 </form>

@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>Home page management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -23,7 +23,7 @@
 				var form=document.getElementById("doForm");
 				if(form.floor_name.value=="")
 				{
-					alert('请填写分类名称！');
+					alert('Please fill in the name!');
 					form.name.focus();
 					return false;
 				}else{
@@ -36,7 +36,7 @@
 				$("#loading"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo"+"_"+file_type).html("上传中……");
+					$("#logo"+"_"+file_type).html("Uploading...");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -83,7 +83,7 @@
 				$("#loading1"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo1"+"_"+file_type).html("上传中……");
+					$("#logo1"+"_"+file_type).html("Uploading...");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -126,7 +126,7 @@
 			}
 			//删除楼层
 			function delete_floor(id){
-				if(confirm("确认删除")){
+				if(confirm("Confirm Delete")){
 					$.ajax({
 						type:"POST",
 						url:"delete_floor.php",
@@ -145,26 +145,26 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">Home page management</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>楼层管理</strong></span>
+					<span>Location: home page management －&gt; <strong>Floor management</strong></span>
 				</div>
 				<div class="content">
-					<a href="add_floor.php">添加楼层</a>
+					<a href="add_floor.php">Add floor</a>
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">楼层编号</td>
-							<td width="5%">楼层名</td>
-							<td width="10%">楼层权重</td>
+							<td width="5%">Floor ID</td>
+							<td width="5%">Floor name</td>
+							<td width="10%">Floor weight</td>
 							<!--<td width="10%">类别</td>-->
-							<td width="10%">背景色</td>
+							<td width="10%">Background color</td>
 							<?php if($_SESSION["role"]!=1){
-								echo "<td width='10%'>楼层图片</td>";
+								echo "<td width='10%'>Floor pictures</td>";
 							
 							}?>
-							<td width="10%">操作</td>
+							<td width="10%">Operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -201,9 +201,9 @@
 							<td><div style="margin:0 auto;background-color:<?php echo $background?>;width:80px;height:20px;"></div></td>
 							<?php if($_SESSION["role"]!=1)echo "<td><img src='".$logo."'></td>";?>
 							<td>
-								<a href="floor_type.php?id=<?=$id?>&name=<?=$name?>">分类管理</a>|
-								<a href="modify_floor.php?id=<?=$id?>">修改楼层</a>|
-								<a href="javascript:void(0);" onclick="delete_floor(<?php echo $id;?>)">删除</a>
+								<a href="floor_type.php?id=<?=$id?>&name=<?=$name?>">Classified Management</a>|
+								<a href="modify_floor.php?id=<?=$id?>">Modify floor</a>|
+								<a href="javascript:void(0);" onclick="delete_floor(<?php echo $id;?>)">Delete</a>
 							</td>
 						</tr>
 						<?php
@@ -212,11 +212,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>There is no relevant information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current page:<?php echo $page;?>/<?php echo $pagecount;?>page Each page <?php echo $pagesize?> one</div>
 						<div class="pageafter">
 						<?php echo showPage("check_goods.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

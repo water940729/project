@@ -45,14 +45,14 @@ $res = mysql_fetch_row(mysql_query($sql));
 					 if(dataObj['status'] == 1){
 						 $("#goodsTable").empty();
 						 var str =' <tr class="t1" id="adTableLine">'+
-						 	'<td width="10%">状态</td>'+
-							'<td width="10%">申请时间</td>'+
-							'<td width="10%">处理时间</td>'+
-							'<td width="10%">到账时间</td>'+					
-							'<td width="10%">申请金额</td>'+
-							'<td width="10%">申请后余额</td>'+
-							'<td width="10%">消息</td>'+
-							'<td width="10%">操作</td>'+
+						 	'<td width="10%">Status</td>'+
+							'<td width="10%">Application Time</td>'+
+							'<td width="10%">Handling time</td>'+
+							'<td width="10%">Account Time</td>'+					
+							'<td width="10%">Applications amount</td>'+
+							'<td width="10%">Balance</td>'+
+							'<td width="10%">Message</td>'+
+							'<td width="10%">Operation</td>'+
 						    '</tr>';
 						  $("#goodsTable").append(str);
 						  for(var i=0;i<dataObj['data'].length;i++){
@@ -60,14 +60,14 @@ $res = mysql_fetch_row(mysql_query($sql));
 						      var color;
 						      var tag;
 							 if(dataObj['data'][i]['state'] == 1){
-								 showStr = '已审核';
-								 showStr1 = '取消审核';
+								 showStr = 'Audited';
+								 showStr1 = 'Cancel the audit';
 								 color = '#FFFFCC';
 								 tag = 1;
 							 }else{
 								  color = 'white';
-								  showStr = '未审核';
-								  showStr1 = '通过审核';
+								  showStr = 'Not audit';
+								  showStr1 = 'Passed';
 								  tag = 0;
 							 }
 							  str ="<tr tag='"+tag+"' style='background-color:"+color+"' name='"+dataObj['data'][i]['id']+"'>"+
@@ -80,7 +80,7 @@ $res = mysql_fetch_row(mysql_query($sql));
 									"<td>"+dataObj['data'][i]['appendRes']+"</td>";
 									
 								if(dataObj['data'][i]['statusKey'] == 0){
-									str += "<td style='cursor:pointer; ' onclick='reApply(this)' > "+'撤回'+"</td>"+
+									str += "<td style='cursor:pointer; ' onclick='reApply(this)' > "+'Withdraw'+"</td>"+
 									       "</tr>";
 								}else{
 									str += "<td></td>"+
@@ -115,7 +115,7 @@ $res = mysql_fetch_row(mysql_query($sql));
 		
 		function reApply(ele){
 			var id = $(ele).parent().attr('name');
-			var r=confirm("确认撤回");
+			var r=confirm("Confirm to withdraw");
 			if(r==false){
 				return ;
 			}
@@ -126,7 +126,7 @@ $res = mysql_fetch_row(mysql_query($sql));
 				   success: function(msg){
 					 var dataObj=eval("("+msg+")");//转换为json对象
 					  if(dataObj['status'] == 1){
-						 alert('提交成功'); 
+						 alert('Submitted successful'); 
                          searchGoods();						 
 					  }   
 				   }
@@ -136,7 +136,7 @@ $res = mysql_fetch_row(mysql_query($sql));
 		function apply(){
 			
 			var sum = $('#sumInput').val();
-			var r=confirm("确认审核提现");
+			var r=confirm("Confirm the audit withdrawal");
 			if(r==false){
 				return ;
 			}
@@ -147,7 +147,7 @@ $res = mysql_fetch_row(mysql_query($sql));
 				   success: function(msg){
 					 var dataObj=eval("("+msg+")");//转换为json对象
 					  if(dataObj['status'] == 1){
-						 alert('提交成功'); 
+						 alert('Submitted successful'); 
                          searchGoods();						 
 					  }   
 				   }
@@ -201,12 +201,12 @@ margin: 0px;
 		<div class="bgintor" style='height:800px'>
 				<div class="tit1">
 					<ul>				
-						<li style='text-align:center;line-height:35px;'>商品审核</li>
+						<li style='text-align:center;line-height:35px;'>Commodity audit</li>
 					</ul>		
 				</div>				
 			<div class="listintor">
 				<div class="header1">
-					<span>位置：财务管理 ---- <strong><?php echo $result[0]; ?></strong></span>
+					<span>Location: Financial management ---- <strong><?php echo $result[0]; ?></strong></span>
 					 
 				</div>
 				<div class="content" style='height:1000px;'>
@@ -214,7 +214,7 @@ margin: 0px;
 				<div style='width:1000px;height:30px;margin-left:20px;font-size:18px;'>
 				<span>
                 <?php
-				    echo '当前余额 : '.$res[0].'    '.'当前可用余额 : '.$res[1].' 分成比例:'.($res[2]*100).'%';
+				    echo 'Current Balance : '.$res[0].'    '.'Current available balance : '.$res[1].' Commission ratio:'.($res[2]*100).'%';
 				?>
 				</span>
 				<span style='float:right ;font-size:14px; margin-right:30px;'>

@@ -23,13 +23,13 @@ echo mysql_error();
 exit();
 */
 
-$result=mysql_query("select id,name from mall") or die("数据库异常");
-	    $shopLocation[0]='葵花商城首页';
+$result=mysql_query("select id,name from mall") or die("EDatabaseError");
+	    $shopLocation[0]='Sunflower mall homepage';
 while($array=mysql_fetch_array($result)){
 		$shopLocation[$array['id']]=$array['name'];
 	 }
 	 
-$statusArr= array('已下单','已支付','已发货','已收货','待换货','已换货','待退货','已退货','已评价');
+$statusArr= array('Have order','Paid','Delivered','Received','To be replace','Replaced','For a refund','Returned','Have evaluation');
 
 $controllArr = array('delete');
 
@@ -101,14 +101,14 @@ if($action == 'search'){
     
 
 	if($page>1){
-		$conStr.='<div onclick="changePage(this)"  name="'.($page-1).'">上一页</div>';
+		$conStr.='<div onclick="changePage(this)"  name="'.($page-1).'">Pre</div>';
 	}
 	for($i=$startPage;$i<=$endPage;$i++){
 		if($page==$i){$color='#87ceeb';}else{$color='#ffc0cb';}
 		$conStr.='<span onclick="changePage(this)" style="background-color:'.$color.'" name="'.$i.'">'.$i.'</span>';
 	}
 	if($page<$pageTotal){
-		$conStr.='<div onclick="changePage(this)"  name="'.($page+1).'">下一页</div>';
+		$conStr.='<div onclick="changePage(this)"  name="'.($page+1).'">Next</div>';
 	}
 
 	$sql= 'select id,ordid,mall_id,shop_id,username,ordtime,productname,ordbuynum,ordprice,freight,ordfee,ordstatus,recname,recaddress,expressName,expressNum from '.$tableName.$condition.' order by '.$orderBy.' '.$order.' limit '.(-1+$page)*$pageNum.','.$pageNumber;
@@ -117,10 +117,10 @@ if($action == 'search'){
 			$row['ordtime'] = date('Y-m-d',$row['ordtime']);
 			$row['stausStr'] = $statusArr[$row['ordstatus']];
 			$row['mall'] = $shopLocation[$row['mall_id']];
-			$row['shop'] = $row['shop_id']==0?'自营':'商店编号'.$row['shop_id'];
+			$row['shop'] = $row['shop_id']==0?'Self-support':'Shop ID'.$row['shop_id'];
 			$data[] = $row;
 		}
-		echo json_encode(array('status'=>1,'data'=>$data,'constr'=>$conStr,'headStr'=>'此分类下 总计: '.$total.'个订单'));
+		echo json_encode(array('status'=>1,'data'=>$data,'constr'=>$conStr,'headStr'=>'Under this category Total: '.$total.'order'));
 	}else{
 		echo json_encode(array('status'=>0));
 		exit();

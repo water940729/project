@@ -11,5 +11,5 @@
 		echo $data;
 	}else{
 		$url="http://".$_SERVER["HTTP_HOST"]."/admin_manage/index.html";
-		echo "<script>alert('非法访问');window.location.href='".$url."'</script>";
+		echo "<script>alert('Illegal access');window.location.href='".$url."'</script>";
 	}

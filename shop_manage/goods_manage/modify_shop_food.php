@@ -19,17 +19,17 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">商品分类</a></li>
+						<li><a href="#">Commodity classification</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：商品管理 －&gt; 商品分类－&gt; <strong>二级分类</strong></span>
+					<span>Location: Commodity management －&gt; Commodity classification－&gt; <strong>Secondary classification</strong></span>
 				</div>
 				<div class="content">
 					<div style="text-align:left">
-						<p>当前分类：<?php echo $row["name"];?></p><br>
+						<p>Current classification:<?php echo $row["name"];?></p><br>
 						<form action="modify_shop_food_do.php" method="post" id="doForm">
-							<p>分类名称：<input class="in1" type="text" name="goods_type"/>	
+							<p>Classification name:<input class="in1" type="text" name="goods_type"/>	
 							<input type="submit" value="修改"></p>
 							<input type="hidden" value=2 name="type">
 							<input type="hidden" value="<?php echo $id;?>" name="id">

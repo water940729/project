@@ -12,14 +12,14 @@
 
 $typeArr = array('jame','kurry','kebe','zhangweiping','dadiao');
 
-$directionArr[0] = '葵花商城首页';
+$directionArr[0] = 'Sunflower mall homepage';
 $sql1 = 'select id,name from mall';
 $res = mysql_query($sql1);
     while($row = mysql_fetch_assoc($res)){
 	    $directionArr[$row['id']] = $row['name'];
 	} 
 	
-$locationArr = array('顶部','一层','二层','三层','四层');
+$locationArr = array('Top','First floor','Second floor','Third floor','Fourth floor');
 	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -37,12 +37,12 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">广告管理</a></li>
+						<li><a href="#">Advertising Management </a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：广告管理 －&gt; <strong>查看广告</strong></span>
-					<span style="margin-left:30px;">广告商城位置 
+					<span>Location: Advertising Management  －&gt; <strong>View Advertisements </strong></span>
+					<span style="margin-left:30px;">Advertising mall location 
 					<select id='direction'>
 					<?php
 					foreach($directionArr as $k=>$val){
@@ -50,7 +50,7 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 					}
 					?> 
 					</select >
-					<span>广告楼层位置 
+					<span>Advertising floor location 
 					<select id='location'>
 					<?php
 					foreach($locationArr as $k=>$val){
@@ -58,20 +58,20 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 					}
 					?> 
 					</select>
-					<button onclick="searchLoc()" type='button'>查询</button>
+					<button onclick="searchLoc()" type='button'>Searching</button>
 					</span>
 				</div>
 				<div class="content">
 					<table width="100%">
 						<tr class="t1">
-							<td width="10%">广告商城位</td>
-							<td width="10%">广告楼层位</td>
-							<td width="10%">广告图片</td>
-							<td width="10%">开始时间</td>
-							<td width="10%">到期时间</td>						
-							<td width="10%">广告指向</td>
-							<td width="10%">操作</td>
-							<td width="10%">操作</td>
+							<td width="10%">Advertising mall location</td>
+							<td width="10%">Advertising floor location </td>
+							<td width="10%">Advertisings images</td>
+							<td width="10%">Start Time</td>
+							<td width="10%">Expiration time</td>						
+							<td width="10%">Advertising position</td>
+							<td width="10%">Operation </td>
+							<td width="10%">Operation </td>
 						</tr>
 						<?php
 							
@@ -100,14 +100,14 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 							<td><?php echo $start?></td>
 							<td><?php echo $deadline?></td>
 							<td><?php echo $url?></td>
-							<td><a href='./adControll.php?action=delete&&id=<?php echo $id; ?>'>删除</a></td>
+							<td><a href='./adControll.php?action=delete&&id=<?php echo $id; ?>'>Delete </a></td>
 							<?php
 							if($show == 0){
 							?>
 							    <td><a href='./adControll.php?action=topIn&&secLoc=<?php echo $secLoc; ?>&&topLoc=<?php echo $topLoc; ?>&&id=<?php echo $id; ?>'>置顶</a></td>
 							<?
 							}else{?>
-							    <td>已置顶</td>
+							    <td>At top</td>
 							<?
 							}
 							?>

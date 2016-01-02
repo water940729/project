@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>Home page management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -18,7 +18,7 @@
 				var form=document.getElementById("doForm");
 				if(form.floor_name.value=="")
 				{
-					alert('请填写楼层名称！');
+					alert('Please fill out the name of floor!');
 					form.name.focus();
 					return false;
 				}else{
@@ -31,7 +31,7 @@
 				$("#loading"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo"+"_"+file_type).html("上传中……");
+					$("#logo"+"_"+file_type).html("Uploading...");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -78,7 +78,7 @@
 				$("#loading1"+"_"+file_type).ajaxStart(function()
 				{
 					$(this).show();
-					$("#logo1"+"_"+file_type).html("上传中……");
+					$("#logo1"+"_"+file_type).html("Uploading...");
 				})
 				.ajaxComplete(function(){
 					$(this).hide();
@@ -123,7 +123,7 @@
 				$("#weight").keyup(function(){
 					var val=$(this).val();
 					if(val!=""&&(val<1||val>9999)){
-						alert("请输入合法的数！");
+						alert("Please enter the legal number!");
 						$(this).val("");
 						//return false;
 					}
@@ -168,23 +168,23 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">Home page management</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>添加楼层</strong></span>
+					<span>Location: home page management －&gt; <strong>Add floor</strong></span>
 				</div>
 				<div class="content">
 					<form action="add_floor_do.php" method="post" id="doForm">
-						<p>楼层名称:<input class="in1" type="text" name="floor_name"/></p><br/>
-						<p>楼层权重:<input class="in1" type="text" name="weight" id="weight"/>(输入1-9999中的任意数，数值越大楼层越靠前，默认为1)</p><br/>
-						<p>楼层背景色选择:
+						<p>Floor name:<input class="in1" type="text" name="floor_name"/></p><br/>
+						<p>Floor weight:<input class="in1" type="text" name="weight" id="weight"/>(Input number between 1 to 9999, the greater the numerical figure the more, the default is 1)</p><br/>
+						<p>Floor background color choice:
 							<input type="hidden" id="simple_color_value" name="simple_color_value" value=""/>
 							<input class='simple_color_kitchen_sink' value='#993300'/>
 						</p>
 						<?php if($_SESSION["role"]!=1){
 						?>
-						<p>楼层LOGO上传: 
+						<p>Floor LOGO upload: 
 						 <input type="hidden" name="img1_url" id="image1_url">
 						 <span id="upd1_pics" name=""></span>
 						 <input type="file" name="file" id="file1_image"/>
@@ -192,13 +192,13 @@
 							<img src="../images/loading.gif" alt="loading...">
 							</span>
 							<span id="logo1_image"></span>
-							<input type="button" value="上传" onclick="return ajaxFileUpload1('image');" 
+							<input type="button" value="Upload" onclick="return ajaxFileUpload1('image');" 
 							class="btn btn-large btn-primary" />
 						</p>
 						<?php
 						}?>
 						<br/>
-						<input type="button" value="确定添加" onclick="return check()"></p>
+						<input type="button" value="Sure to add" onclick="return check()"></p>
 						<input type="hidden" value="<?=$type?>" name="type">
 						<input type="hidden" value="<?=$id?>" name="id">
 					</form>

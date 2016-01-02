@@ -10,7 +10,7 @@
 	$row=mysql_fetch_array($result);
 	$name=$row["name"];
 	if(mysql_query($delete_shop)&&mysql_query($delete_shop_goods)){
-		$conn="删除了店铺：$name";
+		$conn="Delete the shop:$name";
 		if(add_system_log($conn)){
 			echo 1;
 		}else{

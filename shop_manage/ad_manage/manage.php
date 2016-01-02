@@ -16,18 +16,18 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">广告管理</a></li>
+						<li><a href="#">Advertising management</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：广告管理 －&gt; <strong>广告位管理</strong></span>
+					<span>Location: Advertising Management －&gt; <strong>View Advertisements</strong></span>
 				</div>
 				<div class="content">
 					<table width="100%">
 						<tr class="t1">
-							<td width="40%">广告页面</td>
-							<td width="40%">摆放位置</td>
-							<td width="40%">广告价位</td>
+							<td width="40%">AD pages</td>
+							<td width="40%">Locating place</td>
+							<td width="40%">Advertising price</td>
 						</tr>
 						<?php
 							foreach($ini_array as $key=>$row){
@@ -45,7 +45,7 @@
 						?>
 					</table>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current page:<?php echo $page;?>/<?php echo $pagecount;?>Page Each page <?php echo $pagesize?> one</div>
 						<div class="pageafter">
 						<?php echo showPage("ad_manage.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

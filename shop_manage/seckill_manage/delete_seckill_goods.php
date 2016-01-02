@@ -5,17 +5,17 @@
 	$id=$_POST["id"];
 	$sql1="delete from seckill_goods where id=$id";
 	if(mysql_query($sql1)){
-		$content="删除了秒杀商品，商品编号".$id;
+		$content="Delete seconds kill goods, goods number is".$id;
 		if(add_system_log($content)==1){
-			echo"删除成功";
+			echo"Deleted successfully";
 			//echo $content;
 		}else{
-			echo"删除失败";
+			echo"Delete failed";
 			//echo "<script>alert('修改失败!');window.location.href='edit_manage_account.php';</script>";
 			//echo $content;
 			//echo add_system_log($content);
 		}
 	}else{
-		echo"删除失败，请重试";
+		echo"Delete failed, please try again";
 	}
 ?>

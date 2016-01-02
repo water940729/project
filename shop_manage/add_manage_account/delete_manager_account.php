@@ -10,19 +10,19 @@ $result=mysql_query($sql);
 $row=mysql_fetch_array($result);
 if(mysql_query($delete))
 {
-	$content="删除了一个管理员账号，账号信息：账号名".$row["name"]."，账号编号".$row["id"];
+	$content="Delete an administrator account, account information: account name".$row["name"]."，Account number".$row["id"];
 	if(add_system_log($content)==1){
 		echo 1;
 		//echo $content;
 	}else{
-		echo "删除失败";
+		echo "Delete failed";
 		//echo $content;
 		//echo add_system_log($content);
 	}
 }
 else
 {
-   echo "删除失败";
+   echo "Delete failed";
 }
 /*
 print_r($_POST);

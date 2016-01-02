@@ -4,19 +4,19 @@
 	
     $shopPage = isset($_GET['shopPage'])?$_GET['shopPage']:0;
 	
-	$result=mysql_query("select id,name from mall") or die("数据库异常");
-	$shopLocation[0]='葵花商城首页';
+	$result=mysql_query("select id,name from mall") or die("EDatabaseError");
+	$shopLocation[0]='Sunflower mall homepage';
 	while($array=mysql_fetch_array($result)){
 		  $shopLocation[$array['id']]=$array['name'];
 	}
 	mysql_free_result($result);
 	
-	$result=mysql_query("select * from adLocation where pageLocation =$shopPage") or die("数据库异常");
+	$result=mysql_query("select * from adLocation where pageLocation =$shopPage") or die("EDatabaseError");
 		while($array=mysql_fetch_array($result)){
 		  $adLocation[]=$array;
 	}
 
-$locationArr = array('顶部','一层','二层','三层','四层');	
+$locationArr = array('Top','First floor','Second floor','Third floor','Fourth floor');	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -50,13 +50,13 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 									"<td>"+dataObj['data']['locationTag']+"</td>"+
 									"<td>"+dataObj['data']['width']+"</td>"+
 									"<td>"+dataObj['data']['height']+"</td>"+
-									"<td onclick='setUse(this)' value='0'>未使用</td>"+
-									"<td onclick='deleteLoc(this)'>"+'<a>删除</a>'+"</td>"+
-									"<td onclick='manageLoc(this)'>管理</td>"+
-					                "<td onclick='adAdver(this)'>添加</td>"+
+									"<td onclick='setUse(this)' value='0'>Unused</td>"+
+									"<td onclick='deleteLoc(this)'>"+'<a>Delete</a>'+"</td>"+
+									"<td onclick='manageLoc(this)'>Manage</td>"+
+					                "<td onclick='adAdver(this)'>Add</td>"+
 									"</tr>";
 						 $("#fristLineOfAdTable").after(trTag);
-						 alert('添加成功');
+						 alert('Add successful');
 					 } 
 				   }
 				});
@@ -82,12 +82,12 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 					 if(dataObj['status'] == 1){
 						 $("#adTable").empty();
 						 var str =' <tr class="t1" id="adTableLine">'+
-							'<td width="10%">广告图片</td>'+
-							'<td width="10%">开始时间</td>'+
-							'<td width="10%">到期时间</td>'+					
-							'<td width="10%">广告指向</td>'+
-							'<td width="10%">删除</td>'+
-							'<td width="10%">置顶</td>'+
+							'<td width="10%">Advertisings</td>'+
+							'<td width="10%">Start Time</td>'+
+							'<td width="10%">Expiration Time</td>'+					
+							'<td width="10%">Advertising Position</td>'+
+							'<td width="10%">Delete</td>'+
+							'<td width="10%">Top</td>'+
 						    '</tr>';
 						 $("#adTable").append(str);
 						 var showStr;
@@ -96,12 +96,12 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 						 for(var i=0;i<dataObj['data'].length;i++){
 							 
 							 if(dataObj['data'][i]['show_flag'] == 1){
-								 showStr = '取消置顶';
+								 showStr = 'Cancel Top';
 								 color = '#FFFFCC';
 								 tag = 1;
 							 }else{
 								 color = 'white';
-								 showStr = '置顶';
+								 showStr = 'Top';
 								 tag = 0;
 							 }
 							  str ="<tr tag='"+tag+"' style='background-color:"+color+"' name='"+dataObj['data'][i]['id']+"'>"+
@@ -109,7 +109,7 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 									"<td>"+dataObj['data'][i]['start_time']+"</td>"+
 									"<td>"+dataObj['data'][i]['end_time']+"</td>"+
 									"<td>"+dataObj['data'][i]['link_url']+"</td>"+
-									"<td onclick='deleteAd(this)'>删除</td>"+
+									"<td onclick='deleteAd(this)'>Delete</td>"+
 									"<td onclick='topin(this)' name='tagShow'>"+showStr+"</td>"+
 									"</tr>";
 						    $("#adTable").append(str);
@@ -154,9 +154,9 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 			var id = ele.parentNode.getAttribute("name");
 			var tag = ele.parentNode.getAttribute("tag");
 			if(tag==0){
-				var r=confirm("确认置顶该广告置顶该广告");
+				var r=confirm("Confirm that the ads placed at the top the top");
 			}else{
-				var r=confirm("确认取消置顶该广告置顶该广告");
+				var r=confirm("Confirm cancel set-top the AD set-top the AD");
 			}
 			if(r==false){
 				return ;
@@ -172,17 +172,17 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 							 var old = $("#adTable tr[tag='1']");
 							  old.attr("tag",0);
 							  old.css({ background: "white" });
-							  old.children().last().html('置顶');
+							  old.children().last().html('Top');
 							//$("#adTable tr[tag='1']>td[name='tagShow']").text('置顶');
 							  ele.parentNode.style.backgroundColor = '#FFFFCC';
-							  ele.innerHTML = '取消置顶';
+							  ele.innerHTML = 'Cancel Top';
 							  ele.parentNode.setAttribute("tag",1);
 						  }else{
 							  ele.parentNode.style.backgroundColor = 'white';
-							  ele.innerHTML = '置顶';
+							  ele.innerHTML = 'Top';
 							  ele.parentNode.setAttribute("tag",0);
 						  }
-					 } else{ alert('设置失败');}
+					 } else{ alert('Setup failed');}
 				   }
 			 });
 		}
@@ -191,7 +191,7 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 			window.location.href="./adManage.php?shopPage="+id; 
 		}
 		function setUse(ele){
-			 var r=confirm("确认调整广告位状态");
+			 var r=confirm("Confirm the adjustment state of advertising");
 			 if (r==true)
 				{
 				  var id = ele.parentNode.getAttribute("name");
@@ -203,20 +203,20 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 				   success: function(msg){
 					 var dataObj=eval("("+msg+")");//转换为json对象t
 					  if(dataObj['status'] == 1){
-                          alert('设置成功');
+                          alert('Setup successful');
 						  val = (val == 1)?0:1;
 						  ele.setAttribute('value',val);
-						  var isUse = val?'已经使用':'未使用';
+						  var isUse = val?'Used':'Unused ';
 						  ele.innerHTML = isUse;
 					 } else{
-						  alert('设置失败');
+						  alert('Setup failed');
 					 }
 				   }
 			 });
 		}
     }
 		function deleteLoc(ele){
-			 var r=confirm("是否删除该广告位")
+			 var r=confirm("Whether to remove the advertising")
 			  if (r==true)
 				{
 				   var id = ele.parentNode.getAttribute("name");
@@ -227,10 +227,10 @@ $locationArr = array('顶部','一层','二层','三层','四层');
 				   success: function(msg){
 					 var dataObj=eval("("+msg+")");//转换为json对象t
 					  if(dataObj['status'] == 1){
-                          alert('设置成功');
+                          alert('Setup successful');
 						  ele.parentNode.remove();
 					 } else{
-						  alert('设置失败');
+						  alert('Setup failed');
 					 }
 				   }
 			 });
@@ -286,15 +286,15 @@ margin: 0px;
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li style='text-align:center'>广告管理</li>
+						<li style='text-align:center'>Advertising Management</li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：广告管理 －&gt; <strong><?php echo $shopLocation[$shopPage]; ?></strong></span>
+					<span>Location: Advertising Management －&gt; <strong><?php echo $shopLocation[$shopPage]; ?></strong></span>
 					
 				   
 										
-					<span style="margin-left:200px;">广告商城位置 
+					<span style="margin-left:200px;">Advertising mall location 
 					<select id='direction'>
 					<?php
 					foreach($shopLocation as $k=>$val){
@@ -302,33 +302,33 @@ margin: 0px;
 					}
 					?> 
 					</select >
-					<input type='button' value='切换' onclick='changePage()' />
+					<input type='button' value='Switch' onclick='changePage()' />
 					
 					
 				</div>
 				<div class="content" style='height:700px'>
 					<table class='mytable' width="100%" style="float:left;" id='adLocationTable'>
-					<tr><td  colspan=7 onclick='addLocationView()' style='background-color:#FFF0F5; font-size:12px;'>添加广告位</td></tr>
+					<tr><td  colspan=7 onclick='addLocationView()' style='background-color:#FFF0F5; font-size:12px;'>Add the advertising</td></tr>
 						<tr class="t1" id='fristLineOfAdTable' >
-							<td>广告位标识</td>
-							<td>高度</td>
-							<td>宽度</td>
-							<td>是否在用</td>
-							<td>删除</td>
-							<td>管理</td>
-							<td>添加</td>
+							<td>Advertising identify </td>
+							<td>Height </td>
+							<td>Width </td>
+							<td>Whether in use</td>
+							<td>Delete</td>
+							<td>Management</td>
+							<td>Add</td>
 						</tr>
 					<?php 
 	      foreach($adLocation as $val){
-			  $isUse = !$val['hasShow']?'未使用':'已经使用';
+			  $isUse = !$val['hasShow']?'Used':'Unused';
 		      echo "<tr name='$val[id]'>".
 			        "<td>".$val['locationTag']."</td>".
 					"<td>".$val['width']."</td>".
 					"<td>".$val['height']."</td>".
 					"<td onclick='setUse(this)' value='".$val['hasShow']."'>".$isUse."</td>".
-					"<td onclick='deleteLoc(this)'>".'<a>删除</a>'."</td>".
-					"<td onclick='manageLoc(this)'>管理</td>".
-					"<td onclick='adAdver(this)'>添加</td>".
+					"<td onclick='deleteLoc(this)'>".'<a>Delete</a>'."</td>".
+					"<td onclick='manageLoc(this)'>Management</td>".
+					"<td onclick='adAdver(this)'>Add</td>".
 			        "</tr>";
 		        } 
 		       ?>
@@ -338,11 +338,11 @@ margin: 0px;
 					
 					<form id='adAdLocation'  style='display:none;'  >
 					<ul class='adAdLocationUl' >
-					<li style='text-align:center; font-size:14px;'>添加广告位</li>
-					<li>标  识  <input type='text'  name='adTag'/></li>
-					<li>高  度  <input type='text'  name='width'/></li>
-					<li>宽  度  <input type='text'  name='height'/></li>
-					<li><input type='button' value='提交' name='submit' onclick='addLocation()'/></li>
+					<li style='text-align:center; font-size:14px;'>Add the advertising</li>
+					<li>Identify  <input type='text'  name='adTag'/></li>
+					<li>Height  <input type='text'  name='width'/></li>
+					<li>Width  <input type='text'  name='height'/></li>
+					<li><input type='button' value='Submit' name='submit' onclick='addLocation()'/></li>
 					</ul>
 					</form>
 					
@@ -350,11 +350,11 @@ margin: 0px;
 					<form id='adAdvertisement' target='hiddenFrame' method="post" action="insertAdControll.php" enctype="multipart/form-data" name='upload' style='display:none'>
 					
 						<ul  >
-						<li>广告指向：<input type="text" name='adName'/></li>
-						<li>开始时间：<input type="text" name='startTime' id='startTime' /></li>
-						<li>结束时间：<input type="text" name='endTime' id='endTime' /></li>
+						<li>Directions:<input type="text" name='adName'/></li>
+						<li>Start time:<input type="text" name='startTime' id='startTime' /></li>
+						<li>End time:<input type="text" name='endTime' id='endTime' /></li>
                         <input type="hidden" name='adLocation' id='adLocationInput' />   
-						<li>图片: <input name="imgfile" type="file" /> </li>
+						<li>Image： <input name="imgfile" type="file" /> </li>
 						<li><input type="submit" value='提交' onclick="return check()" /></li>
 						</ul>
 						</form>

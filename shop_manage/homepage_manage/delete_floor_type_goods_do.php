@@ -7,17 +7,17 @@
 	$result=mysql_query($sql2);
 	$row=mysql_fetch_array($result);
 	if(mysql_query($sql)){
-		$content="删除了楼层分类商品，楼层编号为".$row["floor_type_id"]."，（0表示推荐），商品为".$row["goods_name"];
+		$content="Remove the floor classification of goods, floor number is".$row["floor_type_id"]."，（0 means recommended），goods is".$row["goods_name"];
 		if(add_system_log($content)==1){
-			echo"删除成功";
+			echo"Deleted successful";
 			//echo $content;
 		}else{
-			echo"删除失败";
+			echo"Delete failed";
 			//echo "<script>alert('修改失败!');window.location.href='edit_manage_account.php';</script>";
 			//echo $content;
 			//echo add_system_log($content);
 		}
 	}else{
-		echo"请重试";
+		echo"Please try again";
 	}
 ?>

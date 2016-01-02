@@ -7,7 +7,7 @@
 	$sql="select name from mall where id=$mall_id";
 	$result=mysql_query($sql);
 	$row=mysql_fetch_array($result);
-	$content="删除了".$row["name"]."商场";
+	$content="Deleted the ".$row["name"]." Mall";
 	$admin_name=$_SESSION["name"];
 	$time=time();
 	$log="insert into system_log(admin_name,content,time) values('{$admin_name}','{$content}',$time)";
@@ -15,6 +15,6 @@
 		echo 1;
 	}else{
 		//echo $log;
-		echo "删除失败";
+		echo "Delete failed";
 	}
 ?>

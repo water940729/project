@@ -11,14 +11,14 @@
 		<script>
 		$(function(){
 			$(".delete").click(function(){
-				if(confirm("确认删除")){
+				if(confirm("Confirm Delete")){
 					var id=$(this).parents("tr").attr("id");
 					$.post("delete_order.php",{id:id},function(data){
 						if(data==1){
-							alert("删除成功");
+							alert("Deleted successfully");
 							location.reload();
 						}else{
-							alert("未知错误，请稍后再试");
+							alert("Unknown error, please try again later");
 						}
 					})
 				}
@@ -31,31 +31,31 @@
 		<div class="bgintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">订单管理</a></li>
+						<li><a href="#">Order management</a></li>
 					</ul>		
 				</div>
 				<div class="listintor">
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：订单管理 －&gt;<strong>查看订单</strong></span>
+					<span>Location: the order management －&gt;<strong>View Order</strong></span>
 				</div>
 				<div class="content">
 					<form action="#" method ="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-							    <td width="5%">订单编号</td>
-								<td width="5%">客户编号</td>
-								<td width="5%">商城编号</td>
-								<td width="5%">商家编号</td>
-								<td width="5%">商品编号</td>
-								<td width="5%">数量</td>
-								<td width="5%">总价</td>
-								<td width="5%">客户名</td>								
-							    <td width="5%">收件人</td>							
-							    <td width="5%">地址</td>
-								<td width="5%">联系方式</td>
-								<td width="5%">状态</td>
-							    <td width="5%">订单时间</td>
-								<td width="5%">操作</td>
+							    <td width="5%">OrderID </td>
+								<td width="5%">Customer ID</td>
+								<td width="5%">Mall ID</td>
+								<td width="5%">Shop ID</td>
+								<td width="5%">Product ID</td>
+								<td width="5%">Number</td>
+								<td width="5%">Total price</td>
+								<td width="5%">Customer Name</td>								
+							    <td width="5%">Addressee</td>							
+							    <td width="5%">Address</td>
+								<td width="5%">Tel</td>
+								<td width="5%">Status</td>
+							    <td width="5%">Order time</td>
+								<td width="5%">Operation</td>
 							</tr>
 							<?php
 								$pagesize=20;							
@@ -107,16 +107,16 @@
 							<?php
 								switch($row["state"]){
 									case 0:
-										echo "未付款";
+										echo "Non-payment";
 										break;
 									case 1:
-										echo "已付款，待收货";
+										echo "Payment has been, wait for the goods";
 										break;
 									case 2:
-										echo "已收货";
+										echo "Have the goods";
 										break;
 									case 3:
-										echo "待确认";
+										echo "To be confirmed";
 										break;
 								}
 							?>
@@ -135,11 +135,11 @@
 					</form>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>There is no relevant information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current page:<?php echo $page;?>/<?php echo $pagecount;?>page Each page <?php echo $pagesize?> one</div>
 						<div class="pageafter">
 						<?php echo showPage("search_order.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

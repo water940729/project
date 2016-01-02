@@ -15,7 +15,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title> 商场管理</title>
+		<title> Mall Management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -28,18 +28,18 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">商场管理</a> </li>
+				<li><a href="#">Mall Management</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-			<span>位置：商场管理 －&gt; <strong>修改商场</strong></span>
+			<span>Location: mall management －&gt; <strong>Modify malls</strong></span>
 		</div>		
 		<div class="fromcontent">
 			<form action="edit_mall_do.php" method="post" id="doForm">
 				<input type="hidden" name="mall_id" value="<?=$mall_id?>" />
-				<p>商场名称：<input class="in1" type="text" name="name" id="name" value="<?=$row['name']?>"/></p>	
-				<p>商场logo:
+				<p>Mall's name:<input class="in1" type="text" name="name" id="name" value="<?=$row['name']?>"/></p>	
+				<p>Mall's logo:
 				<?php 
 					$sql3="select * from mall where id='$mall_id'";
 					$result3=mysql_query($sql3);
@@ -52,7 +52,7 @@
 					}
 				?>
 				</p>
-				<p>继续上传: 
+				<p>Continue to upload: 
 				 <input type="hidden" name="img_url" id="image_url">
 				 <span id="upd_pics" name=""></span>
 				 <input type="file" name="file" id="file_image"/>
@@ -61,10 +61,10 @@
 				 	</span>
 				 	<span id="logo_image"></span>
                     <input type="button" value="上传" onclick="return ajaxFileUpload('image');" 
-                    class="btn btn-large btn-primary" />(*海报尺寸：500*500以内)
+                    class="btn btn-large btn-primary" />(*The poster size: Less then 500*500)
 				</p>	
 				<br>
-				商场地址：		
+				Mall address:		
 				    <select name="province" id="province" onchange="obtain_city(this.value)">
 						<?php
 							$sql = "select province_name from county group by province_name";
@@ -78,7 +78,7 @@
 							}
 						?>							
 					</select>
-					市：							
+					City:							
 				    <select name="city" id="city" onchange="obtain_county(this.value)">
 						<?php
 							$sql2 = "select city_name from county where province_name='$province' group by city_name";
@@ -92,7 +92,7 @@
 							}
 						?>	
 					</select>	
-					区：
+					District:
 					<select name="county" id="county" >	
 						<?php
 							$sql3 = "select county_name from county where city_name='$city' group by county_name";
@@ -107,17 +107,17 @@
 						?>	
 					</select>	
 				</p>
-				<p>详细地址：
-					<textarea rows="3" name="detailAddressInfo" cols="100" id="detailAddressInfo" placeholder="不需要重复填写省市区，必须大于5个字符，小于120个字符">
+				<p>Detailed address:
+					<textarea rows="3" name="detailAddressInfo" cols="100" id="detailAddressInfo" placeholder="Don't need to repeat to fill in provinces, must be greater than five characters, less than 120 characters">
 						<?=$row["detail_address"]?>
 					</textarea>
 				</p>
-				<p>商家简介：
+				<p>Merchant's brief introduction:
 					<textarea  id="introduceInfo" name="introduceInfo" rows="10" >
 						<?=$row["introduceInfo"]?>
 					</textarea>
 				</p>
-				<p><input type="button" value="确定" onclick="return check()"/></p>
+				<p><input type="button" value="Confirm" onclick="return check()"/></p>
 			</form>
 		</div>
 	</div>
@@ -159,7 +159,7 @@ function check()
 {
 	if(form.name.value=="")
 	{
-		alert('请填写商家名称！');
+		alert('Please fill in the Merchant name!');
 		form.name.focus();
 		return false;
 	}
@@ -175,32 +175,32 @@ function check()
 	*/
 	if(form.province.value=="")
 	{
-		alert('请填写商场所在省！');
+		alert('Please fill out the mall province!');
 		form.province.focus();
 		return false;
 	} 
 	if(form.city.value=="")
 	{
-		alert('请填写商场所在市！');
+		alert('Please fill in the shopping mall in city!');
 		form.city.focus();
 		return false;
 	}
 	if(form.county.value=="")
 	{
-		alert('请填写商场所在区！');
+		alert('Please fill out the shopping district.');
 		form.county.focus();
 		return false;
 	}
 	if(form.detailAddressInfo.value=="")
 	{
-		alert('请填写商场详细地址！');
+		alert('Please fill out the stores detailed address!');
 		form.detailAddressInfo.focus();
 		return false;
 	}
 	
 	if(form.introduceInfo.value=="")
 	{
-		alert("请填写商场简介");
+		alert("Please fill out the profile");
 		form.introduceInfo.focus();
 		return false;
 	}
@@ -258,7 +258,7 @@ function ajaxFileUpload(file_type)
 	$("#loading"+"_"+file_type).ajaxStart(function()
 	{
 		$(this).show();
-		$("#logo"+"_"+file_type).html("上传中……");
+		$("#logo"+"_"+file_type).html("Uploading...");
 	})
 	.ajaxComplete(function(){
 		$(this).hide();
@@ -295,7 +295,7 @@ function ajaxFileUpload(file_type)
 							document.getElementById('upd_pics').innerHTML= c + 
 								"<p><img src='"+ info[1] +"' width='100'> <input type='checkbox' checked name='addpics[]' value="+info[1]+" /></p>";
 						}else{
-							alert("添加图片失败");
+							alert("Add images failure");
 						}
 					}
 				);

@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>Home page management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -14,7 +14,7 @@
 				$("#weight").keyup(function(){
 					var val=$(this).val();
 					if(val!=""&&(val<1||val>9999)){
-						alert("请输入合法的数！");
+						alert("Please enter the legal number!");
 						$(this).val("");
 						//return false;
 					}
@@ -25,7 +25,7 @@
 				var form=document.getElementById("doForm");
 				if(form.type_name.value=="")
 				{
-					alert('请填写楼层名称！');
+					alert('Please fill out the name of floor!');
 					form.name.focus();
 					return false;
 				}else{
@@ -39,17 +39,17 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">Home page management</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：秒杀管理 －&gt; <strong>添加秒杀</strong></span>
+					<span>Location: seckill management －&gt; <strong>Add seconds kill</strong></span>
 				</div>
 				<div class="content">
 					<form action="add_seckill_do.php" method="post" id="doForm">
-						<p>分类名称:<input class="in1" type="text" name="type_name"/></p><br/>
-						<p>分类权重:<input class="in1" type="text" name="weight" id="weight"/>(输入1-9999中的任意数，数值越大分类越靠前，默认为1)</p><br/>
-						<input type="submit" value="添加"></p>
+						<p>Category name:<input class="in1" type="text" name="type_name"/></p><br/>
+						<p>Category weight:<input class="in1" type="text" name="weight" id="weight"/>(Input number between 1 to 9999, the larger the numerical classification of the front, the default is 1)</p><br/>
+						<input type="submit" value="Add"></p>
 					</form>
 				</div>
 			</div>	

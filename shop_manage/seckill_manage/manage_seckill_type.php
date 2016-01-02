@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>Home page management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -16,7 +16,7 @@
 		<script>
 			//删除楼层
 			function delete_seckill_type(id){
-				if(confirm("确认删除")){
+				if(confirm("Confirm Delete")){
 					$.ajax({
 						type:"POST",
 						url:"delete_seckill_goods.php",
@@ -35,25 +35,25 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">秒杀管理</a></li>
+						<li><a href="#">Seckill management</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：秒杀管理 －&gt; <strong>秒杀管理</strong></span>
+					<span>Location: the seckill management －&gt; <strong>Seckill management</strong></span>
 				</div>
 				<div class="content">
-					<a href="add_seckill_goods.php?type_id=<?php echo $type_id;?>">添加秒杀商品</a>
+					<a href="add_seckill_goods.php?type_id=<?php echo $type_id;?>">Add seckill goods</a>
 					<table width="100%">
 						<tr class="t1">
-							<td width="5%">分类编号</td>
-							<td width="10%">商品名称</td>
-							<td width="10%">商城编号(0表示商场自营)</td>
-							<td width="10%">商铺编号(0表示商城自营)</td>
-							<td width="10%">价格</td>
-							<td width="10%">开始时间</td>
-							<td width="10%">结束时间</td>
-							<td width="10%">数量</td>
-							<td width="10%">操作</td>
+							<td width="5%">CategoryID</td>
+							<td width="10%">Commodity name</td>
+							<td width="10%">Mall ID(0 means proprietary)</td>
+							<td width="10%">Shop ID(0 means proprietary)</td>
+							<td width="10%">Price</td>
+							<td width="10%">Start time</td>
+							<td width="10%">End time</td>
+							<td width="10%">Number</td>
+							<td width="10%">Operation</td>
 						</tr>
 						<?php
 							$pagesize=20;							
@@ -96,7 +96,7 @@
 							<td><?php echo date("Y-m-d H:i:s",$end)?></td>
 							<td><?php echo $num?></td>
 							<td>
-								<a href="javascript:void(0);" onclick="delete_seckill_type(<?php echo $id;?>)">删除</a>
+								<a href="javascript:void(0);" onclick="delete_seckill_type(<?php echo $id;?>)">Delete</a>
 							</td>
 						</tr>
 						<?php
@@ -105,11 +105,11 @@
 					</table>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>There is no relevant information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current page:<?php echo $page;?>/<?php echo $pagecount;?>page Each page <?php echo $pagesize?> one</div>
 						<div class="pageafter">
 						<?php echo showPage("check_goods.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

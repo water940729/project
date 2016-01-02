@@ -25,18 +25,18 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">商品分类</a></li>
+						<li><a href="#">Commodity classification</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：商品管理 －&gt; 商品分类－&gt; <strong>三级分类</strong></span>
+					<span>Location: Commodity management －&gt; Commodity classification&gt; <strong>Third classification</strong></span>
 				</div>
 				<div class="content">
 					<div style="text-align:left">
-						<p>当前分类：<?=$type1_name?></p><br>
+						<p>Current classification:<?=$type1_name?></p><br>
 						<form action="add_type_do.php" method="post" id="doForm">
-							<p>分类名称：<input class="in1" type="text" name="goods_type"/>	
-							<input type="button" value="确定添加" onclick="return check()"></p>
+							<p>Classification name:<input class="in1" type="text" name="goods_type"/>	
+							<input type="button" value="Sure to add" onclick="return check()"></p>
 							<input type="hidden" value=3 name="type">
 							<input type="hidden" value="<?=$type1_id?>" name="type1_id">
 							<input type="hidden" value="<?=$type2_id?>" name="type2_id">
@@ -45,9 +45,9 @@
 					<br/>
 					<table style="width:100%">
 						<tr class="t1">
-							<td style="10%">序号</td>
-							<td style="10%">分类名称</td>
-							<td style="10%">操作</td>
+							<td style="10%">Number</td>
+							<td style="10%">Classification name</td>
+							<td style="10%">Operation</td>
 						</tr>
 						<?php
 						$select="select * from goods_type3 where type2_id=$type2_id";
@@ -59,13 +59,13 @@
 							<tr>
 								<td><?php echo $type3_id ?></td>
 								<td><?php echo $type3_name?></td>
-								<td><a href="<?php echo "modify_shop_foods.php?id=$type3_id&&type2_id=$type2_id";?>">修改</a>|<a href="javascript:void(0);" onclick="delete_foods2(<?php echo $type3_id ?>)">删除</a></td>
+								<td><a href="<?php echo "modify_shop_foods.php?id=$type3_id&&type2_id=$type2_id";?>">Modify</a>|<a href="javascript:void(0);" onclick="delete_foods2(<?php echo $type3_id ?>)">Delete</a></td>
 							</tr>
 						<?php
 						}
 						?>
 					</table>
-					<a href='goods_type2.php?id=<?php echo $type1_id;?>'>返回</a>
+					<a href='goods_type2.php?id=<?php echo $type1_id;?>'>Back</a>
 				</div>
 			</div>
 		</div>

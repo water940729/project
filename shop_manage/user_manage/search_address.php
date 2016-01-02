@@ -14,22 +14,22 @@
 		<div class="bgintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">用户管理</a></li>
+						<li><a href="#">User management</a></li>
 					</ul>		
 				</div>
 				<div class="listintor">
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：用户管理 －&gt;<strong>地址管理</strong></span>
+					<span>Location: user management －&gt;<strong>Address Management</strong></span>
 				</div>
 				<div class="content">
 					<form action="#" method ="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-							    <td width="10%">地址编号</td>
-								<td width="10%">用户编号</td>							
-							    <td width="10%">收件人</td>							
-							    <td width="10%">地址</td>
-								<td width="10%">联系方式</td>						
+							    <td width="10%">Address ID</td>
+								<td width="10%">User ID</td>							
+							    <td width="10%">Addressee</td>							
+							    <td width="10%">Address</td>
+								<td width="10%">Tel</td>						
 							</tr>
 							<?php
 								$pagesize=20;							
@@ -69,11 +69,11 @@
 					</form>
 					<?php	
 						if($count==0){
-							echo "<center><b>没有相关信息！</b></center>";
+							echo "<center><b>There is no relevant information!</b></center>";
 						}else{
 					?>
 					<div class="page">
-						<div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+						<div class="pagebefore">Current page:<?php echo $page;?>/<?php echo $pagecount;?>page Each page <?php echo $pagesize?> one</div>
 						<div class="pageafter">
 						<?php echo showPage("search_user.php",$page,$pagecount,"../images");?>
 						<div class="clear"></div>

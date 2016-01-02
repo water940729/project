@@ -5,7 +5,7 @@
 ?>
 <head>
 	<meta charset="UTF-8">
-	<title>商户登陆</title>
+	<title>Merchants login</title>
 	<script src="<?php echo $PUBLIC ;?>/Js/jquery/jquery.js"></script>
 	<link href="<?php echo $PUBLIC ;?>/Css/shop_login.css" type="text/css" rel="stylesheet">
 	<script src="<?php echo $PUBLIC ;?>/Js/shop_login/index.js"></script>
@@ -24,7 +24,7 @@
 					if(dataObj['status'] == 1){
 						 window.location.href="./admin_center.php";
 					}else{
-						alert("用户名密码错误");
+						alert("ERROR Incorrect username or password");
 					}
 				   }
 				});
@@ -48,19 +48,19 @@
 	<div class="inner_con">
 		<div class="form_contain">
 			<div>
-				<label for="buss_name">商户名称</label>
+				<label for="buss_name">Merchant Name </label>
 				<input type="text" id="buss_name" />
 			</div>
 			<div>
-				<label for="buss_psd">登录密码</label>
+				<label for="buss_psd">Password</label>
 				<input type="password" id="buss_psd" />
 			</div>
 			<div>
 				<input type="checkbox" id="auto" />
-				<label for="auto" id="auto_login">自动登录</label>
-				<a onclick="javascript:alert('请联系商场管理员')">忘记密码?</a>
+				<label for="auto" id="auto_login">Auto Login</label>
+				<a onclick="javascript:alert('Please contact the store administrator')">LOST PASSWORD?</a>
 			</div>
-			<input type="submit" class="login" value="登录">
+			<input type="submit" class="login" value="Login">
 		</div>
 		</div>
 	</div>

@@ -24,30 +24,30 @@ $row1=mysql_fetch_array($result1);
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">查看商家</a></li>
+						<li><a href="#">Check the merchants</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：商家管理 －&gt; 查看商家－&gt; <strong>查看菜品</strong></span>
+					<span>Location: merchants management －&gt; Check the merchants－&gt; <strong>Check the dishes</strong></span>
 				</div>
 				<div class="content">
-				<p><h2>当期商家：<?=$row1["shop_name"]?></h2><p><br>
+				<p><h2>The current merchants:<?=$row1["shop_name"]?></h2><p><br>
 				<div style="text-align:left">
-				<a href="add_shop_food_sort.php?shop_id=<?php echo $shop_id ?>"><input type="button" value="添加菜品分类"  style="font-size:20px;"></a>
-				<a href="add_shop_food.php?shop_id=<?php echo $shop_id ?>"><input type="button" value="添加菜品"  style="font-size:20px;"></a>
+				<a href="add_shop_food_sort.php?shop_id=<?php echo $shop_id ?>"><input type="button" value="Add food classification"  style="font-size:20px;"></a>
+				<a href="add_shop_food.php?shop_id=<?php echo $shop_id ?>"><input type="button" value="Add food"  style="font-size:20px;"></a>
 				</div>
 				<br/>
 				<br/>
 				<table style="width:100%">
 					<tr class="t1">
-						<td style="10%">菜名</td>
-						<td style="10%">价格</td>
+						<td style="10%">Dishes</td>
+						<td style="10%">Price</td>
 						<!--<td style="10%">预计送达时间</td>-->
-						<td style="10%">口味</td>
-						<td style="10%">菜品分类</td>
+						<td style="10%">Taste</td>
+						<td style="10%">Food classification</td>
 						<!--<td style="30%">菜品简介</td>-->
-						<td style="10%">网络图片</td>
-						<td style="10%">操作</td>
+						<td style="10%">Internet pictures</td>
+						<td style="10%">Operation</td>
 					</tr>
 					<?php
 					$select="select * from food where shop_id=$shop_id";
@@ -69,10 +69,10 @@ $row1=mysql_fetch_array($result1);
 							<td><?php echo $food_flavor_type ?></td>
 							<td><?php echo $food_sort?></td>
 							<td><img style="width:40px;height:40px" src='<?php echo $food_img_url ?>'></td>
-							<td><a href="modify_shop_food.php?food_id=<?=$food_id?>&shop_id=<?=$shop_id?>">修改</a>|<a href="javascript:if(confirm('您确定要删除该菜品吗？')){location.href='delete_food.php?food_id=<?php echo $food_id ?>&shop_id=<?php echo $shop_id ?>'}">删除</a></td>
+							<td><a href="modify_shop_food.php?food_id=<?=$food_id?>&shop_id=<?=$shop_id?>">Modify</a>|<a href="javascript:if(confirm('Are you sure you want to delete the dishes?')){location.href='delete_food.php?food_id=<?php echo $food_id ?>&shop_id=<?php echo $shop_id ?>'}">Delete</a></td>
 						</tr>
 					<?php
 					}
 					?>
 				</table>
-				<a href="check_shop.php">返回查看商家</a>
+				<a href="check_shop.php">Return to view the merchants</a>

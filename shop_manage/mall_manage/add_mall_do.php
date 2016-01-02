@@ -20,7 +20,7 @@
 	if(mysql_query($insert)){
 		$mall_id=mysql_insert_id();
 		$admin_name=$_SESSION["name"];
-		$content="添加了一个商场，商场名为".$name."，商场编号为".$mall_id."，地址为".$address."，商场简介".$introduceInfo;
+		$content="Added a mall,mall called".$name.",mall id is".$mall_id.",address is".$address.",the market introduction".$introduceInfo;
 		$log="insert into system_log(admin_name,content,time) values('{$admin_name}','{$content}',$time)";
 		if(mysql_query($log)){
 			for($i=0;$i<count($_POST["pics"]);++$i){
@@ -28,12 +28,12 @@
 				//echo $insert_shop_pic."<br>";
 				mysql_query($insert_mall_pic);
 			}
-			echo "<script>alert('添加成功!');window.location.href='check_mall.php';</script>";
+			echo "<script>alert('Add successful!');window.location.href='check_mall.php';</script>";
 		}else{
-			exit("系统错误");
+			exit("System Error");
 		}
 	}else{
-		echo "<script>alert('添加失败,请重新添加!');window.location.href='check_mall.php';</script>";
+		echo "<script>alert('Add failure,please add again!');window.location.href='check_mall.php';</script>";
 		echo mysql_error();
 	}
 	

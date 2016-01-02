@@ -75,9 +75,9 @@
 			//echo $insert_goods_pic."<br>";
 			mysql_query($insert_goods_pic);
 		}
-		echo "<script>alert('添加成功!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add successful!');window.location.href='".$url."';</script>";
 	}else{	
-		echo "<script>alert('添加失败,请重新添加!');window.location.href='".$url."';</script>";
+		echo "<script>alert('Add failure,please add again!');window.location.href='".$url."';</script>";
 		echo mysql_error();
 	}
 ?>

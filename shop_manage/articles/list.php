@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title> 文章列表</title>
+		<title> Article list</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -15,26 +15,26 @@
 		<div class="bgintor">
 			<div class="tit1">
 				<ul>
-					<li><a href="list.php">文章列表</a> </li>
-					<li class="l1"><a href="add.php" target="mainFrame" >添加文章</a> </li>
+					<li><a href="list.php">Article list</a> </li>
+					<li class="l1"><a href="add.php" target="mainFrame" >Add article</a> </li>
 				</ul>		
 			</div>
 			<div class="listintor">
 				<div class="header1">
-					<span>位置：文章管理 －&gt; <strong>文章列表</strong></span>
+					<span>Location: Article management －&gt; <strong>Article list</strong></span>
 				</div>
-				<div class="header2"><span>文章列表</span></div>
+				<div class="header2"><span>Article list</span></div>
 				<div class="header3">
-					<a href="add.php"><img class="img2" src="../images/act_add.gif" width="14" height="14" alt="新建" /> <strong>添加</strong> </a>
+					<a href="add.php"><img class="img2" src="../images/act_add.gif" width="14" height="14" alt="New" /> <strong>Add</strong> </a>
 				</div>
 				<div class="content">
 					<form action="#" method="post" name="listForm">
 						<table width="100%">
 							<tr class="t1">
-								<td width="80%">文章标题</td>
-								<td width="10%">发布时间</td>
-								<td width="5%">修改</td>
-								<td width="5%">删除</td>
+								<td width="80%">Title</td>
+								<td width="10%">Add time</td>
+								<td width="5%">Modify</td>
+								<td width="5%">Delete</td>
 							</tr>
 							<?php
 				
@@ -66,15 +66,15 @@ $query="select * from articles where role=3 and belong=$_SESSION[shop_id] order 
 								<td><a href="/shop/alist/id/<?php echo $rows["aid"] ?>" target="_blank"><?php echo $rows["title"] ?></a>
 								</td>
 								<td><?php echo date("Y-m-d H:i", $rows["addtime"]) ?></td>
-								<td><a href="update.php?id=<?php echo $rows['aid'];?>"><img width="9" height="9" alt="编辑" src="../images/dot_edit.gif"></a></td>
-								<td><a href="javascript:if(confirm('您确定要删除吗？')){location.href='do.php?act=del&id=<?php echo $rows['aid'];?>'}"><img width="9" height="9" alt="删除" src="../images/dot_del.gif"></a></td>
+								<td><a href="update.php?id=<?php echo $rows['aid'];?>"><img width="9" height="9" alt="Edit" src="../images/dot_edit.gif"></a></td>
+								<td><a href="javascript:if(confirm('Are you sure you want to delete?')){location.href='do.php?act=del&id=<?php echo $rows['aid'];?>'}"><img width="9" height="9" alt="Delete" src="../images/dot_del.gif"></a></td>
 							</tr>
 							<?php }?>
 							<input type="hidden" name="i" value="<?php echo $i;?>" />
 						</table>
 					</form>
 					<div class="page">
-                        <div class="pagebefore">当前页:<?php echo $page;?>/<?php echo $pagecount;?>页 每页 <?php echo $pagesize?> 条</div>
+                        <div class="pagebefore">Current page:<?php echo $page;?>/<?php echo $pagecount;?>Page Each page <?php echo $pagesize?> One</div>
                         <div class="pageafter">
                             <?php echo showPage("list.php",$page,$pagecount,"/admin_manage/images");?>
                              <div class="clear"></div>

@@ -14,10 +14,10 @@
 		}
 		$sql=substr($sql,0,-3);
 		$sql.=" where id=0";
-		mysql_query($sql) or die("数据库异常");
+		mysql_query($sql) or die("EDatabaseError");
 		echo 1;
 	}catch(Exception $e){
-		echo "未知异常，请稍后再试";
+		echo "Unknown abnormal, please try again later";
 	}
 
 ?>

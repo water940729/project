@@ -14,7 +14,7 @@ if(isset($_SESSION['shop_id'])){
 
 $action = isset($_POST['action'])?$_POST['action']:'';
 $tableName = 'shopWithdraw';
-$statusArr= array('待处理','已审核','提款中','已成功','已驳回');
+$statusArr= array('Pending','Checked','Drawings','Successful','Rejected');
 
 if($action == 'apply'){
 

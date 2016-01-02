@@ -13,7 +13,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>商品管理</title>
+		<title>Commodity management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -28,7 +28,7 @@
 				//计算收益
 				$("#price").blur(function(){
 					if($(this).val()==0){
-						alert("请输入商品价格");
+						alert("Please enter the commodity prices");
 					}else{
 						var price=$(this).val();
 						$.ajax({
@@ -49,19 +49,19 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">商品管理</a> </li>
+				<li><a href="#">Commodity management</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1">
-			<span>位置：商品管理 －&gt; <strong>添加商品</strong></span>
+			<span>Location: Commodity management －&gt; <strong>Add Commodity</strong></span>
 		</div>		
 		<div class="fromcontent">
 			<form action="add_goods_do.php" method="post" id="doForm">
-				<p><font style="font-size:15px;color:red">商品基本信息:</font></p>
-				<p>商品名称：<input class="in1" type="text" name="goodsName" id="goodsName"/></p>
-				<p>商品类别：
-					分类1：
+				<p><font style="font-size:15px;color:red">Commodity basic information:</font></p>
+				<p>Name of commodity:<input class="in1" type="text" name="goodsName" id="goodsName"/></p>
+				<p>Commodity categories:
+					Category 1:
 					<select class="in1" name="goodsType" id="goodsType" onclick=choose_type(this.value) style="width:100px;height:25px;">
 					<?php
 						$sql1="select * from goods_type1";
@@ -76,34 +76,34 @@
 						}	
 					?>
 					</select>&nbsp;&nbsp;&nbsp;&nbsp;
-					分类2：							
+					Category 2:							
 				    <select name="type2" id="type2" onclick=choose_type2(this.value) style="width:100px;height:25px;">
 					</select>&nbsp;&nbsp;&nbsp;&nbsp;
-					分类3：							
+					Category 3:							
 
 
 				    <select name="type3" id="type3" onclick=choose_type3(this.value)>						
 					</select></p>
 				<div id="attribute">
 				</div>
-				<p>商品价格：<input class="in1" type="text" name="price" id="price"/><span class="ratio" style="color:red;"></span>(*请输入一个数字)</p>	
-				<p>商品原价：<input class="in1" type="text" name="original_price" id="original_price"/>(*请输入一个数字)</p>	
-				<p>商品数量：<input class="in1" type="text" name="goodsnum" id="goodsnum"/>(*请输入一个数字)</p>	
+				<p>Commodity prices:<input class="in1" type="text" name="price" id="price"/><span class="ratio" style="color:red;"></span>(*Please enter a number)</p>	
+				<p>Commodity price:<input class="in1" type="text" name="original_price" id="original_price"/>(*Please enter a number)</p>	
+				<p>Commodity quantity:<input class="in1" type="text" name="goodsnum" id="goodsnum"/>(*Please enter a number)</p>	
 				<br>
 				
-				<p>商品可选属性1：<input class="in1" type="text" name="extattribute1">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
-				<p>商品可选属性2：<input class="in1" type="text" name="extattribute2">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
-				<p>商品可选属性3：<input class="in1" type="text" name="extattribute3">(没有可不填，格式   属性名:属性1,属性2,属性  多个属性之间用英文逗号隔开，属性名用英文分号隔开)</p><br/>
+				<p>Commodity optional attribute 1:<input class="in1" type="text" name="extattribute1">(Not have to fill in ，format   Attribute Name:Attribute1,Attribute2,Attribute3  Use commas between multiple attributes, attribute names with a semicolon)</p><br/>
+				<p>Commodity optional attribute 2:<input class="in1" type="text" name="extattribute2">(Not have to fill in ，format   Attribute Name:Attribute1,Attribute2,Attribute3  Use commas between multiple attributes, attribute names with a semicolon)</p><br/>
+				<p>Commodity optional attribute 3:<input class="in1" type="text" name="extattribute3">(Not have to fill in ，format   Attribute Name:Attribute1,Attribute2,Attribute3  Use commas between multiple attributes, attribute names with a semicolon)</p><br/>
 
 				
-				<p><font style="font-size:15px;color:red">商品SEO信息:</font></p>	
-				<p>商品关键字：<input class="in1" type="text" name="keywords" id="keywords"/>(各个关键字以空格分开)</p>
-				<p>商品简介：
+				<p><font style="font-size:15px;color:red">Commodity's SEO information:</font></p>	
+				<p>Commodity keywords:<input class="in1" type="text" name="keywords" id="keywords"/>(The keywords separated by Spaces)</p>
+				<p>Commodity description:
 					<textarea cols="20" rows="3" id='goodsDesc' name='goodsDesc' style="vertical-align:top;"></textarea>
 				</p><br>
 				
-				<p><font style="font-size:15px;color:red">商品图片简介:</font></p>	
-				<p>图片上传: 
+				<p><font style="font-size:15px;color:red">Commodity image profile:</font></p>	
+				<p>Image upload: 
 					 <span id="upd_pics"></span>
 					 <input type="file" name="file" id="file" onchange="check_file()"/>
 					 	<span id="loading" style="display:none;">
@@ -112,24 +112,24 @@
 					 	<span id="logo"></span>
                         <input type="hidden" name="filename" id="filename" value="" />
 						<input type="hidden" name="goods_desc" id="goods_desc" value="" />
-                        <input type="button" value="上传" onclick="return ajaxFileUpload();" 
+                        <input type="button" value="Upload" onclick="return ajaxFileUpload();" 
                         class="btn btn-large btn-primary" />
 					</p>
 				<p>
-				<p>商品描述:</p>
+				<p>Commodity description:</p>
 					<script id="editor" type="text/plain" name="goods_info" style="width:1024px;height:300px;">
 					</script>
 					<!--
  
 				<input type="button" value="提交" class="add_sub" onclick="return check()"></p>
 -->
-				<p>包装及参数:</p>
+				<p>Packaging and parameters:</p>
 					<script id="editor2" type="text/plain" name="package_info" style="width:1024px;height:300px;">
 					</script>
-				<p>售后保障:</p>
+				<p>After-sale protection:</p>
 					<script id="editor3" type="text/plain" name="sales_support" style="width:1024px;height:300px;">
 					</script>						
-				<input type="button" value="提交" onclick="return check()" class="add_sub" ></p>
+				<input type="button" value="Submit" onclick="return check()" class="add_sub" ></p>
 <!-- 87a560e119dc5aadca51ed528b2002eb4b9f0650-->
 			</form>
 		</div>
@@ -214,31 +214,31 @@ function check()
 {
 	if(form.goodsName.value=="")
 	{
-		alert('请填写商品名称！');
+		alert('Please fill in the name of commodity!');
 		form.goodsName.focus();
 		return false;
 	}
 	if(form.goodsType.value=="") 
 	{
-		alert('请填写商品类型！');
+		alert('Please fill in the commodity type!');
 		form.goodsType.focus();
 		return false;
 	}
 	if(form.price.value=="") 
 	{
-		alert('请填写商品价格！');
+		alert('Please fill in the commodity price!');
 		form.price.focus();
 		return false;
 	}
 	if(form.original_price.value=="") 
 	{
-		alert('请填写商品原价！');
+		alert('Please fill in the commodity old price!');
 		form.original_price.focus();
 		return false;
 	}	
 	if(form.goodsnum.value=="") 
 	{
-		alert('请填写商品数量！');
+		alert('Please fill in the quantity!');
 		form.price.focus();
 		return false;
 	}	
@@ -253,7 +253,7 @@ function ajaxFileUpload()
         $("#loading")
         .ajaxStart(function(){
             $(this).show();
-            document.getElementById('logo').innerHTML="图片上传中……";
+            document.getElementById('logo').innerHTML="Picture uploading...";
         })
         .ajaxComplete(function(){
                 $(this).hide();
@@ -305,7 +305,7 @@ function ajaxFileUpload()
 	function exportClick() {
 		$("#spanMsg").html('');
 		if ($("#file").val() == '') {
-			alert('请先选择要导入的文件');
+			alert('Please choose the file you want to import');
 			return false;
 		}
 	}

@@ -10,14 +10,14 @@
 		}
 	}
 	if(!$file=fopen("advertisement.tmp","w")){
-		exit("不能修改");
+		exit("Can't modify");
 	}
 	if(!fwrite($file,$content)){
-		exit("服务器异常");
+		exit("Server error");
 	}
 	fclose($file);
 	if(rename("advertisement.tmp","advertisement.ini")){
 		echo 1;
 	}else{
-		echo"修改失败，请重试";
+		echo"Modify the failure, please try again";
 	}

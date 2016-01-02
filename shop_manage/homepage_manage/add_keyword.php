@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>Homepage management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -18,7 +18,7 @@
 				var form=document.getElementById("doForm");
 				if(form.floor_name.value=="")
 				{
-					alert('请填写关键词名称！');
+					alert('Please fill in the name of keywords!');
 					form.name.focus();
 					return false;
 				}else{
@@ -29,7 +29,7 @@
 				$("#weight").keyup(function(){
 					var val=$(this).val();
 					if(val!=""&&(val<1||val>9999)){
-						alert("请输入合法的数！");
+						alert("Please enter the legal number!");
 						$(this).val("");
 						//return false;
 					}
@@ -42,18 +42,18 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">Homepage management</a></li>
 					</ul>		
 				</div>
 				<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-					<span>位置：首页管理 －&gt; <strong>添加关键词</strong></span>
+					<span>Location: home page management －&gt; <strong>Add Keywords</strong></span>
 				</div>
 				<div class="content">
 					<form action="add_keyword_do.php" method="post" id="doForm">
-						<p>关键词名称:<input class="in1" type="text" name="floor_name"/></p><br/>
-						<p>关键词权重:<input class="in1" type="text" name="weight" id="weight"/>(输入1-9999中的任意数，数值越大关键词越靠前，默认为1)</p><br/>
+						<p>Keyword names:<input class="in1" type="text" name="floor_name"/></p><br/>
+						<p>Weight of keywords:<input class="in1" type="text" name="weight" id="weight"/>(Input number between 1 to 9999, the greater the numerical figure the more, the default is 1)</p><br/>
 						<br/>
-						<input type="button" value="确定添加" onclick="return check()"></p>
+						<input type="button" value="Sure to add" onclick="return check()"></p>
 					</form>
 				</div>
 			</div>	

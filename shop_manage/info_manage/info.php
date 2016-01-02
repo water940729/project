@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>首页管理</title>
+		<title>Home page management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css" />
@@ -20,25 +20,25 @@
 			<div class="listintor">
 				<div class="tit1">
 					<ul>				
-						<li><a href="#">首页管理</a></li>
+						<li><a href="#">Home page management</a></li>
 					</ul>		
 				</div>
 				<div class="header1">
-					<span>位置：商户信息 －&gt; <strong>信息管理</strong></span>
+					<span>Location: business information －&gt; <strong>Information management </strong></span>
 				</div>
 				<div class="content">
 					<form action="add_info.php" method="post" id="doForm">
-						<p>客服QQ:<input class="in1" type="text" name="qq" value="<?php echo $row["qq"]?>"/></p><br/>
-						<p>客服旺旺:<input class="in1" type="text" name="wangwang" value="<?php echo $row["wangwang"]?>"/></p><br/>
-                        <p>店铺的样式选择:<input class="in1" type="text" name="shop_display" value="<?php 
+						<p>Customer Services's QQ:<input class="in1" type="text" name="qq" value="<?php echo $row["qq"]?>"/></p><br/>
+						<p>Customer Services's Wangwang:<input class="in1" type="text" name="wangwang" value="<?php echo $row["wangwang"]?>"/></p><br/>
+                        <p>Style of the shop:<input class="in1" type="text" name="shop_display" value="<?php 
                             if($row["shop_display"] == 1){
-                                echo "样式表1";
+                                echo "The style sheet 1";
                             } else {
-                                echo "样式表2";
+                                echo "The style sheet 2";
                             }
                         ?>" /></p>
                         <br />
-						<input type="submit" value="修改" class="confirm"></p>
+						<input type="submit" value="Modify" class="confirm"></p>
 					</form>
 				</div>
 			</div>	

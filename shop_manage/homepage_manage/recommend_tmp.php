@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>商品管理</title>
+		<title>Commodity management</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="author" content="liuxiao@WiiPu -- http://www.wiipu.com" />
 		<link rel="stylesheet" href="../css/style2.css" type="text/css"/>
@@ -23,12 +23,12 @@
 			function check(){
 				var num=$("#goodsNum").val();
 				if(num<=0){
-					alert("请输入一个大于0的数");
+					alert("Please enter a number greater than zero");
 					return false;
 				}else{
 					var num1=$("#select1 option").length;
 					if(num<num1){
-						alert("当前推荐的商品已超过"+num+"，请先删除部分当前推荐的商品");
+						alert("The current recommended commodity already exceeded"+num+",please delete the part of the current recommended goods");
 					}else{
 						$.ajax({
 							type:"POST",
@@ -51,7 +51,7 @@
 						var $options=$("#select2 option:selected");
 						$options.appendTo("#select1");
 					}else{
-						alert("推荐商品已满!");
+						alert("Recommend commodities is full!");
 					}
 				});
 				$("#remove").click(function(){
@@ -93,16 +93,16 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>				
-				<li><a href="#">商品管理</a> </li>
+				<li><a href="#">Commodity management</a> </li>
 			</ul>		
 		</div>
 	<div class="listintor">
 		<div class="header1"><img src="../images/square.gif" width="6" height="6" alt="" />
-			<span>位置：商品管理 －&gt; <strong>精选推荐</strong></span>
+			<span>Location: commodity management －&gt; <strong>Selection of recommended</strong></span>
 		</div>
 		<div class="fromcontent">
-				<p><font style="font-size:15px;color:red">推荐基本信息:</font></p>
-				<p>当前推荐个数:<span id="now"><?php $sql="select recomm_num,recomm_id from market_info where id=1";
+				<p><font style="font-size:15px;color:red">Recommend basic information:</font></p>
+				<p>Current recommended number:<span id="now"><?php $sql="select recomm_num,recomm_id from market_info where id=1";
 					$result=mysql_query($sql);
 					$row=mysql_fetch_array($result);
 					//print_r($row);
@@ -110,7 +110,7 @@
 					
 					?>
 					</span></p>
-				<p>当前推荐的商品:
+				<p>Current recommended goods:
 				<?php
 					$row["recomm_id"]=trim($row["recomm_id"]);
 					echo '<select multiple id="select1" style="width:130px;height:160px;">';
@@ -132,7 +132,7 @@
 					echo "<button id='down'>&#8595;</button>";
 				?>
 				</p>
-				<p>可添加推荐的商品:
+				<p>The recommended goods can add:
 				<?php
 					echo "<button id='add'>&lt;&lt;</button>";
 					echo '<select multiple id="select2" style="width:130px;height:160px;">';				
@@ -148,12 +148,12 @@
 					}
 					echo '</select>';
 				?>
-				<button id="save">保存</button>
+				<button id="save">Save</button>
 				</p>
 			<form action="add_goods_do.php" method="post" id="doForm">
-			<p><font style="font-size:15px;color:red">修改基本信息:</font></p>
-				<p>精选推荐个数：<input class="in1" type="text" name="num" id="goodsNum"/></p>
-				<p><input type="button" value="提交" onclick="return check()"></p>
+			<p><font style="font-size:15px;color:red">Modify basic information:</font></p>
+				<p>Select recommended number:<input class="in1" type="text" name="num" id="goodsNum"/></p>
+				<p><input type="button" value="Submit" onclick="return check()"></p>
 			</form>
 		</div>
 	</div>
