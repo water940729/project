@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>评价页面</title>
+    <title>Score Page</title>
     <link href="__PUBLIC__/Css/score.css" rel="stylesheet" type="text/css" />
     <link href="__PUBLIC__/Css/header.css" rel="stylesheet" type="text/css">
     <link href="__PUBLIC__/Css/footer.css" rel="stylesheet" type="text/css">
@@ -29,9 +29,9 @@ div.red{border:solid 1px red !important;}
     <div class="score_con">
         <!-- 标题-->
         <div class="goods_top">
-            <div class="good_info">商品信息</div>
-            <div>购买时间</div>
-            <div>评价状态</div>
+            <div class="good_info">Goods Information</div>
+            <div>Buy Time</div>
+            <div>Comment Status</div>
         </div>
         <!-- 这是商品的具体信息-->
     <foreach name="ordlist_to_score" item="vo">
@@ -47,12 +47,12 @@ div.red{border:solid 1px red !important;}
                     <span hidden class="order_time"><{$vo.ordtime}></span>
                 </div>
                 <div><{$vo.ordtime|date="y-m-d",###}></div>
-                <div class="order_che">评价订单</div>
+                <div class="order_che">Comment this Order</div>
             </div>
             <!-- 这是每个商品下面对应的评价包含狂-->
             <div class="score">
                 <div>
-                    <span>评分:</span>
+                    <span>Score:</span>
                     <div>
                         <ul class="star">
                             <li>★</li>
@@ -65,7 +65,7 @@ div.red{border:solid 1px red !important;}
                     <span class="score_span" style="color:#e3007f"></span>
                 </div>
                 <div class="div_ul">
-                    <span>标签:</span>
+                    <span>Label:</span>
                     <div class="label_div">
                         <ul class="label">
                         <!--
@@ -73,30 +73,30 @@ div.red{border:solid 1px red !important;}
                                 <input type="checkbox"> <{vm}> </span>
                             </li>
                          -->
-                         <input type="text" class="txt"><label for="txt">按回车键提交</label>
+                         <input type="text" class="txt"><label for="txt">Press Enter to Submit</label>
                         </ul>
                         
                     </div>
                 </div>
                 <div>
-                    <span>心得:</span>
-                    <textarea class="text" placeholder="商品是否给力？请给出你的评价"></textarea>
+                    <span>Feeling:</span>
+                    <textarea class="text" placeholder="Goods are good enough? Please tell us your Feeling"></textarea>
                 </div>
                <div>
-                   <span style="clear:both;float:left;">晒单:</span>
+                   <span style="clear:both;float:left;">Show the Goods:</span>
 				   <div class="addpicContainer">
 					<!-- 利用multiple="multiple"属性实现添加多图功能 -->
 					<!-- position: absolute;left: 10px;top: 5px;只针对本用例将input隐至图片底下。-->
 					<!-- height:0;width:0;z-index: -1;是为了隐藏input，因为Chrome下不能使用display:none，否则无法添加文件 -->
 					<!-- onclick="getElementById('inputfile').click()" 点击图片时则点击添加文件按钮 -->
-					<div class="file_div" style="cursor:pointer;width:120px;height:30px;font-family:'microsoft yahei';color:white;line-height:30px;text-align:center;background-color:#e3007f;border-radius:5px;font-weight:bold;">点击添加图片</div>
+					<div class="file_div" style="cursor:pointer;width:120px;height:30px;font-family:'microsoft yahei';color:white;line-height:30px;text-align:center;background-color:#e3007f;border-radius:5px;font-weight:bold;">Click to add Picture</div>
 					<input type="file" multiple="multiple" class="inputfile" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"/>
 					<span class="loading"></span>
 					<div class="feedback"></div>	<!-- 响应返回数据容器 -->
                     </div>
                </div>
                 <div style="clear:both;">
-                    <input type="button" value="评价"  class="score_btn" style="cursor:pointer;width:100px;height:30px;line-height:30px;">
+                    <input type="button" value="Comment"  class="score_btn" style="cursor:pointer;width:100px;height:30px;line-height:30px;">
                 </div>
             </div>
         </div>
@@ -114,7 +114,7 @@ div.red{border:solid 1px red !important;}
                     <a href="#" title=""><{$vo.productname}></a>
                 </div>
                 <div><{$vo.ordtime|date="y-m-d",###}></div>
-                <div class="order_che">已评价</div>
+                <div class="order_che">Already Comment</div>
             </div>
             <!-- 这是每个商品下面对应的评价包含框-->
             <div class="score">
@@ -183,11 +183,11 @@ $(document).ready(function(){
                 iNow++;
             },
             error:function(){
-                alert('上传出错');
+                alert('Submit Error');
                 $(".loading").hide();   //加载失败移除加载图片
             }
         });}else{
-            alert("最多只能上传3张图片");
+            alert("Only can submit no More than 3 Pictures");
             return false;
         }
         }); 

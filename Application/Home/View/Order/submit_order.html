@@ -13,12 +13,12 @@
 		<!--订单提交成功，尽快付款的页面-->
 			<div class="con_top">
 				<div class="con_top_left">
-					<span class="succ_span">订单提交成功，请您尽快付款！</span>
-					<span>请您在提交订单后24小时内完成付款，否则订单会自动取消。</span>
+					<span class="succ_span">Order is submitted Success. Please finish your payment as soon as possible</span>
+					<span>Please complete the payment within 24 hours,otherwisw the order will be cancelled</span>
 				</div>
 				<div class="con_top_right">
-					<span>金额:<span>￥</span><span><{$ordtotal_fee}></span></span>
-					<a href="#">订单详情</a>
+					<span>Price:<span>￥</span><span><{$ordtotal_fee}></span></span>
+					<a href="#">Order's  Information</a>
 				</div>
 			</div>
 
@@ -26,7 +26,7 @@
 		<div class="bank_sel">
 		<!--选择银行卡或者支付宝-->
 			<div class="sel_way">
-				<div class="selected_way">支付宝</div>
+				<div class="selected_way">Alipay</div>
 			</div>
 
             <div class="bank_con">
@@ -41,7 +41,7 @@
             <input name="ordtotal_fee" type="hidden" value="<{$ordtotal_fee}>"/>
             <input size="30" name="ordbody" type="hidden"/>
             <input size="30" name="ordshow_url" type="hidden"/>
-            <input type="submit" name="submit" value="确认" class="next_step" style="border:0;"/>
+            <input type="submit" name="submit" value="Confirm" class="next_step" style="border:0;"/>
 		</form>
             </div>
 

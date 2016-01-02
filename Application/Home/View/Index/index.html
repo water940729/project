@@ -32,7 +32,7 @@ $(function(){
 	
 	$("#select_mall").change(function(){
 		var id=$(this).val();
-        if(id=="--------请选择--------"){
+        if(id=="--------Select--------"){
             return false;
         }else{
             url="__APP__/mall/index/id/"+id;
@@ -143,15 +143,15 @@ $(function(){
 				}
 			})		
 		}else{
-			alert("请输入正确的手机号");
+			alert("Please input accurate Phone Number");
 			$(this).val("");
 		}
 	});
 	$("#phone_price").change(function(){
 		var price=$(this).val();
 		var v=$("#right_bottom_text").val();
-		if(v=="请输入充值号码"){
-			alert("请先输入号码");
+		if(v=="Please input Phone Number"){
+			alert("Please input Phone Number");
 		}else{
 			$.ajax({
 				url:"__APP__/phone_ajax/price.php",
@@ -168,8 +168,8 @@ $(function(){
 	$(".right_bottom_btn").click(function(){
 		var price=$("#phone_price").val();
 		var v=$("#right_bottom_text").val();
-		if(v=="请输入充值号码"||v==""){
-			alert("请先输入号码");
+		if(v=="Please input Phone Number码"||v==""){
+			alert("Please input Phone Number");
 		}else{
 			window.location.href="__APP__/phone_ajax/buy.php?tel="+v+"&denom="+price;
 		}
@@ -183,7 +183,7 @@ $(function(){
 	$("#search").click(function(){
 		var name=$(this).prev("input").val();
 		if($.trim(name)==""){
-			alert("请输入关键词");
+			alert("Please input key word");
 		}else{
 			window.location.href="__APP__/good/search/n/"+name;
 		}
@@ -196,11 +196,11 @@ $(function(){
 	<include file="Public:header" />
 	<div class="floor_change" id="floor_change">
 		<div class="flower" style="width:80px;height:63px;background:url(__PUBLIC__/image/shangcheng_image/floor_flower.jpg) no-repeat top;border:0px;top:0px;"></div>
-		<div style="background-color:#FD519D;">回顶部</div>
+		<div style="background-color:#FD519D;">To Top</div>
 		<foreach name="floorid" item="vo">
 			<div style="background-color:<{$vo['background']}>;"><{$vo["name"]}></div>
 		</foreach>	
-		<div style="background-color:#FD519D;">去底部</div>
+		<div style="background-color:#FD519D;">To Button</div>
 	</div>
 	<!--最外层包围框-->
 <div class="container">
@@ -211,10 +211,10 @@ $(function(){
 	
 	<!--logo和搜索框-->
 	<div class="logo_search">
-		<div class="logo"><a href="__APP__/index/index"><img src="<{$array['pics']}>" /></a></div>
+		<div class="logo"><a href="__APP__/index/index"><img src="<{$array['pics']}>" width=290px height=130px/></a></div>
 		<div class="search">
 			<input type="text" name=""/>
-			<input type="button" id="search" value="搜索" style="background-color:#E3007F;"/>
+			<input type="button" id="search" value="Search" style="background-color:#E3007F;"/>
 		</div>
 		<div class="shopCar">
 		<a href="__APP__/order/cart"><img src="__PUBLIC__/image/shangcheng_image/shopcar.jpg" />
@@ -241,7 +241,7 @@ $(function(){
 			
 				<!--使用内部的style来定义背景图片-->
 			<ul id="list">
-				<li  class="id_li_first">全部商品分类</li>
+				<li  class="id_li_first">All Good Classification</li>
 				<foreach name="type1" item="vo">
 					<li><img src="<{$vo.logo}>" /><a href="__APP__/good/goodslist/f/<{$vo.id}>"><{$vo.name}></a></li>
 					<!--<li><img src="__PUBLIC__/image/shangcheng_image/list10.jpg" /><a href="#">第一个物</a></li>-->
@@ -253,19 +253,19 @@ $(function(){
 		<!--选项卡-->
 			<div class="select_list">
 				<ul id="select_list_ul">
-					<li style="font-weight:900;font-size:20px;color:black;" class="li_spec">首页</li>
-					<li><a href="__APP__/good/super" target="_blank" >超市</a></li>
-					<li><a href="__APP__/good/seckill" target="_blank" >秒杀</a></li>
-					<li><a href="__APP__/good/teambuy" target="_blank" >团购</a></li>
-					<li><a href="__APP__/good/trial" target="_blank" >试用</a></li>
-					<li><a href="__APP__/good/book" target="_blank" >预售</a></li>
+					<li style="font-weight:900;font-size:20px;color:black;" class="li_spec">Main Page</li>
+					
+					<li><a href="__APP__/good/seckill" target="_blank" >SecKill</a></li>
+					<li><a href="__APP__/good/teambuy" target="_blank" >TeamBuy</a></li>
+					<li><a href="__APP__/good/trial" target="_blank" >Trial</a></li>
+					<li><a href="__APP__/good/book" target="_blank" >PreSell</a></li>
 				</ul>
 			</div>
 		<!--上面的广告和下拉框-->
 		<div class="select_adv">
 			<div class="select1">
 				<select id="select_mall">
-					<option select="selected">--------请选择--------</option>
+					<option select="selected">--------Select--------</option>
 					<foreach name="mall" item="row">
 						<option value="<{$row['id']}>"><{$row["name"]}></option>
 					</foreach>
@@ -293,24 +293,24 @@ $(function(){
 		<div class="right_adv">
 			<div class="right_top">
 				<input type="text" id="st" name="st" value="" onclick="return Calendar('st')" class="text"><br/>
-				<span>宝宝性别</span><br/>
+				<span>Gender</span><br/>
 				<div>
-				<input type="radio" name="radio" value="0"/>王子
-				<input type="radio" name="radio" value="1"/>公主
-				<input type="radio" name="radio" value="2"/>未知
+				<input type="radio" name="radio" value="0"/>Male
+				<input type="radio" name="radio" value="1"/>Female
+				<input type="radio" name="radio" value="2"/>Unknow
 				</div>
-				<input type="button" value="确定" class="right_top_btn" style="cursor:pointer;" id="baby_button"/> 
+				<input type="button" value="Yes" class="right_top_btn" style="cursor:pointer;" id="baby_button"/> 
 			</div>
 			<div class="right_bottom">
-				<span class="right_bottom_top">话费充值</span>
+				<span class="right_bottom_top">Phone Charging</span>
 				<div class="phone_pri">
 					<div class="phone_num">
-						<label for="right_bottom_text">手机</label>
-						<input type="text" value="请输入充值号码" id="right_bottom_text"/>
+						<label for="right_bottom_text">Phone</label>
+						<input type="text" value="Phone Number" id="right_bottom_text"/>
 					</div>
 					<span class="location"></span>
 					<div class="phone_num">
-						<label>话费</label>
+						<label>Fee</label>
 						<select id="phone_price">
 						<option value="100">100</option>
 						<option value="50">50</option>
@@ -319,9 +319,9 @@ $(function(){
 						</select>
 					</div>
 					<div id="count_price">
-						售价:<span></span>
+						Price:<span></span>
 					</div>
-				<input type="button" value="充值" class="right_bottom_btn"/>
+				<input type="button" value="Charging" class="right_bottom_btn"/>
 				</div>
 			</div>
 		</div>
@@ -330,25 +330,25 @@ $(function(){
 	<!--中间的商品列表-->
 		<!--中间的商品列表-->
 	<div class="middle_goods" id="middle_goods">
-		<span class="middle_goods_span"> 精选推荐</span>
+		<span class="middle_goods_span"> Goods Recommodation</span>
 		<div class="middle_goods_left">
 		<foreach name="data" item="row">
 			<div>
 				<a href="__APP__/good/index/id/<{$row['goods_id']}>" class="a_img"><img src="<{$row['image_url']}>" width="225px" height="225px"></a>
 				<a href="__APP__/good/index/id/<{$row['goods_id']}>" class="a_title" title='<{$row["goods_name"]}>'><{$row["goods_name"]}><br/></a>
-				<span class="hot_price"><span>热卖价 ￥</span><span class="price"><{$row["price"]}></span>
+				<span class="hot_price"><span>Hot Price ￥</span><span class="price"><{$row["price"]}></span>
 				<if condition="$row[discount] neq 10">
-					<span class="count"><img src="__PUBLIC__/image/shangcheng_image/cou.jpg" /><{$row["discount"]}>折</span>
+					<span class="count"><img src="__PUBLIC__/image/shangcheng_image/cou.jpg" /><{$row["discount"]}>Off</span>
 				</if>
 				</span>
 			</div>
 		</foreach>
 		</div>
-		<span class="middle_goods_span middle_goods_span_right">销售排行榜</span>
+		<span class="middle_goods_span middle_goods_span_right">Selling Rank</span>
 		<div class="middle_goods_right">
 			
-			<div class="middle_goods_right_first" id="first_goods">商品一</div>
-			<div class="middle_goods_right_second" id="second_goods">商品二</div>
+			<div class="middle_goods_right_first" id="first_goods">Goods</div>
+			<div class="middle_goods_right_second" id="second_goods">Goods</div>
 			<div class="bottom_first" id="bottom_first">
 				<for start="0" end="2">
 					<div>
@@ -359,7 +359,7 @@ $(function(){
 						<a href="__APP__/good/index/id/<{$data6[$i]['id']}>" style="color:#666;font-size:13px;text-decoration:none;height:45px;overflow:hidden;width:100px;display:inline-block;" title="<{$data6[$i]["name"]}>"><{$data6[$i]["name"]}></a><br/>
 						<span style="color:red;font-size:18px;font-weight:bold;">￥<{$data6[$i]["price"]}></span><br/>
 						<if condition="$data6[$i][sell] neq 0">
-							<span style="color:#666;font-size:12px;">本月已售<span style="color:red;"><{$data6[$i]["sell"]}></span>件</span>
+							<span style="color:#666;font-size:12px;">Sell<span style="color:red;"><{$data6[$i]["sell"]}></span></span>
 						</if>
 						</div>
 					</div>
@@ -373,7 +373,7 @@ $(function(){
 						<a href="__APP__/good/index/id/<{$data6[$i]['id']}>" style="color:#666;font-size:13px;text-decoration:none;height:45px;overflow:hidden;width:100px;display:inline-block;" title="<{$data6[$i]["name"]}>"><{$data6[$i]["name"]}></a><br/>
 						<span style="color:red;font-size:18px;font-weight:bold;">￥<{$data6[$i]["price"]}></span><br/>
 						<if condition="$data6[$i][sell] neq 0">
-							<span style="color:#666;font-size:12px;">本月已售<span style="color:red;"><{$data6[$i]["sell"]}></span>件</span>
+							<span style="color:#666;font-size:12px;">Sell<span style="color:red;"><{$data6[$i]["sell"]}></span></span>
 						</if>
 						</div>
 					</div>
@@ -390,7 +390,7 @@ $(function(){
 						<a href="__APP__/good/index/id/<{$data6[$i]['id']}>" style="color:#666;font-size:13px;text-decoration:none;height:45px;overflow:hidden;width:100px;display:inline-block;" title="<{$data6[$i]["name"]}>"><{$data6[$i]["name"]}></a><br/>
 						<span style="color:red;font-size:18px;font-weight:bold;">￥<{$data6[$i]["price"]}></span><br/>
 						<if condition="$data6[$i][sell] neq 0">
-							<span style="color:#666;font-size:13px;text-decoration:none;height:45px;overflow:hidden;width:100px;display:inline-block;">本月已售<span style="color:red;"><{$data6[$i]["sell"]}></span>件</span>
+							<span style="color:#666;font-size:13px;text-decoration:none;height:45px;overflow:hidden;width:100px;display:inline-block;">Sell<span style="color:red;"><{$data6[$i]["sell"]}></span></span>
 						</if>
 						</div>
 					</div>
@@ -404,7 +404,7 @@ $(function(){
 						<a href="__APP__/good/index/id/<{$data6[$i]['id']}>" style="color:#666;font-size:15px;text-decoration:none;"><{$data6[$i]["name"]}></a><br/>
 						<span style="color:red;font-size:18px;font-weight:bold;">￥<{$data6[$i]["price"]}></span><br/>
 						<if condition="$data6[$i][sell] neq 0">
-							<span style="color:#666;font-size:12px;">本月已售<span style="color:red;"><{$data6[$i]["sell"]}></span>件</span>
+							<span style="color:#666;font-size:12px;">Sell<span style="color:red;"><{$data6[$i]["sell"]}></span></span>
 						</if>
 						</div>
 					</div>
@@ -445,9 +445,9 @@ $(function(){
 						<div class="img_div"><img src='<{$vo["image_url"]}>' alt='<{$vo["goods_name"]}>'/></div>
 						<div class="name_div"><a href="__APP__/good/index/id/<{$vo[goods_id]}>" title='<{$vo["goods_name"]}>'><{$vo["goods_name"]}></a></div>
 						<div class="span_div">
-							<span  style="color:red;font-weight:bold;padding-left:10px;"><span style="font-size:14px;">热卖价￥</span><span style="font-size:30px;"><{$vo["price"]}></span></span>
+							<span  style="color:red;font-weight:bold;padding-left:10px;"><span style="font-size:14px;">Hot Price￥</span><span style="font-size:30px;"><{$vo["price"]}></span></span>
 							<if condition="$vo.original_price neq 0">
-							<span class="past_price">原价￥<{$vo["original_price"]}></span>
+							<span class="past_price">Original Price￥<{$vo["original_price"]}></span>
 							</if>
 							<!--<span>已有<span ><a href="#" style="color:#e3007f">20</a></span><span>评论</span></span>-->
 						</div>

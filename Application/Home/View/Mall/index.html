@@ -91,11 +91,11 @@ var Public="__PUBLIC__";
 <include file="Public/header" />
 	<div class="floor_change" id="floor_change">
 		<div class="flower" style="width:80px;height:63px;background:url(__PUBLIC__/image/shangcheng_image/floor_flower.jpg) no-repeat top;border:0px;top:0px;"></div>
-		<div style="background-color:#FD519D;">回顶部</div>
+		<div style="background-color:#FD519D;">To Top</div>
 		<foreach name="floorid" item="vo">
 			<div style="background-color:<{$vo['background']}>;"><{$vo["name"]}></div>
 		</foreach>	
-		<div style="background-color:#FD519D;">去底部</div>
+		<div style="background-color:#FD519D;">To Bottom</div>
 	</div>
 	<!--最外层包围框-->
 <div class="container">
@@ -109,7 +109,7 @@ var Public="__PUBLIC__";
 		<div class="logo"><a href="__APP__/mall/index/id/<{$mall['id']}>"><img src="<{$mall['image_url']}>" /></a></div>
 		<div class="search">
 			<input type="text" name=""/>
-			<input type="button" id="search" value="搜索" style="background-color:#E3007F;"/>
+			<input type="button" id="search" value="Search" style="background-color:#E3007F;"/>
 		</div>
 		<div class="shopCar">
 		<a href="__APP__/order/cart"><img src="__PUBLIC__/image/shangcheng_image/shopcar.jpg" />
@@ -145,7 +145,7 @@ var Public="__PUBLIC__";
 		<!--选项卡-->
 			<div class="select_list">
 				<ul id="select_list_ul">
-					<li style="font-weight:900;font-size:20px;color:black;" class="li_spec">首页</li>
+					<li style="font-weight:900;font-size:20px;color:black;" class="li_spec">Home</li>
 				</ul>
 			</div>
 		<!--上面的广告和下拉框-->
@@ -176,22 +176,22 @@ var Public="__PUBLIC__";
 	
 	<!--中间的商品列表-->
 	<div class="middle_goods" id="middle_goods">
-		<span class="middle_goods_span"> 精选推荐</span>
+		<span class="middle_goods_span"> Recommodation</span>
 		<div class="middle_goods_left">
 		<foreach name="data" item="row">
 			<div>
 				<a href="__APP__/good/index/id/<{$row['goods_id']}>" class="a_img"><img src="<{$row['image_url']}>" width="225px" height="225px"></a>
 				<a href="__APP__/good/index/id/<{$row['goods_id']}>" class="a_title" title="<{$row["goods_name"]}>"><{$row["goods_name"]}></a>
-				<span class="hot_price"><span>热卖价 ￥</span><span class="price"><{$row["price"]}></span><!-- <{$row["discount"]}> -->
-				<span class="count"><img src="__PUBLIC__/image/shangcheng_image/cou.jpg" /><{$row["discount"]}>折</span></span>
+				<span class="hot_price"><span>Hot Price ￥</span><span class="price"><{$row["price"]}></span><!-- <{$row["discount"]}> -->
+				<span class="count"><img src="__PUBLIC__/image/shangcheng_image/cou.jpg" /><{$row["discount"]}>Off</span></span>
 			</div>
 		</foreach>
 		</div>
-		<span class="middle_goods_span middle_goods_span_right">销售排行榜</span>
+		<span class="middle_goods_span middle_goods_span_right">Sales Rank</span>
 		<div class="middle_goods_right">
 			
-			<div class="middle_goods_right_first" id="first_goods">商品一</div>
-			<div class="middle_goods_right_second" id="second_goods">商品二</div>
+			<div class="middle_goods_right_first" id="first_goods">Item 1</div>
+			<div class="middle_goods_right_second" id="second_goods">Item 2</div>
 			<div class="bottom_first" id="bottom_first">
 				<for start="0" end="2">
 					<div>
@@ -202,7 +202,7 @@ var Public="__PUBLIC__";
 						<a href="__APP__/good/index/id/<{$data6[$i]['id']}>" style="color:#666;font-size:15px;text-decoration:none;height:45px;overflow:hidden;width:100px;display:inline-block;" title='<{$data6[$i]["name"]}>'><{$data6[$i]["name"]}></a><br/>
 						<span style="color:red;font-size:18px;font-weight:bold;">￥<{$data6[$i]["price"]}></span><br/>
 						<if condition="$data6[$i][sell] neq 0">
-							<span style="color:#666;font-size:12px;">本月已售<span style="color:red;"><{$data6[$i]["sell"]}></span>件</span>
+							<span style="color:#666;font-size:12px;">Sold Out<span style="color:red;"><{$data6[$i]["sell"]}></span>Pieces</span>
 						</if>
 						</div>
 					</div>
@@ -216,7 +216,7 @@ var Public="__PUBLIC__";
 						<a href="__APP__/good/index/id/<{$data6[$i]['id']}>" style="color:#666;font-size:15px;text-decoration:none;height:45px;overflow:hidden;width:100px;display:inline-block;" title='<{$data6[$i]["name"]}>'><{$data6[$i]["name"]}></a><br/>
 						<span style="color:red;font-size:18px;font-weight:bold;">￥<{$data6[$i]["price"]}></span><br/>
 						<if condition="$data6[$i][sell] neq 0">
-							<span style="color:#666;font-size:12px;">本月已售<span style="color:red;"><{$data6[$i]["sell"]}></span>件</span>
+							<span style="color:#666;font-size:12px;">Sold Out<span style="color:red;"><{$data6[$i]["sell"]}></span>Pieces</span>
 						</if>
 						</div>
 					</div>
@@ -232,7 +232,7 @@ var Public="__PUBLIC__";
 						<a href="__APP__/good/index/id/<{$data6[$i]['id']}>" style="color:#666;font-size:15px;text-decoration:none;height:45px;overflow:hidden;width:100px;display:inline-block;" title='<{$data6[$i]["name"]}>'><{$data6[$i]["name"]}></a><br/>
 						<span style="color:red;font-size:18px;font-weight:bold;">￥<{$data6[$i]["price"]}></span><br/>
 						<if condition="$data6[$i][sell] neq 0">
-							<span style="color:#666;font-size:12px;">本月已售<span style="color:red;"><{$data6[$i]["sell"]}></span>件</span>
+							<span style="color:#666;font-size:12px;">Sold Out<span style="color:red;"><{$data6[$i]["sell"]}></span>Pieces</span>
 						</if>
 						</div>
 					</div>
@@ -246,7 +246,7 @@ var Public="__PUBLIC__";
 						<a href="__APP__/good/index/id/<{$data6[$i]['id']}>" style="color:#666;font-size:15px;text-decoration:none;height:45px;overflow:hidden;width:100px;display:inline-block;" title='<{$data6[$i]["name"]}>'><{$data6[$i]["name"]}></a><br/>
 						<span style="color:red;font-size:18px;font-weight:bold;">￥<{$data6[$i]["price"]}></span><br/>
 						<if condition="$data6[$i][sell] neq 0">
-							<span style="color:#666;font-size:12px;">本月已售<span style="color:red;"><{$data6[$i]["sell"]}></span>件</span>
+							<span style="color:#666;font-size:12px;">Sold Out<span style="color:red;"><{$data6[$i]["sell"]}></span>Pieces</span>
 						</if>
 						</div>
 					</div>
@@ -288,8 +288,8 @@ var Public="__PUBLIC__";
 						<div class="img_div"><img src='<{$vo["image_url"]}>'/></div>
 						<div class="name_div"><a href="__APP__/good/index/id/<{$vo[goods_id]}>" title='<{$vo["goods_name"]}>'><{$vo["goods_name"]}></a></div>
 						<div class="span_div">
-							<span  style="color:red;font-size:20px;margin-left:15px;"><span>热卖价￥</span><span><{$vo["price"]*$vo["discount"]}></span></span>
-							<span class="past_price">原价￥<{$vo["price"]}></span>
+							<span  style="color:red;font-size:20px;margin-left:15px;"><span>Hot Price￥</span><span><{$vo["price"]*$vo["discount"]}></span></span>
+							<span class="past_price">Original Price￥<{$vo["price"]}></span>
 							<!--<span>已有<span ><a href="#" style="color:#e3007f">20</a></span><span>评论</span></span>-->
 						</div>
 					</div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>收藏店铺</title>
+	<title>Shop Collect</title>
 	<style>
 		.shop_container{width:965px;padding:10px;border:solid 1px #ccc;font-family:"microsoft yahei"}
 		.history{width:910px;margin:10px auto;border:solid 1px #ccc;height:90px; overflow:hidden;}
@@ -41,7 +41,7 @@
 	<div class="shop_container">
     <empty name="result">
     <div>
-        您没有收藏过店铺。
+        You never collected any shop
     </div>
     <else/>
     <foreach name="result" item="vo">
@@ -49,11 +49,11 @@
 			<div class="img"><a href="__APP__/shop/index/id/<{$vo.shop_info.id}>"><img src="<{$vo.shop_info.logo}>"/></a></div>
 			<div class="title">
 				<a href="__APP__/shop/index/id/<{$vo.shop_info.id}>"><{$vo.shop_info.name}></a>
-               <span>收藏时间:<{$vo.collect_info.collect_time|date="y-m-d", ###}></span>
+               <span>Collected Time:<{$vo.collect_info.collect_time|date="y-m-d", ###}></span>
 			</div>
             <div class="del_shopcar">
                 <span id="collect_shop_id" hidden><{$vo.collect_info.collect_id}></span> 
-                <div class="del_shop_add">删除</div>
+                <div class="del_shop_add">Delete</div>
             </div>
 		</div>
     </foreach>

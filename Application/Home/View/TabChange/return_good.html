@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>评价页面</title>
+    <title>Comment Page</title>
     <link href="__PUBLIC__/Css/return.css" rel="stylesheet" type="text/css" />
 		<!--[if lt IE 9]>
 		<script src="__PUBLIC__/Js/jquery/jquery1.8.js"></script>
@@ -58,11 +58,11 @@ $(document).ready(function(){
                 iNow++;
             },
             error:function(){
-                alert('上传出错');
+                alert('Submit Error');
                 $(".loading").hide();   //加载失败移除加载图片
             }
         });}else{
-            alert("最多只能上传3张图片");
+            alert("Only can Submit No more than 3 Pictures");
             return false;
         }
         }); 
@@ -84,9 +84,9 @@ $(document).ready(function(){
     <div class="return_con">
         <!-- 标题-->
         <div class="goods_top">
-            <div class="good_info">商品信息</div>
-            <div>购买时间</div>
-            <div>金额</div>
+            <div class="good_info">Good's Information</div>
+            <div>Buy Time</div>
+            <div>Price</div>
         </div>
         <!-- 这是商品的具体信息-->
         <foreach name="ordlist_to_return" item="vo">
@@ -105,46 +105,46 @@ $(document).ready(function(){
                 </div>
                 <div><{$vo.ordtime|date="y-m-d",###}></div>
                 <div class="order_che">￥<{$vo.ordprice}></div>
-				<div class="order_com"><span>退换货</span></div>
+				<div class="order_com"><span>Return</span></div>
             </div>
             <!-- 这是每个商品下面对应的填写信息的包含框-->
             <div class="return">
-              <div style="text-align:center;font-size:18px;">为了退货流程的通畅，请及时填写退货信息</div>
+              <div style="text-align:center;font-size:18px;">Pleause full returning information in time to make sure returning process smooth</div>
 			  <div>
-				<span>服务类型:</span>
+				<span>Service Type:</span>
 				<ul class="service">
-					<li><input type="radio" value="1"/><span>退货</span></li>
-					<li><input type="radio" value="2"/><span>换货</span></li>
+					<li><input type="radio" value="1"/><span>Return Goods</span></li>
+					<li><input type="radio" value="2"/><span>Replace Goods</span></li>
 				<!--	<li><input type="radio" value="3"/><span>维修</span></li> -->
 				</ul>
 			  </div>
 			  <div class="invoice">
-			  <span>申请凭据:</span>
-				<input type="checkbox"   style="vertical-align:middle;"/><span style="float:none;margin:0;width:auto;vertical-align:middle;margin-left:5px;">有发票</span>
+			  <span>Application Credentials:</span>
+				<input type="checkbox"   style="vertical-align:middle;"/><span style="float:none;margin:0;width:auto;vertical-align:middle;margin-left:5px;">Receipt</span>
 			  </div>
 			  <div>
-			  <span>支付宝:</span>
+			  <span>Alipay:</span>
 				<input type="text" class="zhifubao" style="vertical-align:middle;"/>
 			  </div>
               <div>
-                    <span>问题描述:</span>
-                    <textarea class="text" placeholder="请相信描述你的问题"></textarea>
+                    <span>Problem Description:</span>
+                    <textarea class="text" placeholder="Please deseribe your Ploblem as detailed as possible"></textarea>
               </div>
                <div>
-                   <span>图片信息:</span>
+                   <span>Picture Information:</span>
                    <div class="addpicContainer">
                     <!-- 利用multiple="multiple"属性实现添加多图功能 -->
                     <!-- position: absolute;left: 10px;top: 5px;只针对本用例将input隐至图片底下。-->
                     <!-- height:0;width:0;z-index: -1;是为了隐藏input，因为Chrome下不能使用display:none，否则无法添加文件 -->
                     <!-- onclick="getElementById('inputfile').click()" 点击图片时则点击添加文件按钮 -->
-                    <div class="file_div" style="cursor:pointer;width:120px;height:30px;font-family:'microsoft yahei';color:white;line-height:30px;text-align:center;background-color:#e3007f;border-radius:5px;font-weight:bold;">上传图片</div>
+                    <div class="file_div" style="cursor:pointer;width:120px;height:30px;font-family:'microsoft yahei';color:white;line-height:30px;text-align:center;background-color:#e3007f;border-radius:5px;font-weight:bold;">Submit Pictures</div>
                     <input type="file" multiple="multiple" class="inputfile" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;"/>
                     <span class="loading"></span>
                     <div class="feedback"></div>    <!-- 响应返回数据容器 -->
                     </div>
                </div>
                 <div>
-                    <input type="button" value="提交申请"  class="return_btn"/>
+                    <input type="button" value="Submit Application"  class="return_btn"/>
                 </div>
             </div>
             <!--
@@ -174,13 +174,13 @@ $(document).ready(function(){
 				<!--退货状态-->
 				<div style="color:#e3007f;"><span>
                 <if condition="$vo.ordstatus eq 4">
-                已申请换货
+                Already Applyed Changen Goods
                 <elseif condition="$vo.ordstatus eq 5" />
-                已换货
+                Already Changed
                 <elseif condition="$vo.ordstatus eq 6" />
-                已申请退货
+                Already Applyed Return Goods
                 <elseif condition="$vo.ordstatus eq 7" />
-                已退货
+                Already Returned
                 <else/>
                 </if>
                 </span></div>

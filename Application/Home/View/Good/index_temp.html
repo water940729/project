@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
-	
-		<title>货物展示页面</title>
+
+		<title>Item Detail</title>
 		<link href="__PUBLIC__/Css/good_info.css"  rel="stylesheet" type="text/css"/>
 		<!--[if lt IE 9]>
 		<script src="__PUBLIC__/Js/jquery/jquery1.8.js"></script>
@@ -24,8 +24,8 @@
 			<div class="logo"><a href="#"><img src="__PUBLIC__/image/good_info/logo.jpg" /></a></div>
 			<div class="search">
 				<input type="text" name=""/>
-				<input type="button" value="搜索" style="background-color:#E3007F;"/>
-				<input type="button" value="取消" style="background-color:#5BC5EF;"/>
+				<input type="button" value="Search" style="background-color:#E3007F;"/>
+				<input type="button" value="Cancel" style="background-color:#5BC5EF;"/>
 			</div>
 			<div class="shopCar_img">
 			<a href="__APP__/order/cart"><img src="__PUBLIC__/image/good_info/shopcar.jpg" />
@@ -38,28 +38,27 @@
 			</a>
 			</div>
 			<ul>
-				<li><a href="#">玩具</a></li>
-				<li><a href="#">好奇</a></li>
-				<li><a href="#">惠氏</a></li>
-				<li><a href="#"><span style="color:#E3007F;">婴儿床</span></a></li>
-				<li><a href="#">乐可爱</a></li>
+				<li><a href="#">Toy</a></li>
+				<li><a href="#">HUGGIES</a></li>
+				<li><a href="#">Wyeth</a></li>
+				<li><a href="#"><span style="color:#E3007F;">Baby Bed</span></a></li>
+				<li><a href="#">Lacute</a></li>
 			</ul>
 		</div>
 	<!--导航区域-->
 	<div class="navigator">
 		<ul>
-			<li style="width:150px;background:#309DEF url(__PUBLIC__/image/good_info/dis.jpg) right center no-repeat;color:white;">全部商品分类</li>
-			<li style="color:black;font-weight:bold;">首页</li>
-			<li>超市</li>
-			<li>秒杀</li>
-			<li>团购</li>
-			<li>试用</li>
-			<li>预售</li>
+			<li style="width:150px;background:#309DEF url(__PUBLIC__/image/good_info/dis.jpg) right center no-repeat;color:white;">All Categories</li>
+			<li style="color:black;font-weight:bold;">Home</li>
+			<li>SecKill</li>
+			<li>TeamBuy</li>
+			<li>Try</li>
+			<li>Presale</li>
 		</ul>
 	</div>
 	<!--路线-->
 	<div class="route" id="route">
-		<span><a href="__APP__/index/index">首页</a></span>>
+		<span><a href="__APP__/index/index">Home</a></span>>
 		<span>
 		<foreach name="type1_result" item="vo">
 		<a href="#"><!--<{$vo.id}>--><{$vo.name}></a></span>>
@@ -108,8 +107,8 @@
 				<div id="to_right">></div>
 			</div>
 			<div class="share">
-				商品编号：<span id="number"><{$result[0]["id"]}></span>
-				分享到:
+				Item ID：<span id="number"><{$result[0]["id"]}></span>
+				Share:
 				<div class="share_to">
 					<div><img src="" />1</div>
 					<div><img src="" />2</div>
@@ -128,29 +127,29 @@
 				<{$result[0]["goods_desc"]}>
 				</span><br />
 				<span class="title_des">
-				葵花宝贝母婴11周年庆，我过生日我请客，活动时间：6.15-6.17.【正品速达】
+				Celebrate 11th anniversary of Kuihua-Baby，event time：6.15—6.17
 				</span>
 			</div>
 			<div class="two">
 				<span class="info_span">
-				葵  花  价
+				  Kui Hua Price
 				</span>
 				<div>
-					<span class="price">￥</span></span><span class="price" style="font-size:25px;"><{$result[0]["price"]-$result[0]["discount"]}></span>原价<{$result[0]["price"]}><a href="#">降价通知</a><br />
-					<span>这一部分是评分的</span><span><{$result[0]["score"]}>分</span><a href="#">共有<span><{$result[0]["commentnum"]}></span>条评价</a>
+					<span class="price">￥</span></span><span class="price" style="font-size:25px;"><{$result[0]["price"]-$result[0]["discount"]}></span>Original Price<{$result[0]["price"]}><a href="#">Discount Notice</a><br />
+					<span>Score</span><span><{$result[0]["score"]}>Points</span><a href="#">Have<span><{$result[0]["commentnum"]}></span>Comments</a>
 				</div>
 			</div>
 			
 			<div class="three">
-					<span class="info_span">正在促销</span>
+					<span class="info_span">Discounting</span>
 				<div>
-					<span class="span_div">满减</span><span>满300减80元（折合220元/罐）</span><a href="#">查看详情</a><br />
-					<span class="span_div">领券</span><span>您有<span style="margin:0;">2</span>张券可领</span><a href="#">立即领取</a><br />
+					<span class="span_div">Full Reduce</span><span>80￥ off while ordering 300￥</span><a href="#">More Details</a><br />
+					<span class="span_div">Coupon</span><span>You have<span style="margin:0;">2</span>tickets to get</span><a href="#">Get Now</a><br />
 				</div>
 			</div>
 			
 			<div class="four">
-				<span class="info_span">送至</span>
+				<span class="info_span">Shipping To</span>
 				<div>
 				<div class="ul_div" id="goto_ul_div">
 				<div id="send"></div>
@@ -162,18 +161,18 @@
 					</ul>
 					
 				</div>
-				<span style="color:black;font-size:16px;">现货</span>
-				<span><img src="__PUBLIC__/image/good_info/hour.jpg" />3小时送达<span><img src="__PUBLIC__/image/good_info/hour1.jpg" />指定时间送达</span><img src="__PUBLIC__/image/good_info/hour2.jpg" />自提</span>
+				<span style="color:black;font-size:16px;">On Shelf</span>
+				<span><img src="__PUBLIC__/image/good_info/hour.jpg" />Delivery in 3 Hours<span><img src="__PUBLIC__/image/good_info/hour1.jpg" />Delivery in time</span><img src="__PUBLIC__/image/good_info/hour2.jpg" />Pick up by self</span>
 				</div>
 				
 			</div>
 			
 			<div class="five">
-				
-				<span class="info_span">服务</span>
+
+				<span class="info_span">Service</span>
 				<div>
-				<span>由“葵花”直接销售和发货，并提供售后服务和在线客服<img src="__PUBLIC__/image/good_info/cen1.jpg" /><a href="#">和我联系</a>
-					<img src="__PUBLIC__/image/good_info/cen2.jpg"  />免运费<img src="__PUBLIC__/image/good_info/cen3.jpg"  />自提<img src="__PUBLIC__/image/good_info/cen4.jpg"  />不支持无理由退换货
+				<span>Direct sales and shipments by the "Kuihua" and provide after-sales service and online customer service<img src="__PUBLIC__/image/good_info/cen1.jpg" /><a href="#">Contact Us</a>
+					<img src="__PUBLIC__/image/good_info/cen2.jpg"  />Free Delivery<img src="__PUBLIC__/image/good_info/cen3.jpg"  />Pick up by self<img src="__PUBLIC__/image/good_info/cen4.jpg"  />Not support no reason to return
 				</span>
 				</div>
 			</div>
@@ -190,7 +189,7 @@
 				</div>
 			</foreach>
 			<div class="eight" style="border-bottom:solid #ccc 1px;">
-				<span class="info_span">数量</span>
+				<span class="info_span">Amount</span>
 				<div>
 				<div id="decrease">-</div>
 				<input type="text" id="num" value="1"  />
@@ -199,50 +198,49 @@
 			</div>
 			
 			<div class="center_bot">
-				<div class="center_bot_top">您已选择<span id="already_choose"></span></div>
+				<div class="center_bot_top">Selected<span id="already_choose"></span></div>
 				<div class="button">
-					<div id="buy"><a href="__APP__/user/buy?">立即购买</a></div>
-					<div id="shopCar" class="shopCar">加入购物车</div>
-					<div id="collect">收藏</div>
-					<a href="#">请告诉我们更低的价格</a>
+					<div id="buy"><a href="__APP__/user/buy?">Buy Now</a></div>
+					<div id="shopCar" class="shopCar">Add to Cart</div>
+					<div id="collect">Favorite</div>
+					<a href="#">Tell us lower price</a>
 				</div>
 			</div>
 	</div>
 	<div class="good_display_right">
 		<div class="right_top">
-			<span>正品联保，送货入户</span>
-			<span style="color:black;font-weight:bold;">商家：<span style="font-size:20px;color:black;"><{$result[0]["shop_name"]}></span></span>
+			<span>Free Shipping</span>
+			<span style="color:black;font-weight:bold;">Supplier：<span style="font-size:20px;color:black;"><{$result[0]["shop_name"]}></span></span>
 		<div>
-			<span class="right_left">商家满意度</span><span class="right_right">与同行业相比</span>
-			<span class="right_left">商家评分:<span>4.82</span>分</span><span class="right_right">16.33%</span>
-			<span class="right_left">服务态度:<span>4.87</span>分</span><span class="right_right">7.45%</span>
-			<span class="right_left">物流速度:<span>4.87</span>分</span><span class="right_right">15.64%</span>
+			<span class="right_left">Supplier Details</span><span class="right_right">Compare with others</span>
+			<span class="right_left">Supplier Score:<span>4.82</span>分</span><span class="right_right">16.33%</span>
+			<span class="right_left">Service Score:<span>4.87</span>分</span><span class="right_right">7.45%</span>
+			<span class="right_left">Shipping Speed::<span>4.87</span>分</span><span class="right_right">15.64%</span>
 		</div>
-		<a href="__APP__/shop/index/id/<{$result[0][shop_id]}>"><div class="go_shop">进入店铺</div></a>
+		<a href="__APP__/shop/index/id/<{$result[0][shop_id]}>"><div class="go_shop">Enter Shop</div></a>
 	</div>
 		<div class="right_center">
-			<span>同类推荐</span>
-			<span style="cursor:pointer;">换一组</span>
+			<span>Similar</span>
+			<span style="cursor:pointer;">Change</span>
 		</div>
 		
 		<div class="right_bottom">
 			<div>
 				<div class="image_div"><img src="#" /></div>
 				<div class="image_span">
-					<span>特福芬有机幼儿配方奶粉3段</span>
-					<span class="image_span_price">￥258.00</span>
+					<span>Topfer Organic Infant Milk 3</span>
 				</div>
 			</div><div>
 				<div class="image_div"><img src="#" /></div>
 				<div class="image_span">
-					<span>特福芬有机幼儿配方奶粉3段</span>
+					<span>Topfer Organic Infant Milk 3</span>
 					<span class="image_span_price">￥258.00</span>
 				</div>
 			</div>
 			<div>
 				<div class="image_div"><img src="#" /></div>
 				<div class="image_span">
-					<span>特福芬有机幼儿配方奶粉3段</span>
+					<span>Topfer Organic Infant Milk 3</span>
 					<span class="image_span_price">￥258.00</span>
 				</div>
 			</div>
@@ -254,7 +252,7 @@
 	<div class="recom">
 
 		<div class="recom_top">
-			<div>推荐搭配</div>
+			<div>Suggest</div>
 		</div>
 		<div class="recom_bot">
 			<div class="recom_bot_left">
@@ -278,7 +276,7 @@
 					<div class="recom_img_div"><img src="#" /></div>
 					<div class="recom_img_span">
 						<span>
-							爱宝美较大婴儿配方奶粉 3段 （10-12个月） 800g
+							Aptamil Infant Milk 3 （10-12 Months） 800g
 						</span>
 						<span style="color:#E3007F">￥260.00</span>
 					</div>
@@ -293,9 +291,9 @@
 					<div class="selected_img">
 						<div class="selected_img_con"><img src="#" /></div>
 						<input type="checkbox"  />
-						<span>益力健澡油DHA胶囊650毫克（进口）</span>
-						<span class="package">套餐价：<span>￥394.02</span></span>
-						<div class="count_div">已优惠<span>￥3.98</span></div>
+						<span>E-Health Algae DHA Oil 650 mg</span>
+						<span class="package">Discount Price：<span>￥394.02</span></span>
+						<div class="count_div">Off：<span>￥3.98</span></div>
 					</div>
 					<div class="add_mark" style="margin-left:30px;">
 					<img src="__PUBLIC__/image/good_info/plus.jpg"  class="plus_img"/>
@@ -303,20 +301,20 @@
 				<div class="selected_img">
 						<div class="selected_img_con"><img src="#" /></div>
 						<input type="checkbox"  />
-						<span>益力健澡油DHA胶囊650毫克（进口）</span>
-						<span class="package">套餐价：<span>￥394.02</span></span>
-						<div class="count_div">已优惠<span>￥3.98</span></div>
+						<span>E-Health Algae DHA Oil 650 mg</span>
+						<span class="package">Discount Price：<span>￥394.02</span></span>
+						<div class="count_div">Off<span>￥3.98</span></div>
 					</div>
 				</div>
 			</div>	
 			</div>
 			
 			<div class="recom_bot_right">
-				<span>已搭配<span>0</span>件</span><br />
-				<span>套餐价:</span><span style="color:#E3007F;font-size:16px;margin-left:80px;">￥260.00</span>
-				<div class="shopCar" style="float:none;">加入购物车</div>
-				<span class="clearAll">清除全部</span>
-				
+				<span>Chosen<span>0</span>Pieces</span><br />
+				<span>Discount Price:</span><span style="color:#E3007F;font-size:16px;margin-left:80px;">￥260.00</span>
+				<div class="shopCar" style="float:none;">Add To Cart</div>
+				<span class="clearAll">Clear All</span>
+
 			</div>
 		</div>
 		
@@ -329,54 +327,46 @@
 
 			<!--相关分类-->
 			<div class="detail">
-				<div class="detail_title">相关分类</div>
+				<div class="detail_title">Related Categories</div>
 				<div class="detail_content">
 					<ul>
-						<li><a href="">3段奶粉</a></li>
-						<li><a href="">1段奶粉</a></li>
-						<li><a href="">2段奶粉</a></li>
-						<li><a href="">4段奶粉</a></li>
-						<li><a href="">5段奶粉</a></li>
-						<li><a href="">特殊配方</a></li>
-						<li><a href="">pre段奶粉</a></li>
+						<li><a href="">Stage 3 Milk</a></li>
+						<li><a href="">Stage 1 Milk</a></li>
+						<li><a href="">Stage 2 Milk</a></li>
+						<li><a href="">Stage 4 Milk</a></li>
+						<li><a href="">Stage 5 Milk</a></li>
+						<li><a href="">Special Recipe</a></li>
+						<li><a href="">Pre Stage Milk</a></li>
 					</ul>
 				</div>
 			</div>
 			<!--相关品牌-->
 			<div class="detail">
-				<div class="detail_title">相关品牌</div>
+				<div class="detail_title">Related Brand</div>
 				<div class="detail_content">
 					<ul>
-						<li><a href="">爱他美</a></li>
-						<li><a href="">美素佳儿</a></li>
-						<li><a href="">惠氏</a></li>
-						<li><a href="">雀巢</a></li>
-						<li><a href="">雅培</a></li>
-						<li><a href="">美赞臣</a></li>
-						<li><a href="">诺优能</a></li>
-						<li><a href="">伊利</a></li>
-						<li><a href="">多美滋</a></li>
-						<li><a href="">可瑞康</a></li>
-						<li><a href="">雀巢</a></li>
-						<li><a href="">雅培</a></li>
-						<li><a href="">美赞臣</a></li>
-						<li><a href="">诺优能</a></li>
-						<li><a href="">牛栏</a></li>
-						<li><a href="">完达山</a></li>
-						<li><a href="">惠氏</a></li>
-						<li><a href="">雀巢</a></li>
-						<li><a href="">喜宝</a></li>
-						<li><a href="">美素</a></li>
+						<li><a href="">Aptamil</a></li>
+						<li><a href="">Friso</a></li>
+						<li><a href="">Wyeth</a></li>
+						<li><a href="">Henri Nestle</a></li>
+						<li><a href="">Abbott</a></li>
+						<li><a href="">Meadjohnson</a></li>
+						<li><a href="">Nutrilon</a></li>
+						<li><a href="">Yili</a></li>
+						<li><a href="">Dumex</a></li>
+						<li><a href="">Karicare</a></li>
+						<li><a href="">WanasShang</a></li>
+						<li><a href="">HiPP</a></li>
 					</ul>
 				</div>
 			</div>
 			
 			<!--销售排行榜-->
 			<div class="hot_goods">
-			<div class="hot_title">销售排行榜</div>
+			<div class="hot_title">Sales Ranking</div>
 			<div class="middle_goods_right">
-			<div class="current" id="first_goods">热销排行</div>
-			<div class="past" id="second_goods">当季热卖</div>
+			<div class="current" id="first_goods">Popular</div>
+			<div class="past" id="second_goods">Season Hot</div>
 			<!--销售排行榜  热销排行 对应的div-->
 			<div class="bottom_first" id="bottom_first" >
 				<!--销售排行榜中的第一个图片-->
@@ -385,9 +375,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第二个图片-->
@@ -396,9 +386,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第三个图片-->
@@ -407,9 +397,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第四个图片-->
@@ -418,9 +408,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第五个图片-->
@@ -429,9 +419,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第六个图片，和上面的相比增加了一个类-->
@@ -440,9 +430,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 			</div>
@@ -455,9 +445,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">当季热卖</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Season Hot</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第二个图片-->
@@ -466,9 +456,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第三个图片-->
@@ -477,9 +467,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第四个图片-->
@@ -488,9 +478,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第五个图片-->
@@ -499,9 +489,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 				<!--销售排行榜中的第六个图片，和上面的相比增加了一个类-->
@@ -510,9 +500,9 @@
 					<div class="div_img">
 					<a href="#" ><img src="#" /></a></div>
 					<div class="div_text">
-					<a href="#" class="aClass">多美滋(Dumex)精确营养幼儿配方奶粉 3段</a><br/>
-					<span class="priceClass">￥800.00元</span><br/>
-					<span class="saleClass">本月已售<span style="color:red;">10000</span>件</span>
+					<a href="#" class="aClass">Dumex Infant Milk Stage 3</a><br/>
+					<span class="priceClass">￥800.00</span><br/>
+					<span class="saleClass">Sold Out<span style="color:red;">10000</span>Pieces</span>
 					</div>
 				</div>
 			</div>
@@ -522,13 +512,13 @@
 	</div>
 			<!--看了最终选-->
 			<div class="detail">
-				<div class="detail_title">看了最终选</div>
+				<div class="detail_title">Maybe You Like</div>
 				<div class="detail_content">
 					<!--第一个图片-->
 					<div>
 						<div class="detail_img_div"><img src="" />s</div>
 						<div class="detail_img_span">
-							<span>爱他美德国进口，4段12个月。800g幼儿配方奶粉</span><br />
+							<span>Aptamil Infant Milk Stage 4 800g</span><br />
 							<span class="image_span_price pricrSize"  style="font-family:宋体;font-size:16px;">￥240.00</span>
 						</div>
 					</div>
@@ -536,7 +526,7 @@
 					<div>
 						<div class="detail_img_div"><img src="" />s</div>
 						<div class="detail_img_span">
-							<span>爱他美德国进口，4段12个月。800g幼儿配方奶粉</span><br />
+							<span>Aptamil Infant Milk Stage 4 800g</span><br />
 							<span class="image_span_price pricrSize"  style="font-family:宋体;font-size:16px;">￥240.00</span>
 						</div>
 					</div>
@@ -544,7 +534,7 @@
 					<div>
 						<div class="detail_img_div"><img src="" />s</div>
 						<div class="detail_img_span">
-							<span>爱他美德国进口，4段12个月。800g幼儿配方奶粉</span><br />
+							<span>Aptamil Infant Milk Stage 4 800g</span><br />
 							<span class="image_span_price pricrSize"  style="font-family:宋体;font-size:16px;">￥240.00</span>
 						</div>
 					</div>
@@ -552,7 +542,7 @@
 					<div>
 						<div class="detail_img_div"><img src="" />s</div>
 						<div class="detail_img_span">
-							<span>爱他美德国进口，4段12个月。800g幼儿配方奶粉</span><br />
+							<span>Aptamil Infant Milk Stage 4 800g</span><br />
 							<span class="image_span_price pricrSize"  style="font-family:宋体;font-size:16px;">￥240.00</span>
 						</div>
 					</div>
@@ -560,7 +550,7 @@
 					<div>
 						<div class="detail_img_div"><img src="" />s</div>
 						<div class="detail_img_span">
-							<span>爱他美德国进口，4段12个月。800g幼儿配方奶粉</span><br />
+							<span>Aptamil Infant Milk Stage 4 800g</span><br />
 							<span class="image_span_price pricrSize"  style="font-family:宋体;font-size:16px;">￥240.00</span>
 						</div>
 					</div>
@@ -568,7 +558,7 @@
 					<div style="border:0;">
 						<div class="detail_img_div"><img src="" />s</div>
 						<div class="detail_img_span" >
-							<span>爱他美德国进口，4段12个月。800g幼儿配方奶粉</span><br />
+							<span>Aptamil Infant Milk Stage 4 800g</span><br />
 							<span class="image_span_price pricrSize"  style="font-family:宋体;font-size:16px;">￥240.00</span>
 						</div>
 					</div>
@@ -579,16 +569,16 @@
 		<div class="right_detail">
 			<!--创建宝宝档案-->
 			<div class="baby_file">
-				<div class="baby_title">创建宝宝档案</div>
+				<div class="baby_title">Create Baby File</div>
 				<div class="baby_detail">
 					<div>
 						<form>
-							<label for="bir">生日/预产期：</label><input type="text" id="bir" />
-							性别:<input type="radio" id="boy" name="sex"><label for="boy">王子</label>
-							<input type="radio" id="girl" name="sex"><label for="girl">公主</label>
-							<label for="weight">体重：</label><input type="text" id="weight" />kg
-							<label for="height">身高：</label><input type="text" id="height" />cm
-							<input type="submit" value="提交"  />
+							<label for="bir">Birthday：</label><input type="text" id="bir" />
+							Sex:<input type="radio" id="boy" name="sex"><label for="boy">Boy</label>
+							<input type="radio" id="girl" name="sex"><label for="girl">Girl</label>
+							<label for="weight">Weight：</label><input type="text" id="weight" />kg
+							<label for="height">Height：</label><input type="text" id="height" />cm
+							<input type="submit" value="Submit"  />
 						</form>
 					</div>
 				</div>
@@ -598,11 +588,11 @@
 				<!--商品信息导航条-->
 				<div class="right_bot_ul" >
 					<ul>
-						<li class="ul_li_current">商品详情</li>
-						<li>包装及参数</li>
-						<li>评价(<span>1468</span>)</li>
-						<li>咨询(<span>39</span>)</li>
-						<li>售后保障</li>
+						<li class="ul_li_current">Item Details</li>
+						<li>Parameters</li>
+						<li>Comment(<span>1468</span>)</li>
+						<li>Advice(<span>39</span>)</li>
+						<li>After-Sale</li>
 					</ul>
 				</div>
 				<!--商品详细信息展示区域-->
@@ -633,11 +623,11 @@
 					</div>
 					<div class="details_navigator">
 						<ul>
-							<li class="navigator_li">产品介绍</li>
-							<li>产品特色</li>
-							<li>产品成分</li>
-							<li>产品介绍</li>
-							<li>常见问题</li>
+							<li class="navigator_li">Description</li>
+							<li>Feature</li>
+							<li>Ingredient</li>
+							<li>Details</li>
+							<li>Common Problem</li>
 						</ul>
 						<img src="__PUBLIC__/image/good_info/li_san.jpg"  />
 					</div>
@@ -653,10 +643,10 @@
 	<!--购物车蒙板之中的div-->
 	<div class="shopCar_mask_div">
 			<div class="shopCar_mask_back"><span id="back_span">×</span></div>
-			<div class="success_add">商品已成功加入购物车</div>
+			<div class="success_add">Item has added to cart</div>
 			<div class="shopCar_btn">
-				<a href="__APP__/index/index" class="go_shopping">继续购物</a>
-				<a href="__APP__/order/cart" class="go_shopCar">去购物车结算</a>
+				<a href="__APP__/index/index" class="go_shopping">Continue Shopping</a>
+				<a href="__APP__/order/cart" class="go_shopCar">Pay</a>
 			</div>
 		</div>
 	<!--这里是添加到我的收藏的蒙板效果-->
@@ -666,36 +656,36 @@
 			<div class="collect_mask_back"><span id="collect_back_span">×</span></div>
 			<div class="collect_suc">
 				<img src="__PUBLIC__/image/good_info/add.jpg" />
-				<span>成功加入<a href="#">收藏夹</a></span>
-				<span class="add_bookmark">添加书签</span>
+				<span>Add Succeed<a href="#">Favorite</a></span>
+				<span class="add_bookmark">Add Bookmark</span>
 			</div>
 			<div class="love_other">
-				<span>喜欢此宝贝的还喜欢</span>
-				<a href="#">更多推荐></a>
+				<span>Also Like</span>
+				<a href="#">More Recommend></a>
 				</div>
 				<div class="img_li">
 					<ul>
 						<li>
 							<div></div>
-							<span><a href="#">喜宝益生源较大婴儿</a></span>
+							<span><a href="#">HiPP Combiotic Infant Milk</a></span>
 							<span class="clo_price_span">￥76.6</span>
 						</li>
 						
 						<li>
 							<div></div>
-							<span><a href="#">喜宝益生源较大婴儿</a></span>
+							<span><a href="#">HiPP Combiotic Infant Milk</a></span>
 							<span class="clo_price_span">￥76.6</span>
 						</li>
 						
 						<li>
 							<div></div>
-							<span><a href="#">喜宝益生源较大婴儿</a></span>
+							<span><a href="#">HiPP Combiotic Infant Milk</a></span>
 							<span class="clo_price_span">￥76.6</span>
 						</li>
 						
 						<li>
 							<div></div>
-							<span><a href="#">喜宝益生源较大婴儿</a></span>
+							<span><a href="#">HiPP Combiotic Infant Milk</a></span>
 							<span class="clo_price_span">￥76.6</span>
 						</li>
 					</ul>

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>预售页面</title>
+		<title>Book Page</title>
 		<link href="__PUBLIC__/Css/book.css" type="text/css" rel="stylesheet" />
 		<link href="__PUBLIC__/Css/header.css" rel="stylesheet" type="text/css">
 		<link href="__PUBLIC__/Css/footer.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
 			$("#search").click(function(){
 				var name=$(this).prev("input").val();
 				if($.trim(name)==""){
-					alert("请输入关键词");
+					alert("Please input key words");
 				}else{
 					window.location.href="__APP__/good/search/n/"+name;
 				}
@@ -34,7 +34,7 @@
 		<div class="logo"><a href="#"><img src="__PUBLIC__/image/trial/logo.jpg" /></a></div>
 		<div class="search">
 			<input type="text" name=""/>
-			<input type="button" id="search" value="搜索" style="background-color:#E3007F;"/>
+			<input type="button" id="search" value="Search" style="background-color:#E3007F;"/>
 		</div>
 		<ul>
 			<foreach name="keyword" item="vo">
@@ -46,9 +46,9 @@
 	<div class="ad_img">
 		<div class="navi_div">
 			<ul>
-				<li><a href="__APP__/index/index">首  页</a></li>
+				<li><a href="__APP__/index/index">Home</a></li>
 				<ul class="ul_right">
-					<li><a href="__APP__/order/cart"><img src="__PUBLIC__/image/teambuy/scar.jpg" />购物车<div id="shop_num">
+					<li><a href="__APP__/order/cart"><img src="__PUBLIC__/image/teambuy/scar.jpg" />Cart<div id="shop_num">
 						<empty name="Think.cookie.num">
 							0
 						<else/>
@@ -73,7 +73,7 @@
 	<!--主内容包含框-->
 	<div class="container">
 		<div class="top_title" style="background-color:red;">
-			<span>全部商品</span>
+			<span>All Goods</span>
 			<ul class="title_ul">
 				<foreach name="book_goods_start" item="vo">
 					<empty name="vo.book_goods">
@@ -81,7 +81,7 @@
 					<li><a href="javascript:void(0)"><{$vo.typename}></a></li>
 					</empty>
 				</foreach>
-				<li><a href="javascript:void(0)">全部商品></a></li>
+				<li><a href="javascript:void(0)">All Goods></a></li>
 			</ul>
 		</div>
 		<!--商品包含框-->
@@ -95,7 +95,7 @@
 									<div class="img_div">
 										<div class="img_con"><a href="#"><img src="<{$vi.img_url}>" /></a></div>
 										<div class="mask_div"></div>
-										<div class="mask_time"><span>发布时间：</span><span class="time"><!-- <{$vi.start}> --></span></div>
+										<div class="mask_time"><span>Release Time：</span><span class="time"><!-- <{$vi.start}> --></span></div>
 									</div>
 									<div class="img_span">
 										<span class="title"><a href="__APP__/good/bookgoods/id/<{$vi.id}>"><{$vi.goodsname}></a></span>
@@ -113,7 +113,7 @@
 									<div class="img_div">
 										<div class="img_con"><a href="#"><img src="<{$vi.img_url}>" /></a></div>
 										<div class="mask_div"></div>
-										<div class="mask_time"><span>发布时间：</span><span class="time"><{$vi.start}></span></div>
+										<div class="mask_time"><span>Release Time：</span><span class="time"><{$vi.start}></span></div>
 									</div>
 									<div class="img_span">
 										<span class="title"><a href="__APP__/good/bookgoods/id/<{$vi.id}>"><{$vi.goodsname}></a></span>

@@ -3,7 +3,7 @@
 	<meta charset="utf-8" />
 	
 	<head>
-		<title>商品列表</title>
+		<title>Item List</title>
 		<link href="__PUBLIC__/Css/header.css" rel="stylesheet" type="text/css">
 		<link href="__PUBLIC__/Css/footer.css" rel="stylesheet" type="text/css">
 		<link href="__PUBLIC__/Css/list.css" type="text/css" rel="stylesheet" />
@@ -47,7 +47,7 @@
 							for(var i in msg){
 								div+="<div class=right_bot_con><div class=right_img_div><a href=__APP__/good/index/id/"+msg[i]["id"]+"><img src="+msg[i]["image_url"]
 								+"></a></div><div class=right_title><a href=__APP__/good/index/id/"+msg[i]["id"]+">"+msg[i]["name"]+"</a></div>"+
-								"<div class=right_span><span class=price><span>热卖价 ￥</span><span style=font-size:24px;>"+msg[i]["price"]+"</span></span>";
+								"<div class=right_span><span class=price><span>Hot Price ￥</span><span style=font-size:24px;>"+msg[i]["price"]+"</span></span>";
 								div+="</div></div>";
 							}
 							//添加div的事件
@@ -77,7 +77,7 @@
 							for(var i in msg["list"]){
 								div+="<div class=right_bot_con><div class=right_img_div><a href=__APP__/good/index/id/"+msg["list"][i]["id"]+"><img src="+msg["list"][i]["image_url"]
 								+"></a></div><div class=right_title><a href=__APP__/good/index/id/"+msg["list"][i]["id"]+">"+msg["list"][i]["name"]+"</a></div>"+
-								"<div class=right_span><span class=price><span>热卖价 ￥</span><span style=font-size:24px;>"+msg["list"][i]["price"]+"</span></span>";
+								"<div class=right_span><span class=price><span>Hot Price ￥</span><span style=font-size:24px;>"+msg["list"][i]["price"]+"</span></span>";
 								div+="</div></div>";
 							}
 							// alert(div);
@@ -106,7 +106,7 @@
 							for(var i in msg["list"]){
 								div+="<div class=right_bot_con><div class=right_img_div><a href=__APP__/good/index/id/"+msg["list"][i]["id"]+"><img src="+msg["list"][i]["image_url"]
 								+"></a></div><div class=right_title><a href=__APP__/good/index/id/"+msg["list"][i]["id"]+">"+msg["list"][i]["name"]+"</a></div>"+
-								"<div class=right_span><span class=price><span>热卖价 ￥</span><span style=font-size:24px;>"+msg["list"][i]["price"]+"</span></span>";
+								"<div class=right_span><span class=price><span>Hot Price ￥</span><span style=font-size:24px;>"+msg["list"][i]["price"]+"</span></span>";
 								div+="</div></div>";
 							}
 							// alert(div);
@@ -120,7 +120,7 @@
 					})
 					
 				}else{
-					alert("请正确输入数字");
+					alert("Please input a available number");
 				}
 				
 			});
@@ -156,7 +156,7 @@
 				$("#ul1").append("<li>"+$(this).parents("div.brand").find("span.left_name").text()+data[iNow]+"</li>");
 				iNow++;
 				}else{
-					alert("请选择条件");
+					alert("Please choose condition");
 				}
 				var len=name.length;
 				var su="";
@@ -173,7 +173,7 @@
 							for(var i in msg["list"]){
 								div+="<div class=right_bot_con><div class=right_img_div><a href=__APP__/good/index/id/"+msg["list"][i]["id"]+"><img src="+msg["list"][i]["image_url"]
 								+"></a></div><div class=right_title><a href=__APP__/good/index/id/"+msg["list"][i]["id"]+">"+msg["list"][i]["name"]+"</a></div>"+
-								"<div class=right_span><span class=price><span>热卖价 ￥</span><span style=font-size:24px;>"+msg["list"][i]["price"]+"</span></span>";
+								"<div class=right_span><span class=price><span>Hot Price ￥</span><span style=font-size:24px;>"+msg["list"][i]["price"]+"</span></span>";
 								div+="</div></div>";
 							}
 							//添加div的事件
@@ -201,7 +201,7 @@
 			<div class="logo"><a href="__APP__/index/index"><img src="<{$array['pics']}>" /></a></div>
 			<div class="search">
 				<input type="text" name=""/>
-				<input type="button" value="搜索" style="background-color:#E3007F;"/>
+				<input type="button" value="Search" style="background-color:#E3007F;"/>
 			</div>
 			<div class="shopCar">
 			<a href="__APP__/order/cart"><img src="__PUBLIC__/image/shangcheng_image/shopcar.jpg" />
@@ -225,7 +225,7 @@
 			<!--上面的路线图-->
 			<div class="route">
 				<ul>
-					<li><a href="__APP__/index/index">首页</a></li>
+					<li><a href="__APP__/index/index">Home</a></li>
 					<li>> <a href="__APP__/good/search/n/<{$name}>"><{$name}></a></li>
 				</ul>
 			</div>
@@ -234,7 +234,7 @@
 				<div class="left">
 					<!--商品热卖-->
 					<div class="left_bot">
-						<h3>商品热卖</h3>
+						<h3>Popular</h3>
 						<!--第一个商品-->
 						<foreach name="goods_result" item="vo">
 							<div class="hot_goods">
@@ -251,26 +251,26 @@
 					<div class="right_top">
 						<div class="top_title">
 							<span class="name"><{$goods_type1_info["name"]}></span>
-							<span><span>搜索到</span><span style="color:#E34700" id="goods_num"><{$sum}></span><span>件相关商品</span></span>
+							<span><span>Searched</span><span style="color:#E34700" id="goods_num"><{$sum}></span><span>Related Items</span></span>
 						</div>
 					</div>
 					<!--右边中间的额部分-->
 					<div class="right_mild">
 						<div>
 							<ul id="cho_sta">
-								<li class="order" name="d"><a href="javascript:void(0)">默认</a></li>
-								<li class="order" name="s"><a href="javascript:void(0)">销量</a></li>
-								<li class="order" name="c"><a href="javascript:void(0)">评价</a></li>
-								<li class="sort_price" ><a href="javascript:void(0)">价格</a>
+								<li class="order" name="d"><a href="javascript:void(0)">Default</a></li>
+								<li class="order" name="s"><a href="javascript:void(0)">Sales</a></li>
+								<li class="order" name="c"><a href="javascript:void(0)">Rank</a></li>
+								<li class="sort_price" ><a href="javascript:void(0)">Price</a>
 									<div class="up_down">
-										<div class="order" name="pu">从低到高</div>
-										<div class="order" name="pd">从高到低</div>
+										<div class="order" name="pu">Increasing</div>
+										<div class="order" name="pd">Decreasing</div>
 									</div>
 								</li>
 							</ul>
 							<div class="from_to">
 								<input type="text" value="" name="begin"><span>-</span><input type="text" value="" name="end"/>
-								<input type="button" value="确定" class="confirm" style="display:none;height:32px;background-color:orange;margin-left:10px;"/>
+								<input type="button" value="Comfirm" class="confirm" style="display:none;height:32px;background-color:orange;margin-left:10px;"/>
 							</div>
 							<div class="next_prev">
 								<span class="current"><{$current_page}></span>/<span class="maxnum"><{$pagenum}></span>
@@ -288,7 +288,7 @@
 										<div class="right_img_div"><a href="__APP__/good/index/id/<{$vo.id}>"><img src="<{$vo.image_url}>"></a></div>
 										<div class="right_title"><a href="__APP__/good/index/id/<{$vo.id}>"><{$vo.name}></a></div>
 										<div class="right_span">
-											<span class="price"><span>热卖价 ￥</span><span style="font-size:24px;"><{$vo.price}></span></span>
+											<span class="price"><span>Hot Price ￥</span><span style="font-size:24px;"><{$vo.price}></span></span>
 											<!--<if condition="$vo[original_price] gt 0">
 												<span class="line-thro"><span>原价</span><span><{$vo.original_price}></span><span>元</span></span>
 											</if>

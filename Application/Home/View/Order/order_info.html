@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<title>订单信息</title>
+<title>Order Information</title>
 <link href="__PUBLIC__/Css/order_info.css" rel="stylesheet" type="text/css">
 <link href="__PUBLIC__/Css/header.css" rel="stylesheet" type="text/css">
 <link href="__PUBLIC__/Css/footer.css" rel="stylesheet" type="text/css">
@@ -21,7 +21,7 @@
 			$("#search").click(function(){
 				var name=$(this).prev("input").val();
 				if($.trim(name)==""){
-					alert("请输入关键词");
+					alert("Please input key word");
 				}else{
 					window.location.href="__APP__/good/search/n/"+name;
 				}
@@ -39,7 +39,7 @@
 		<div class="logo"><a href="__APP__/index/index"><img src="<{$array['pics']}>"/></a></div>
 		<div class="search">
 			<input type="text" name=""/>
-			<input type="button" id="search" value="搜索" style="background-color:#E3007F;"/>
+			<input type="button" id="search" value="Search" style="background-color:#E3007F;"/>
 		</div>
 		<div class="shopCar">
 		<a href="__APP__/order/cart"><img src="__PUBLIC__/image/shangcheng_image/shopcar.jpg" />
@@ -61,72 +61,72 @@
 	</div>
 		<div class="navigator">
 			<ul class="navigator_ul">
-				<li style="width:120px;height:63px;margin-bottom:-3px;background-color:#309DEF;color:white;font-weight:bold;"><a href="__APP__/index/index">首页</a></li>
-				<li><a href="__APP__/good/super">超市</a></li>
-				<li><a href="__APP__/good/seckill">秒杀</a></li>
-				<li><a href="__APP__/good/teambuy">团购</a></li>
-				<li><a href="__APP__/good/trial">试用</a></li>
-				<li><a href="__APP__/good/book">预售</a></li>
+				<li style="width:120px;height:63px;margin-bottom:-3px;background-color:#309DEF;color:white;font-weight:bold;"><a href="__APP__/index/index">Main Page</a></li>
+				
+				<li><a href="__APP__/good/seckill">SecKill</a></li>
+				<li><a href="__APP__/good/teambuy">TeamBuy</a></li>
+				<li><a href="__APP__/good/trial">Trial</a></li>
+				<li><a href="__APP__/good/book">PreSell</a></li>
 			</ul>
 		</div>
 		<!--路线-->
 		<div class='body_container'>
 		<div class="route">
-			<span style="font-size:20px;color:#E3007F;">我的订单</span>>
-			<span><a href="__APP__/order/order" >订单中心</a></span>>
-			<span>订单号：<{$ordid}></span>
+			<span style="font-size:20px;color:#E3007F;">My Order</span>>
+			<span><a href="__APP__/order/order" >Order Centre</a></span>>
+			<span>Order Number：<{$ordid}></span>
 		</div>
 		
 		<div class="status_div">
 			<div style="border-bottom:solid 1px #ccc;">
-				订单号：<span><{$ordid}></span>
-				状态：<span class="status_span">完成</span>
+				Order Number：<span><{$ordid}></span>
+				Status：<span class="status_span">Finish</span>
 			</div>
 			<div class="div_bot">
-				<span>订单已经完成，感谢在葵花商城购物，欢迎您对本次交易和商品进行评价。</span>
-				<a href="#">立即评价</a>
+				<span>Order has been completed, thank you for shopping in the Sunflower Mall, we would appreciate if you could submit your comment</span>
+				<a href="#">Comment right now </a>
 			</div>
 		</div>
 		
 		<div class="information_div">
 			<div class="title_div">
-				订单信息
+				Order Information
 			</div>
 			<div class="order_div">
-				订单编号：<span><{$ordid}></span>
-				发货商城：<span><{$data.mall_name}></span>
-				成交时间：<span id="checktime"><{$data.checktime}></span>
-				付款时间：<span id="ordtime"><{$data.ordtime}></span>
+				Order Number：<span><{$ordid}></span>
+				Shipping Mall：<span><{$data.mall_name}></span>
+				Transaction Time：<span id="checktime"><{$data.checktime}></span>
+				Payment Time：<span id="ordtime"><{$data.ordtime}></span>
 			</div>
 			<div class="address_div">
-				<h5>收货人信息</h5>
-				<div>收  货  人：<span><{$data.recname}></span></div>
-				<div>地　　址：<span><{$data.recaddress}></span></div>
-				<div>手机号码：<span><{$data.recphone}></span></div>
+				<h5>Consignee Information</h5>
+				<div>Consignee：<span><{$data.recname}></span></div>
+				<div>Address：<span><{$data.recaddress}></span></div>
+				<div>Phone Number：<span><{$data.recphone}></span></div>
 			</div>
 			<div class="address_div">
-				<h5>支付及配送方式</h5>
-				<div>支付方式：<span><{$data.payment_type}></span></div>
-				<div>运　　费：<span>￥<{$data.freight}></span></div>
-				<div>送货日期：<span><{$data.deliverydate}></span></div>
-				<div>配送时间：<span><{$data.deliverytime}></span></div>
+				<h5>Payment and delivery</h5>
+				<div>Payment：<span><{$data.payment_type}></span></div>
+				<div>Freight：<span>￥<{$data.freight}></span></div>
+				<div>Delivery Date：<span><{$data.deliverydate}></span></div>
+				<div>Delivery Time：<span><{$data.deliverytime}></span></div>
 			</div >
 			<div class="address_div">
-				<h5>发票信息</h5>
-				<div>发票类型：<span><{$data.invoicetype}></span></div>
-				<div>发票抬头：<span><{$data.invoicetitle}></span></div>
-				<div>发票内容：<span><{$data.invoicecontent}></span></div>
+				<h5>Invoice Information</h5>
+				<div>Invoice Type：<span><{$data.invoicetype}></span></div>
+				<div>Invoice Title：<span><{$data.invoicetitle}></span></div>
+				<div>Invoice Content：<span><{$data.invoicecontent}></span></div>
 			</div>
 			
 			<div class="order_information">
 				<div class="top_title">
 					<ul>
-						<li style="width:300px;">商品编号</li>
-						<li class="li_special">商品信息</li>
-						<li>单价</li>
-						<li>数量</li>
-						<li>商品总价</li>
-						<li>操作</li>
+						<li style="width:300px;">Good Number</li>
+						<li class="li_special">Good Information</li>
+						<li>Price</li>
+						<li>Amount</li>
+						<li>Total Price</li>
+						<li>Move</li>
 					</ul>
 				</div>
 				<if condition="$data[ordstatus] eq 1">
@@ -149,10 +149,10 @@
 									</ul>
 								<if condition="$i eq 1">
 									<li style="border:0;line-height:30px;">
-										<div id="comment">评价</div>
-										<a href="#">售后</a>
-										<a href="#">再次购买</a>
-										<div id="delete">删除</div>
+										<div id="comment">Comment</div>
+										<a href="#">Service</a>
+										<a href="#">Buy it Again</a>
+										<div id="delete">Delete</div>
 									</li>
 								</if>
 							</ul>
@@ -179,8 +179,8 @@
 									</ul>
 								<if condition="$i eq 1">
 									<li style="border:0;line-height:30px;">
-										<a href="#" style="margin-top:35px;">立即付款</a>
-										<a href="javascript:void(0)" id="delete_order">取消订单</a>
+										<a href="#" style="margin-top:35px;">Pay Now</a>
+										<a href="javascript:void(0)" id="delete_order">Cancel Order</a>
 									</li>
 								</if>
 							</ul>
@@ -192,8 +192,8 @@
 			</div>
 		<div class="all_price">
 			<foreach name="total" item="vo">
-				<div>订单总额：<span style="font-size:30px;color:#E3007F;">￥<{$vo["sum"]+$data["freight"]-$data["cashback"]}></span></div>
-				<!--立即付款--><if condition="$data[ordstatus] eq 0"><a href="#" id="go_pay">立即付款</a></if>
+				<div>Order Price：<span style="font-size:30px;color:#E3007F;">￥<{$vo["sum"]+$data["freight"]-$data["cashback"]}></span></div>
+				<!--立即付款--><if condition="$data[ordstatus] eq 0"><a href="#" id="go_pay">Pay it now </a></if>
 			</foreach>
 		</div>
 		</div>

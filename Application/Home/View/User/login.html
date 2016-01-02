@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>欢迎登录葵花商城</title>
+	<title>Welcome to Kuihua Mall</title>
 	<link href="__PUBLIC__/Css/login.css" type="text/css" rel="stylesheet">
 		<!--[if lt IE 9]>
 		<script src="__PUBLIC__/Js/jquery/jquery1.8.js"></script>
@@ -23,9 +23,9 @@
 				data:data+"&checkbox="+checkbox,
 				success:function(msg){
 					if(msg==-1){
-						alert("未知错误，请稍后再试");
+						alert("Unknown error, please try again later");
 					}else if(msg==0){
-						alert("用户名或密码错误");
+						alert("User name or password error");
 					}else{
 						if(msg==1){
 							location.href=url;
@@ -58,30 +58,30 @@
 				
 				<div class="form_div">
 					<form name="__APP__/index/index" action="" id="myform">
-						<label for="username">用户名</label>
+						<label for="username">User Name</label>
 						<input type="text" id="username" name="username"><br/>
-						<label for="psd">登录密码</label>
+						<label for="psd">Password</label>
 						<input type="password" id="psd" name="password"><br/>
 						<input type="checkbox" id="checkbox" class="box"/>
-						<label for="checkbox">自动登录</label><br/>
-						<input type="button" value="登　录" id="btn"/>
+						<label for="checkbox">Auto-login</label><br/>
+						<input type="button" value="Login" id="btn"/>
 					</form>
 					<div>
-					<span><a href="__APP__/user/lostpass">忘记密码</a></span>　|　<span><a href="__APP__/user/register"  style="color:#E6007E;">免费注册</a></span>
+					<span><a href="__APP__/user/lostpass">Forget Password</a></span>　|　<span><a href="__APP__/user/register"  style="color:#E6007E;">register</a></span>
 					</div>
 				</div>
 			</div>
 		</div>
 	<div class="footer_container">
 			<div>
-			<a href="__APP__/article/alist/n/about">关于葵花</a>|
-			<a href="__APP__/article/alist/n/contact">联系我们</a>|
-			<a href="__APP__/article/alist/n/employ">诚聘英才</a>|
-			<a href="__APP__/article/alist/n/tender">葵花招标</a>|
-			<a href="__APP__/article/alist/n/law">法律声明</a>|
-			<a href="__APP__/article/alist/n/custom">客户服务</a>|
-			<a href="__APP__/shop_manage/index.php">商户登录</a>|
-			<a href="__APP__/mall_manage/index.php">商场登录</a>
+			<a href="__APP__/article/alist/n/about">About Kuihua</a>|
+			<a href="__APP__/article/alist/n/contact">Contact Us</a>|
+			<a href="__APP__/article/alist/n/employ">Recruit</a>|
+			<a href="__APP__/article/alist/n/tender">Kuihua Tenders</a>|
+			<a href="__APP__/article/alist/n/law">Legal Statement</a>|
+			<a href="__APP__/article/alist/n/custom">Customer Service</a>|
+			<a href="__APP__/shop_manage/index.php">Merchant Login</a>|
+			<a href="__APP__/mall_manage/index.php">Mall Login</a>
 			</div>
 			<span><{$array.copyright}></span>
 			<ul>

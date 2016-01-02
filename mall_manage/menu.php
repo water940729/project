@@ -105,13 +105,6 @@
 					<!--<p><a href="ad_manage/ad_order.php" target="mainFrame">广告出售订单</a></p>-->
 			   </div>
 			</div>
-			<div class="menu_content">
-				<div class="menu_h menu_h3">GoodsVerify</div>
-				<div class="menu_intor">
-					<p><a href="admin_check/check_goods.php" target="mainFrame">GoodsVerify</a></p>
-					<!--<p><a href="ad_manage/ad_order.php" target="mainFrame">广告出售订单</a></p>-->
-			   </div>
-			</div>
             <div class="menu_content">
 				<div class="menu_h menu_h3">FinanceManage</div>
 				<div class="menu_intor">

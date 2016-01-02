@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>确认订单</title>
+    <title>Confirm Order</title>
     <link href="__PUBLIC__/Css/confirm_order2.css" rel="stylesheet" type="text/css" />
     <link href="__PUBLIC__/Css/header.css" rel="stylesheet" type="text/css">
 	<link href="__PUBLIC__/Css/footer.css" rel="stylesheet" type="text/css">
@@ -46,11 +46,11 @@ $(function(){
 			<foreach name="info_address" item="vo">
             <div class="add_con">
 				<if condition="$vo['address_id'] eq $default_address['address_id']">
-					<span class="default_add">默认地址:</span><span class="address_id"><{$default_address["username"]}> <{$default_address["phone"]}> <{$default_address["address"]}></span>
+					<span class="default_add">Default Address:</span><span class="address_id"><{$default_address["username"]}> <{$default_address["phone"]}> <{$default_address["address"]}></span>
 				<else/>
 					<span value="<{$vo['address_id']}>" class="address_id"><{$vo["username"]}> <{$vo["phone"]}> <{$vo["address"]}></span>
 				</if>
-				<button class="setDefault" value="<{$vo['address_id']}>" >设为默认地址</button> <button class="del" value="<{$vo['address_id']}>" >删除</button><br/>
+				<button class="setDefault" value="<{$vo['address_id']}>" >Set Default Address</button> <button class="del" value="<{$vo['address_id']}>" >Delete</button><br/>
                 </div>
 			</foreach>
 <SCRIPT language="javascript">

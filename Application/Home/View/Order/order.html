@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<title>订单信息</title>
+<title>Order Information</title>
 <link href="__PUBLIC__/Css/order.css" rel="stylesheet" type="text/css">
 <link href="__PUBLIC__/Css/header.css" rel="stylesheet" type="text/css">
 <link href="__PUBLIC__/Css/footer.css" rel="stylesheet" type="text/css">
@@ -27,7 +27,7 @@
 		<div class="logo"><a href="__APP__/index/index"><img src="<{$array['pics']}>"/></a></div>
 		<div class="search">
 			<input type="text" name=""/>
-			<input type="button" id="search" value="搜索" style="background-color:#E3007F;"/>
+			<input type="button" id="search" value="Search" style="background-color:#E3007F;"/>
 		</div>
 		<div class="shopCar">
 		<a href="__APP__/order/cart"><img src="__PUBLIC__/image/shangcheng_image/shopcar.jpg" />
@@ -49,18 +49,18 @@
 	</div>
 		<div class="navigator">
 			<ul class="navigator_ul">
-				<li style="width:120px;height:63px;margin-bottom:-3px;background-color:#309DEF;font-weight:bold;"><a href="__APP__/index/index" style="color:white;">首页</a></li>
-				<li><a href="__APP__/good/super">超市</a></li>
-				<li><a href="__APP__/good/seckill">秒杀</a></li>
-				<li><a href="__APP__/good/teambuy">团购</a></li>
-				<li><a href="__APP__/good/trial">试用</a></li>
-				<li><a href="__APP__/good/book">预售</a></li>
+				<li style="width:120px;height:63px;margin-bottom:-3px;background-color:#309DEF;font-weight:bold;"><a href="__APP__/index/index" style="color:white;">Main Page</a></li>
+				
+				<li><a href="__APP__/good/seckill">Seckill</a></li>
+				<li><a href="__APP__/good/teambuy">TeamBuy</a></li>
+				<li><a href="__APP__/good/trial">Trial</a></li>
+				<li><a href="__APP__/good/book">PreSell</a></li>
 			</ul>
 		</div>
 		<!--路线-->
 		<div class="route">
-			<span><a href="__APP__/index/index">首页</a></span>>
-			<span><a href="__APP__/order/order">订单中心</a></span>>
+			<span><a href="__APP__/index/index">Main Page</a></span>>
+			<span><a href="__APP__/order/order">Order Centre</a></span>>
 		</div>
 		<!--订单的主体部分-->
 		
@@ -68,16 +68,16 @@
 			<div class="left_content" id="left_content">
 				<div class="left_content_body">
 		
-				<h3 style="background:url(__PUBLIC__/image/order_image/order1.jpg) no-repeat 10px center;padding-left:30px;">交易管理</h3>
+				<h3 style="background:url(__PUBLIC__/image/order_image/order1.jpg) no-repeat 10px center;padding-left:30px;">Transaction Management</h3>
 				<ul>
-					<li><a href="javascript:;" id="order">我的订单</a></li>
-					<li><a href="javascript:;" id="seckill">我的秒杀</a></li>
-					<li><a href="javascript:;" id="teambuy">我的团购</a></li>
-					<li><a href="javascript:;" id="trial">我的试用</a></li>
-					<li><a href="javascript:;" id="book">我的预售</a></li>
-					<li><a href="javascript:;" id="collect">商品收藏</a></li>
-					<li><a href="javascript:;" id="shop_collect">店铺收藏</a></li>
-					<li><a href="javascript:;" id="footprint">浏览历史</a></li>
+					<li><a href="javascript:;" id="order">My Orders</a></li>
+					<li><a href="javascript:;" id="seckill">My SecKill</a></li>
+					<li><a href="javascript:;" id="teambuy">My TeamBuy</a></li>
+					<li><a href="javascript:;" id="trial">My Trial</a></li>
+					<li><a href="javascript:;" id="book">My PreSell</a></li>
+					<li><a href="javascript:;" id="collect">Goods Favourite</a></li>
+					<li><a href="javascript:;" id="shop_collect">Shops Favourite</a></li>
+					<li><a href="javascript:;" id="footprint">Footprint</a></li>
 					
 				</ul>
 				</div>
@@ -145,29 +145,29 @@
            })
 		</script>
 				<div class="left_content_body">
-				<h3 style="background:url(__PUBLIC__/image/order_image/order2.jpg) no-repeat 10px center;padding-left:30px;">客服中心</h3>
+				<h3 style="background:url(__PUBLIC__/image/order_image/order2.jpg) no-repeat 10px center;padding-left:30px;">Support Centre</h3>
 				<ul>
-					<li><a href="javascript:;" id="return">退换货</a></li>
+					<li><a href="javascript:;" id="return">Return/Change Goods</a></li>
 				</ul>
 				</div>
 				
 				<div class="left_content_body">
-				<h3 style="background:url(__PUBLIC__/image/order_image/order3.jpg) no-repeat 10px center;padding-left:30px;">账户管理</h3>
+				<h3 style="background:url(__PUBLIC__/image/order_image/order3.jpg) no-repeat 10px center;padding-left:30px;">Account Management</h3>
 				<ul>
 					<!--<li><a href="javascript:;">个人信息</a></li>-->
-					<li><a href="javascript:void(0);" id="address_manage">地址管理</a></li>
+					<li><a href="javascript:void(0);" id="address_manage">Address Management</a></li>
 				</ul>
 				</div>
 				
 				<div class="left_content_body">
-				<h3 style="background:url(__PUBLIC__/image/order_image/order4.jpg) no-repeat 10px center;padding-left:30px;">社区中心</h3>
+				<h3 style="background:url(__PUBLIC__/image/order_image/order4.jpg) no-repeat 10px center;padding-left:30px;">Community Centre</h3>
 				<ul>
-					<li><a href="javascript:;" id="score">评价/晒单</a></li>
+					<li><a href="javascript:;" id="score">Comment</a></li>
 				</ul>
 				</div>
 			</div>
 			<div class="right_content" id="right">
-			    正在加载，请稍后……	
+			    Loading,Please wait a second
 		</div>
 		</div>
 		</div>

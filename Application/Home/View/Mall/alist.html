@@ -92,11 +92,11 @@ var Public="__PUBLIC__";
 <include file="Public/header" />
 	<div class="floor_change" id="floor_change">
 		<div class="flower" style="width:80px;height:63px;background:url(__PUBLIC__/image/shangcheng_image/floor_flower.jpg) no-repeat top;border:0px;top:0px;"></div>
-		<div style="background-color:#FD519D;">回顶部</div>
+		<div style="background-color:#FD519D;">To Top</div>
 		<foreach name="floorid" item="vo">
 			<div style="background-color:<{$vo['background']}>;"><{$vo["name"]}></div>
 		</foreach>	
-		<div style="background-color:#FD519D;">去底部</div>
+		<div style="background-color:#FD519D;">To Bottom</div>
 	</div>
 	<!--最外层包围框-->
 <div class="container">
@@ -110,7 +110,7 @@ var Public="__PUBLIC__";
 		<div class="logo"><a href="__APP__/mall/index/id/<{$mall['id']}>"><img src="<{$mall['image_url']}>" /></a></div>
 		<div class="search">
 			<input type="text" name=""/>
-			<input type="button" id="search" value="搜索" style="background-color:#E3007F;"/>
+			<input type="button" id="search" value="Search" style="background-color:#E3007F;"/>
 		</div>
 		<div class="shopCar">
 		<a href="__APP__/order/cart"><img src="__PUBLIC__/image/shangcheng_image/shopcar.jpg" />
@@ -146,7 +146,7 @@ var Public="__PUBLIC__";
 		<!--选项卡-->
 			<div class="select_list">
 				<ul id="select_list_ul">
-					<li style="font-weight:900;font-size:20px;color:black;" class="li_spec">首页</li>
+					<li style="font-weight:900;font-size:20px;color:black;" class="li_spec">Home</li>
 				</ul>
 			</div>
 		<!--上面的广告和下拉框-->

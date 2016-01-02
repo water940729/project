@@ -8,7 +8,7 @@
  </head>
  <body>
 	
-	<div class="footer">Designed & Developed By <a href="#" target="_blank">北京微普科创科技有限公司</a></div>
+	<div class="footer">Designed & Developed By <a href="#" target="_blank"></a></div>
 
 	</body>
 </html>

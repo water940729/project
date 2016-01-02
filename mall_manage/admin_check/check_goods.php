@@ -180,6 +180,7 @@ margin: 0px;
 	width:300px;
 }
 </style>
+</head>
 
 <body>
 		<div class="bgintor" style='height:800px'>
@@ -229,7 +230,7 @@ margin: 0px;
 				
 			
 				</table>
-			    </div>	
+
 				</div>
 	
 			</div>	

@@ -19,7 +19,7 @@ if(!isset($_SESSION['admin_manager_id'])){
 	<!--<img src="images/wiipu1.jpg"  width="114" height="31" />-->
 	<br/>
 	<br/>
-	<span class="sp1">葵花商城后台管理</span>
+	<span class="sp1">admin center</span>
 	</div>
 	<div id="quit">
 	</div>
@@ -28,7 +28,7 @@ if(!isset($_SESSION['admin_manager_id'])){
 			<!--<li><a href="../index.php" target="_blank">前台首页</a></li>
 			<li><a href="main.php" target="mainFrame">管理首页</a></li>
 			<li><a href="adminpw.php" target="mainFrame">修改密码</a></li>-->
-			<li><a target="_parent" href="logout.php">安全退出</a></li>
+			<li><a target="_parent" href="logout.php">log out</a></li>
 		</ul>
 	</div>
  </body>

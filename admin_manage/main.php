@@ -14,20 +14,20 @@
 	<div class="bgintor">
 		<div class="tit1">
 			<ul>
-				<li><a href="#">管理首页</a> </li>
+				<li><a href="#">homepage</a> </li>
 			</ul>
 		</div>
 		<div class="bgintor2">
 			<div class="bgvline"></div>
 			<div class="bgtitle"><span><img src="images/home.gif" width="16" height="15" alt="" /></span>
-				<span><strong>位置</strong>：首页</span>
+				<span><strong>location</strong>：homepage</span>
 			</div>
 			<div class="bgintor3">
 				<div class="left">
 					<div class="title2"></div>
-					<div class="title1"><span class="s1">个人信息</span></div>
+					<div class="title1"><span class="s1">personal info</span></div>
 					<div class="bgintor4">
-						<p>尊敬的<?=$_SESSION["name"]?>,您好！您所管辖的区域是<?=$_SESSION["role_area"]?></p>
+						<!--<p>尊敬的<?=$_SESSION["name"]?>,您好！您所管辖的区域是<?=$_SESSION["role_area"]?></p>-->
 					</div>
 				</div>
 			</div>

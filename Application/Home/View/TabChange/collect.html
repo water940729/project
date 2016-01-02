@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>我的收藏</title>
+        <title>My Favour</title>
     <link href="__PUBLIC__/Css/collect.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
@@ -20,12 +20,12 @@
             <!--对应的内容-->
             <div class="top_content">
               <ul>
-                <li id="all" class="li_first">全部分类(<span><{$all}></span>)</li>
-                <li class="common"><a href="javascript:;">普通商品(<span><{$common}></span>)</a></li>
-                <li class="seckill"><a href="javascript:;">秒杀商品(<span><{$seckill}></span>)</a></li>
-                <li class="teambuy"><a href="javascript:;">团购商品(<span><{$teambuy}></span>)</a></li>
-                <li class="trial"><a href="javascript:;">试用商品(<span><{$trial}></span>)</a></li>
-                <li class="book"><a href="javascript:;">预售商品(<span><{$book}></span>)</a></li>
+                <li id="all" class="li_first">All(<span><{$all}></span>)</li>
+                <li class="common"><a href="javascript:;">Common Goods(<span><{$common}></span>)</a></li>
+                <li class="seckill"><a href="javascript:;">Seckill Goods(<span><{$seckill}></span>)</a></li>
+                <li class="teambuy"><a href="javascript:;">Teambuy Goods(<span><{$teambuy}></span>)</a></li>
+                <li class="trial"><a href="javascript:;">Trial Goods(<span><{$trial}></span>)</a></li>
+                <li class="book"><a href="javascript:;">Book Goods(<span><{$book}></span>)</a></li>
               </ul>
             </div>
           </div>
@@ -51,13 +51,13 @@
                 </div>
                 <div class="span_div">
                   <span><a href="#"><{$vo.good_info.name}></a></span>
-                  <span class="info_span">收藏时间:<span><{$vo.collect_info.collect_time|date="y-m-d",###}></span>收藏价格:￥<span><{$vo.collect_info.collect_price}></span></span>
+                  <span class="info_span">Collect time:<span><{$vo.collect_info.collect_time|date="y-m-d",###}></span>Collect Price:￥<span><{$vo.collect_info.collect_price}></span></span>
                 </div>
               </div>
               <div class="price_down">
-                <span class="price_down_pri">现价:<span>￥</span><span><{$vo.good_info.price}></span></span>
+                <span class="price_down_pri">Price:<span>￥</span><span><{$vo.good_info.price}></span></span>
               </div>
-              <div class="now_goods">剩余数量:
+              <div class="now_goods">Remain Number:
                 <notdefined name="vo.good_info.goodsnum">
                 <{$vo.good_info.goodsnum}>
                 </notdefined>
@@ -68,7 +68,7 @@
               <div class="del_shopcar">
                 <span hidden><{$vo.collect_info.collect_type}></span>
                 <span id="collect_good_id" hidden><{$vo.good_info.id}></span>
-                <div class="del_shopcar_add">删除</div>
+                <div class="del_shopcar_add">Delete</div>
               </div>
             </div>
             </foreach>
